@@ -134,10 +134,10 @@ export const Navbar: React.FC = () => {
                   key={link.page}
                   onClick={() => navigateTo(link.page)}
                   id={`nav-link-${link.page}`}
-                  className={`text-xs xl:text-[13px] tracking-widest uppercase font-semibold transition-all relative py-1 px-0.5 whitespace-nowrap cursor-pointer ${
+                  className={`text-xs xl:text-[13px] tracking-widest uppercase font-bold transition-all relative py-1 px-0.5 whitespace-nowrap cursor-pointer ${
                     isActive
                       ? 'text-[#5A1F24]'
-                      : 'text-[#1E1714]/80 hover:text-[#5A1F24]'
+                      : 'text-[#1E1714] hover:text-[#5A1F24]'
                   }`}
                 >
                   <span>{link.label}</span>
