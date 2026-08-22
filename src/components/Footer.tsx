@@ -32,8 +32,8 @@ export const Footer: React.FC = () => {
     { label: 'Banquets & Experiences', page: 'experiences' },
     { label: 'Our Locations', page: 'locations' },
     { label: 'Visual Gallery', page: 'gallery' },
-    { label: 'Culinary Journal & SEO', page: 'journal' },
-    { label: 'Authentic Recipes', page: 'recipes' },
+    { label: 'Culinary Journal', page: 'journal' },
+    { label: 'The Queen’s Table', page: 'queens-table' },
     { label: 'FAQ & Dining Guide', page: 'faq' },
     { label: 'Contact & Reservations', page: 'contact' },
   ];

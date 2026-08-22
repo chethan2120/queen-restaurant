@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { GALLERY_ITEMS } from '../data/restaurantData';
-import { VENUE_IMAGES, PAGE_HERO_IMAGES } from '../data/images';
+import { PAGE_HERO_IMAGES } from '../data/images';
 import { PageHero } from '../components/PageHero';
-import { X, ChevronLeft, ChevronRight, Maximize2 } from 'lucide-react';
+import { X, ChevronLeft, ChevronRight, Maximize2, MapPin } from 'lucide-react';
 
 export const GalleryView: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState<string>('all');
@@ -10,11 +10,11 @@ export const GalleryView: React.FC = () => {
 
   const categories = [
     { id: 'all', label: 'All Photos' },
-    { id: 'food', label: 'Royal Culinary Art' },
-    { id: 'interiors', label: 'Restaurant Atmosphere' },
-    { id: 'events', label: 'Banquets & Private Dining' },
-    { id: 'celebrations', label: 'Patron Celebrations' },
-    { id: 'heritage', label: 'Historical Archives' },
+    { id: 'food', label: 'Signature Dishes' },
+    { id: 'interiors', label: 'Restaurant Spaces' },
+    { id: 'people', label: 'People & Dining' },
+    { id: 'celebrations', label: 'Celebrations & Banquets' },
+    { id: 'heritage', label: 'Craft & Heritage' },
   ];
 
   const filteredItems = GALLERY_ITEMS.filter(
@@ -29,15 +29,28 @@ export const GalleryView: React.FC = () => {
     setActiveLightboxIndex(null);
   };
 
-  const handleNext = () => {
+  const handleNext = useCallback(() => {
     if (activeLightboxIndex === null) return;
-    setActiveLightboxIndex((activeLightboxIndex + 1) % filteredItems.length);
-  };
+    setActiveLightboxIndex((prev) => (prev !== null ? (prev + 1) % filteredItems.length : 0));
+  }, [activeLightboxIndex, filteredItems.length]);
 
-  const handlePrev = () => {
+  const handlePrev = useCallback(() => {
     if (activeLightboxIndex === null) return;
-    setActiveLightboxIndex((activeLightboxIndex - 1 + filteredItems.length) % filteredItems.length);
-  };
+    setActiveLightboxIndex((prev) => (prev !== null ? (prev - 1 + filteredItems.length) % filteredItems.length : 0));
+  }, [activeLightboxIndex, filteredItems.length]);
+
+  // Keyboard navigation for lightbox
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (activeLightboxIndex === null) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowRight') handleNext();
+      if (e.key === 'ArrowLeft') handlePrev();
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [activeLightboxIndex, handleNext, handlePrev]);
 
   return (
     <div className="bg-[#F5EFE4] text-[#1E1714] pb-24">
@@ -50,7 +63,6 @@ export const GalleryView: React.FC = () => {
         imageAlt="Queen's Restaurant Atmosphere, Interiors and Fine Dining Spaces"
       />
 
-
       {/* Gallery Filters & Grid */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10">
         
@@ -59,8 +71,11 @@ export const GalleryView: React.FC = () => {
           {categories.map((cat) => (
             <button
               key={cat.id}
-              onClick={() => setActiveCategory(cat.id)}
-              className={`px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-all whitespace-nowrap cursor-pointer ${
+              onClick={() => {
+                setActiveCategory(cat.id);
+                setActiveLightboxIndex(null);
+              }}
+              className={`px-5 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-all whitespace-nowrap cursor-pointer ${
                 activeCategory === cat.id
                   ? 'bg-[#5A1F24] text-[#FCFAF5] shadow-md border border-[#B58A4A]'
                   : 'bg-white text-[#1E1714] border border-[#E8DDCC] hover:border-[#B58A4A]'
@@ -71,84 +86,111 @@ export const GalleryView: React.FC = () => {
           ))}
         </div>
 
-        {/* Editorial Masonry Grid */}
+        {/* Editorial Asymmetric Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredItems.map((item, idx) => (
-            <div
-              key={item.id}
-              onClick={() => openLightbox(idx)}
-              className="group relative rounded-xl overflow-hidden shadow-sm bg-[#1E1714] cursor-pointer border border-[#E8DDCC] hover:shadow-xl transition-all duration-300"
-            >
-              <img
-                src={item.image}
-                alt={item.title}
-                className="w-full h-72 object-cover group-hover:scale-105 transition-transform duration-700 opacity-90 group-hover:opacity-100"
-                referrerPolicy="no-referrer"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover:opacity-95 transition-opacity" />
-              
-              <div className="absolute bottom-4 left-4 right-4 text-white">
-                <span className="text-[10px] uppercase tracking-widest text-[#B58A4A] font-bold block mb-1">
-                  {item.location || item.category}
-                </span>
-                <h3 className="text-base font-serif font-bold text-[#FCFAF5] leading-snug">
-                  {item.title}
-                </h3>
-                <p className="text-xs text-[#D8CEBE] mt-1 line-clamp-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                  {item.caption}
-                </p>
-              </div>
+          {filteredItems.map((item, idx) => {
+            const isSpan = item.featured && activeCategory === 'all' && (idx === 0 || idx === 5);
+            return (
+              <div
+                key={item.id}
+                onClick={() => openLightbox(idx)}
+                className={`group relative rounded-2xl overflow-hidden shadow-sm bg-[#1E1714] cursor-pointer border border-[#E8DDCC] hover:shadow-xl transition-all duration-300 ${
+                  isSpan ? 'sm:col-span-2 sm:row-span-2 min-h-[380px] sm:min-h-[440px]' : 'min-h-[280px] sm:min-h-[320px]'
+                }`}
+              >
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-90 group-hover:opacity-100"
+                  referrerPolicy="no-referrer"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent opacity-85 group-hover:opacity-95 transition-opacity" />
+                
+                <div className="absolute bottom-5 left-5 right-5 text-white">
+                  <div className="flex items-center gap-2 mb-1.5">
+                    <span className="text-[9px] uppercase tracking-widest text-[#B58A4A] font-bold bg-[#5A1F24]/90 px-2 py-0.5 rounded">
+                      {item.category}
+                    </span>
+                    {item.location && (
+                      <span className="text-[10px] text-white/80 flex items-center gap-1 font-medium">
+                        <MapPin className="w-3 h-3 text-[#B58A4A]" />
+                        <span>{item.location}</span>
+                      </span>
+                    )}
+                  </div>
+                  <h3 className={`font-serif font-bold text-[#FCFAF5] leading-snug ${isSpan ? 'text-xl sm:text-2xl' : 'text-base sm:text-lg'}`}>
+                    {item.title}
+                  </h3>
+                  <p className="text-xs text-[#D8CEBE] mt-1.5 line-clamp-2 opacity-80 group-hover:opacity-100 transition-opacity">
+                    {item.caption}
+                  </p>
+                </div>
 
-              <div className="absolute top-4 right-4 bg-black/50 backdrop-blur-sm p-1.5 rounded-full text-white opacity-0 group-hover:opacity-100 transition-opacity">
-                <Maximize2 className="w-4 h-4" />
+                <div className="absolute top-4 right-4 bg-black/50 backdrop-blur-sm p-2 rounded-full text-white opacity-0 group-hover:opacity-100 transition-opacity">
+                  <Maximize2 className="w-4 h-4" />
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
       </div>
 
       {/* Lightbox Modal */}
-      {activeLightboxIndex !== null && (
-        <div className="fixed inset-0 z-50 bg-black/95 backdrop-blur-md flex items-center justify-center p-4">
+      {activeLightboxIndex !== null && filteredItems[activeLightboxIndex] && (
+        <div 
+          className="fixed inset-0 z-50 bg-black/95 backdrop-blur-md flex items-center justify-center p-4"
+          onClick={closeLightbox}
+        >
           <button
-            onClick={closeLightbox}
-            className="absolute top-6 right-6 p-2 text-white/70 hover:text-white bg-white/10 rounded-full transition-colors z-10 cursor-pointer"
+            onClick={(e) => {
+              e.stopPropagation();
+              closeLightbox();
+            }}
+            className="absolute top-6 right-6 p-2.5 text-white/70 hover:text-white bg-white/10 rounded-full transition-colors z-10 cursor-pointer"
+            aria-label="Close Lightbox"
           >
             <X className="w-6 h-6" />
           </button>
 
           <button
-            onClick={handlePrev}
-            className="absolute left-4 top-1/2 -translate-y-1/2 p-3 text-white/70 hover:text-white bg-white/10 hover:bg-white/20 rounded-full transition-colors z-10 cursor-pointer"
+            onClick={(e) => {
+              e.stopPropagation();
+              handlePrev();
+            }}
+            className="absolute left-4 top-1/2 -translate-y-1/2 p-3.5 text-white/70 hover:text-white bg-white/10 hover:bg-white/20 rounded-full transition-colors z-10 cursor-pointer"
+            aria-label="Previous Photo"
           >
             <ChevronLeft className="w-6 h-6" />
           </button>
 
           <button
-            onClick={handleNext}
-            className="absolute right-4 top-1/2 -translate-y-1/2 p-3 text-white/70 hover:text-white bg-white/10 hover:bg-white/20 rounded-full transition-colors z-10 cursor-pointer"
+            onClick={(e) => {
+              e.stopPropagation();
+              handleNext();
+            }}
+            className="absolute right-4 top-1/2 -translate-y-1/2 p-3.5 text-white/70 hover:text-white bg-white/10 hover:bg-white/20 rounded-full transition-colors z-10 cursor-pointer"
+            aria-label="Next Photo"
           >
             <ChevronRight className="w-6 h-6" />
           </button>
 
-          <div className="max-w-4xl max-h-[85vh] flex flex-col items-center">
+          <div 
+            className="max-w-4xl max-h-[90vh] flex flex-col items-center"
+            onClick={(e) => e.stopPropagation()}
+          >
             <img
               src={filteredItems[activeLightboxIndex].image}
               alt={filteredItems[activeLightboxIndex].title}
-              className="max-h-[70vh] w-auto max-w-full object-contain rounded-lg shadow-2xl"
+              className="max-h-[72vh] w-auto max-w-full object-contain rounded-xl shadow-2xl border border-white/10"
               referrerPolicy="no-referrer"
             />
-            <div className="mt-4 text-center text-white max-w-xl">
-              <span className="text-xs uppercase tracking-widest text-[#B58A4A] font-bold">
-                {filteredItems[activeLightboxIndex].location}
-              </span>
-              <h3 className="text-xl font-serif font-bold mt-0.5">
-                {filteredItems[activeLightboxIndex].title}
-              </h3>
-              <p className="text-xs text-[#D8CEBE] mt-1">
-                {filteredItems[activeLightboxIndex].caption}
-              </p>
+            <div className="text-center text-white mt-4 space-y-1 max-w-2xl px-4">
+              <div className="text-[11px] uppercase tracking-widest text-[#B58A4A] font-semibold">
+                Photo {activeLightboxIndex + 1} of {filteredItems.length} · {filteredItems[activeLightboxIndex].location || filteredItems[activeLightboxIndex].category}
+              </div>
+              <h4 className="text-lg font-serif font-bold">{filteredItems[activeLightboxIndex].title}</h4>
+              <p className="text-xs text-[#D8CEBE]">{filteredItems[activeLightboxIndex].caption}</p>
             </div>
           </div>
         </div>
@@ -156,4 +198,3 @@ export const GalleryView: React.FC = () => {
     </div>
   );
 };
-

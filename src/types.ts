@@ -7,8 +7,7 @@ export type PageType =
   | 'gallery'
   | 'journal'
   | 'journal-detail'
-  | 'recipes'
-  | 'recipe-detail'
+  | 'queens-table'
   | 'contact'
   | 'faq'
   | 'book-table'
@@ -163,8 +162,9 @@ export interface TableReservation {
 export interface GalleryItem {
   id: string;
   title: string;
-  category: 'food' | 'interiors' | 'events' | 'celebrations' | 'heritage';
+  category: 'food' | 'interiors' | 'events' | 'celebrations' | 'heritage' | 'people';
   image: string;
   caption: string;
   location?: string;
+  featured?: boolean;
 }

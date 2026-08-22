@@ -22,7 +22,6 @@ export const Navbar: React.FC = () => {
     setIsOrderModalOpen,
     setIsSearchModalOpen,
     setSelectedJournalSlug,
-    setSelectedRecipeSlug,
     setSelectedLocationId,
   } = useCMS();
 
@@ -43,7 +42,6 @@ export const Navbar: React.FC = () => {
 
   const handleLogoClick = () => {
     setSelectedJournalSlug(null);
-    setSelectedRecipeSlug(null);
     setSelectedLocationId(null);
     setIsMobileMenuOpen(false);
 
@@ -60,7 +58,6 @@ export const Navbar: React.FC = () => {
 
   const navigateTo = (page: PageType) => {
     setSelectedJournalSlug(null);
-    setSelectedRecipeSlug(null);
     setSelectedLocationId(null);
     setIsMobileMenuOpen(false);
     if (currentPage === page) {
@@ -76,7 +73,7 @@ export const Navbar: React.FC = () => {
     { label: 'Menu', page: 'menu' },
     { label: 'Gallery', page: 'gallery' },
     { label: 'Journal', page: 'journal' },
-    { label: 'Recipes', page: 'recipes' },
+    { label: 'The Queen’s Table', page: 'queens-table' },
     { label: 'Contact Us', page: 'contact' },
   ];
 
@@ -156,7 +153,7 @@ export const Navbar: React.FC = () => {
               onClick={() => setIsSearchModalOpen(true)}
               id="nav-search-btn"
               className="p-2 rounded-full text-[#5A1F24] hover:bg-[#E8DDCC]/50 transition-colors cursor-pointer"
-              title="Search Menu, Recipes, Journal"
+              title="Search Menu, Journal, Locations"
               aria-label="Search"
             >
               <Search className="w-5 h-5" />

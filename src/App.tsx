@@ -15,8 +15,7 @@ import { LocationsView } from './views/LocationsView';
 import { GalleryView } from './views/GalleryView';
 import { JournalView } from './views/JournalView';
 import { JournalDetailView } from './views/JournalDetailView';
-import { RecipesView } from './views/RecipesView';
-import { RecipeDetailView } from './views/RecipeDetailView';
+import { QueensTableView } from './views/QueensTableView';
 import { ContactView } from './views/ContactView';
 import { FAQView } from './views/FAQView';
 import { CMSAdminView } from './views/CMSAdminView';
@@ -47,10 +46,8 @@ const MainLayout: React.FC = () => {
         return <JournalView />;
       case 'journal-detail':
         return <JournalDetailView />;
-      case 'recipes':
-        return <RecipesView />;
-      case 'recipe-detail':
-        return <RecipeDetailView />;
+      case 'queens-table':
+        return <QueensTableView />;
       case 'contact':
         return <ContactView />;
       case 'faq':

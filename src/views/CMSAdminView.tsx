@@ -21,14 +21,13 @@ export const CMSAdminView: React.FC = () => {
     addMenuItem,
     deleteMenuItem,
     journalArticles,
-    recipes,
     reservations,
     updateReservationStatus,
     resetToDefaults,
     setCurrentPage,
   } = useCMS();
 
-  const [activeTab, setActiveTab] = useState<'menu' | 'reservations' | 'journal' | 'recipes'>('reservations');
+  const [activeTab, setActiveTab] = useState<'menu' | 'reservations' | 'journal'>('reservations');
 
   // New Menu Item Form State
   const [isAddingDish, setIsAddingDish] = useState(false);
@@ -115,7 +114,6 @@ export const CMSAdminView: React.FC = () => {
             { id: 'reservations', label: `Table Reservations (${reservations.length})`, icon: Calendar },
             { id: 'menu', label: `Menu Items (${menuItems.length})`, icon: Utensils },
             { id: 'journal', label: `Journal & Blog (${journalArticles.length})`, icon: BookOpen },
-            { id: 'recipes', label: `Master Recipes (${recipes.length})`, icon: ChefHat },
           ].map((tab) => {
             const Icon = tab.icon;
             const isActive = activeTab === tab.id;
@@ -456,33 +454,6 @@ export const CMSAdminView: React.FC = () => {
                     <h4 className="text-sm font-serif font-bold text-[#1E1714]">{art.title}</h4>
                     <p className="text-xs text-[#1E1714]/60 line-clamp-2">{art.excerpt}</p>
                     <span className="text-[11px] text-[#1E1714]/40 block">{art.publishedDate} • {art.readTime}</span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
-
-        {/* TAB 4: RECIPES */}
-        {activeTab === 'recipes' && (
-          <div className="space-y-4">
-            <h3 className="text-lg font-serif font-bold text-[#5A1F24]">
-              Royal Master Recipes ({recipes.length})
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              {recipes.map((rec) => (
-                <div key={rec.id} className="bg-white p-5 rounded-xl border border-[#E8DDCC] space-y-2">
-                  <img
-                    src={rec.image}
-                    alt={rec.title}
-                    className="w-full h-32 rounded-lg object-cover"
-                    referrerPolicy="no-referrer"
-                  />
-                  <span className="text-[10px] uppercase font-bold text-[#B58A4A]">{rec.category}</span>
-                  <h4 className="text-sm font-serif font-bold text-[#1E1714]">{rec.title}</h4>
-                  <p className="text-xs text-[#1E1714]/60 line-clamp-2">{rec.description}</p>
-                  <div className="text-[11px] text-[#5A1F24] font-medium pt-1">
-                    Prep: {rec.prepTime} | {rec.servings}
                   </div>
                 </div>
               ))}

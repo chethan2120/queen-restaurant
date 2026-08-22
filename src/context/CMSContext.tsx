@@ -2,14 +2,12 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 import {
   MenuItem,
   JournalArticle,
-  RecipeItem,
   TableReservation,
   PageType,
 } from '../types';
 import {
   INITIAL_MENU_ITEMS,
   INITIAL_JOURNAL_ARTICLES,
-  INITIAL_RECIPES,
 } from '../data/restaurantData';
 
 interface CMSContextType {
@@ -18,8 +16,6 @@ interface CMSContextType {
   setCurrentPage: (page: PageType) => void;
   selectedJournalSlug: string | null;
   setSelectedJournalSlug: (slug: string | null) => void;
-  selectedRecipeSlug: string | null;
-  setSelectedRecipeSlug: (slug: string | null) => void;
   selectedLocationId: 'church-street' | 'new-bel-road' | null;
   setSelectedLocationId: (id: 'church-street' | 'new-bel-road' | null) => void;
 
@@ -44,11 +40,6 @@ interface CMSContextType {
   updateJournalArticle: (id: string, article: Partial<JournalArticle>) => void;
   deleteJournalArticle: (id: string) => void;
 
-  recipes: RecipeItem[];
-  addRecipe: (recipe: Omit<RecipeItem, 'id'>) => void;
-  updateRecipe: (id: string, recipe: Partial<RecipeItem>) => void;
-  deleteRecipe: (id: string) => void;
-
   reservations: TableReservation[];
   createReservation: (reservation: Omit<TableReservation, 'id' | 'referenceCode' | 'createdAt' | 'status'>) => TableReservation;
   updateReservationStatus: (id: string, status: 'confirmed' | 'pending' | 'cancelled') => void;
@@ -65,7 +56,6 @@ export const CMSProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   // Navigation State
   const [currentPage, setCurrentPage] = useState<PageType>('home');
   const [selectedJournalSlug, setSelectedJournalSlug] = useState<string | null>(null);
-  const [selectedRecipeSlug, setSelectedRecipeSlug] = useState<string | null>(null);
   const [selectedLocationId, setSelectedLocationId] = useState<'church-street' | 'new-bel-road' | null>(null);
 
   // Modal States
@@ -77,7 +67,6 @@ export const CMSProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   // LocalStorage Persistence Keys
   const STORAGE_KEY_MENU = 'queens_restaurant_menu_v3';
   const STORAGE_KEY_JOURNAL = 'queens_restaurant_journal_v3';
-  const STORAGE_KEY_RECIPES = 'queens_restaurant_recipes_v3';
   const STORAGE_KEY_RESERVATIONS = 'queens_restaurant_reservations_v3';
 
   // Helper to ensure valid bundled images
@@ -101,16 +90,6 @@ export const CMSProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     });
   };
 
-  const sanitizeRecipes = (recList: RecipeItem[]): RecipeItem[] => {
-    return recList.map((rec) => {
-      const defaultMatch = INITIAL_RECIPES.find((d) => d.id === rec.id);
-      if (defaultMatch && (rec.image.startsWith('/src/assets/') || rec.image.startsWith('/assets/images/'))) {
-        return { ...rec, image: defaultMatch.image };
-      }
-      return rec;
-    });
-  };
-
   // Menu State
   const [menuItems, setMenuItems] = useState<MenuItem[]>(() => {
     try {
@@ -128,16 +107,6 @@ export const CMSProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       return saved ? sanitizeJournalArticles(JSON.parse(saved)) : INITIAL_JOURNAL_ARTICLES;
     } catch {
       return INITIAL_JOURNAL_ARTICLES;
-    }
-  });
-
-  // Recipes State
-  const [recipes, setRecipes] = useState<RecipeItem[]>(() => {
-    try {
-      const saved = localStorage.getItem(STORAGE_KEY_RECIPES);
-      return saved ? sanitizeRecipes(JSON.parse(saved)) : INITIAL_RECIPES;
-    } catch {
-      return INITIAL_RECIPES;
     }
   });
 
@@ -187,14 +156,6 @@ export const CMSProvider: React.FC<{ children: React.ReactNode }> = ({ children 
 
   useEffect(() => {
     try {
-      localStorage.setItem(STORAGE_KEY_RECIPES, JSON.stringify(recipes));
-    } catch (e) {
-      console.warn('Could not save recipes to storage', e);
-    }
-  }, [recipes]);
-
-  useEffect(() => {
-    try {
       localStorage.setItem(STORAGE_KEY_RESERVATIONS, JSON.stringify(reservations));
     } catch (e) {
       console.warn('Could not save reservations to storage', e);
@@ -204,7 +165,7 @@ export const CMSProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   // Scroll to top on page change
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, [currentPage, selectedJournalSlug, selectedRecipeSlug]);
+  }, [currentPage, selectedJournalSlug]);
 
   // Menu Handlers
   const addMenuItem = (item: Omit<MenuItem, 'id'>) => {
@@ -244,25 +205,6 @@ export const CMSProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     setJournalArticles((prev) => prev.filter((art) => art.id !== id));
   };
 
-  // Recipe Handlers
-  const addRecipe = (recipe: Omit<RecipeItem, 'id'>) => {
-    const newRecipe: RecipeItem = {
-      ...recipe,
-      id: `recipe-${Date.now()}`,
-    };
-    setRecipes((prev) => [newRecipe, ...prev]);
-  };
-
-  const updateRecipe = (id: string, updatedFields: Partial<RecipeItem>) => {
-    setRecipes((prev) =>
-      prev.map((rec) => (rec.id === id ? { ...rec, ...updatedFields } : rec))
-    );
-  };
-
-  const deleteRecipe = (id: string) => {
-    setRecipes((prev) => prev.filter((rec) => rec.id !== id));
-  };
-
   // Reservation Handlers
   const createReservation = (
     data: Omit<TableReservation, 'id' | 'referenceCode' | 'createdAt' | 'status'>
@@ -293,7 +235,6 @@ export const CMSProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   const resetToDefaults = () => {
     setMenuItems(INITIAL_MENU_ITEMS);
     setJournalArticles(INITIAL_JOURNAL_ARTICLES);
-    setRecipes(INITIAL_RECIPES);
   };
 
   const exportCMSData = (): string => {
@@ -301,7 +242,6 @@ export const CMSProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       {
         menuItems,
         journalArticles,
-        recipes,
         reservations,
         exportedAt: new Date().toISOString(),
       },
@@ -318,9 +258,6 @@ export const CMSProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       }
       if (parsed.journalArticles && Array.isArray(parsed.journalArticles)) {
         setJournalArticles(parsed.journalArticles);
-      }
-      if (parsed.recipes && Array.isArray(parsed.recipes)) {
-        setRecipes(parsed.recipes);
       }
       if (parsed.reservations && Array.isArray(parsed.reservations)) {
         setReservations(parsed.reservations);
@@ -339,8 +276,6 @@ export const CMSProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         setCurrentPage,
         selectedJournalSlug,
         setSelectedJournalSlug,
-        selectedRecipeSlug,
-        setSelectedRecipeSlug,
         selectedLocationId,
         setSelectedLocationId,
 
@@ -362,11 +297,6 @@ export const CMSProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         addJournalArticle,
         updateJournalArticle,
         deleteJournalArticle,
-
-        recipes,
-        addRecipe,
-        updateRecipe,
-        deleteRecipe,
 
         reservations,
         createReservation,

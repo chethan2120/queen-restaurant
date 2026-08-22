@@ -61,7 +61,7 @@ export const PAGE_HERO_IMAGES = {
   menu: heroMenu,
   gallery: churchStreetVenue,
   journal: tandoorFlame,
-  recipes: royalFeastSpread,
+  queensTable: '/queens_restuarant/assets/img/hero-bg-6.webp',
   locations: churchStreetVenue,
   contact: heroCinematic,
   faq: newBelRoadVenue,
