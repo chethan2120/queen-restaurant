@@ -572,7 +572,7 @@ The essence of Punjabi cooking rests on four pillars:
     author: {
       name: 'Chef Harinder Singh',
       role: 'Master Chef & Culinary Historian',
-      avatar: '/src/assets/images/bhatti_da_murgh_1787312038567.jpg',
+      avatar: DISH_IMAGES.bhattiDaMurgh,
     },
     publishedDate: 'January 14, 2026',
     readTime: '6 min read',
@@ -604,7 +604,7 @@ When marinades and fat from skewered kebabs drip onto the red-hot coals below, t
     author: {
       name: 'Simranjit Randhawa',
       role: 'Senior Food Columnist & Patron',
-      avatar: '/src/assets/images/galouti_kebab_1787312102434.jpg',
+      avatar: DISH_IMAGES.galoutiKebabNawabi,
     },
     publishedDate: 'February 2, 2026',
     readTime: '5 min read',
@@ -636,7 +636,7 @@ We invite you to taste fifty years of devotion in every bite.
     author: {
       name: 'Gurpreet Singh',
       role: 'Managing Partner',
-      avatar: '/src/assets/images/hero_cinematic_1787312426005.jpg',
+      avatar: VENUE_IMAGES.heroDiningRoom,
     },
     publishedDate: 'February 18, 2026',
     readTime: '7 min read',
@@ -665,7 +665,7 @@ Church Street is widely recognized as Bengaluru’s most vibrant pedestrian and 
     author: {
       name: 'Pooja Kashyap',
       role: 'Bengaluru Food & Culture Writer',
-      avatar: '/src/assets/images/kesar_badam_milk_1787312377894.jpg',
+      avatar: DISH_IMAGES.kesarPistaBadamMilk,
     },
     publishedDate: 'March 1, 2026',
     readTime: '4 min read',

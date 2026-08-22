@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="100%" height="100%" aria-label="Queen's Special Bhatti Da Murgh - Chargrilled Tandoori Chicken">
+  <defs>
+    <radialGradient id="slateBg" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#2A211D"/>
+      <stop offset="70%" stop-color="#191310"/>
+      <stop offset="100%" stop-color="#0E0A08"/>
+    </radialGradient>
+    <linearGradient id="charcoalGlow" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#B84A1E" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </linearGradient>
+    <linearGradient id="chickenTandoori" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D95328"/>
+      <stop offset="40%" stop-color="#B33814"/>
+      <stop offset="75%" stop-color="#7E240D"/>
+      <stop offset="100%" stop-color="#4A1407"/>
+    </linearGradient>
+    <linearGradient id="boneGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#E8DEC8"/>
+      <stop offset="60%" stop-color="#D1C4A5"/>
+      <stop offset="100%" stop-color="#998A69"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="3" dy="8" stdDeviation="6" flood-color="#000000" flood-opacity="0.6"/>
+    </filter>
+  </defs>
+
+  <!-- Dark Gourmet Slate Background -->
+  <rect width="400" height="300" fill="url(#slateBg)"/>
+  <rect width="400" height="300" fill="url(#charcoalGlow)"/>
+
+  <!-- Platter Shadow -->
+  <ellipse cx="200" cy="225" rx="155" ry="30" fill="#000000" opacity="0.6" filter="blur(6px)"/>
+
+  <!-- Rustic Cast Iron / Slate Sizzler Base -->
+  <ellipse cx="200" cy="205" rx="145" ry="50" fill="#221A16" stroke="#3D2D24" stroke-width="2"/>
+  <ellipse cx="200" cy="203" rx="138" ry="46" fill="#1C1512"/>
+
+  <!-- Sizzling Onion Bed -->
+  <g opacity="0.75">
+    <ellipse cx="160" cy="205" rx="22" ry="7" fill="none" stroke="#D18C52" stroke-width="2" transform="rotate(-10 160 205)"/>
+    <ellipse cx="230" cy="210" rx="24" ry="8" fill="none" stroke="#C47A40" stroke-width="2" transform="rotate(15 230 210)"/>
+    <ellipse cx="195" cy="218" rx="20" ry="6" fill="none" stroke="#D89A64" stroke-width="1.8"/>
+  </g>
+
+  <!-- Bhatti Chicken Leg & Thigh Piece (Large Chargrilled Drumstick & Thigh) -->
+  <g filter="url(#shadow)">
+    <!-- Bone End -->
+    <path d="M 85 130 C 75 125, 70 135, 78 145 C 80 148, 86 150, 92 146 L 125 156 L 128 140 Z" fill="url(#boneGrad)" stroke="#5A4732" stroke-width="0.8"/>
+    <circle cx="75" cy="132" r="5" fill="#E8DEC8"/>
+    <circle cx="78" cy="144" r="5" fill="#DFD2B5"/>
+
+    <!-- Main Succulent Chicken Leg Quarter -->
+    <path d="M 120 146 
+             C 135 120, 165 95, 215 95 
+             C 275 95, 310 125, 305 170 
+             C 300 205, 255 225, 200 222 
+             C 150 220, 125 195, 120 170 
+             Z" 
+          fill="url(#chickenTandoori)"/>
+
+    <!-- Meat Cuts (Chef Gashing for deep marinade penetration) -->
+    <path d="M 160 120 Q 170 150 165 180" stroke="#3A0D04" stroke-width="4" stroke-linecap="round" fill="none"/>
+    <path d="M 200 115 Q 210 150 205 190" stroke="#3A0D04" stroke-width="4.5" stroke-linecap="round" fill="none"/>
+    <path d="M 245 125 Q 255 155 250 185" stroke="#3A0D04" stroke-width="4" stroke-linecap="round" fill="none"/>
+
+    <!-- Charcoal Char & Grill Marks -->
+    <path d="M 140 135 Q 175 142 205 130" stroke="#1A0501" stroke-width="3" stroke-linecap="round" opacity="0.8" fill="none"/>
+    <path d="M 170 165 Q 215 170 260 155" stroke="#1A0501" stroke-width="3.5" stroke-linecap="round" opacity="0.85" fill="none"/>
+    <path d="M 210 190 Q 245 195 280 180" stroke="#1F0803" stroke-width="3" stroke-linecap="round" opacity="0.75" fill="none"/>
+
+    <!-- Roasted Spices, Kasoori Methi & Pepper Specks -->
+    <circle cx="175" cy="130" r="1.5" fill="#380902"/>
+    <circle cx="190" cy="145" r="2" fill="#2E5A1C" opacity="0.9"/>
+    <circle cx="225" cy="135" r="1.8" fill="#F4A261" opacity="0.7"/>
+    <circle cx="235" cy="165" r="2" fill="#2E5A1C" opacity="0.9"/>
+    <circle cx="265" cy="140" r="1.5" fill="#240501"/>
+    <circle cx="185" cy="175" r="1.5" fill="#4B6B2B" opacity="0.8"/>
+  </g>
+
+  <!-- Pickled Sliced Red Onion Rings with Sumac / Kashmiri Chili -->
+  <g>
+    <ellipse cx="290" cy="210" rx="20" ry="10" fill="none" stroke="#C23B58" stroke-width="3" transform="rotate(-15 290 210)"/>
+    <ellipse cx="290" cy="210" rx="16" ry="7" fill="none" stroke="#F4C2CC" stroke-width="1.5" transform="rotate(-15 290 210)"/>
+    <ellipse cx="305" cy="222" rx="16" ry="8" fill="none" stroke="#B02C48" stroke-width="2.5" transform="rotate(20 305 222)"/>
+  </g>
+
+  <!-- Fresh Lemon Wedge (Nimbu) -->
+  <g transform="translate(100, 185) rotate(-20)" filter="url(#shadow)">
+    <path d="M 0 0 C 15 -15, 35 -15, 45 0 Z" fill="#F4D03F" stroke="#D4AC0D" stroke-width="1.5"/>
+    <path d="M 4 -1 C 16 -12, 32 -12, 41 -1 Z" fill="#F9E79F"/>
+    <line x1="22" y1="-1" x2="22" y2="-10" stroke="#F4D03F" stroke-width="1"/>
+    <line x1="14" y1="-1" x2="10" y2="-7" stroke="#F4D03F" stroke-width="1"/>
+    <line x1="30" y1="-1" x2="34" y2="-7" stroke="#F4D03F" stroke-width="1"/>
+  </g>
+
+  <!-- Fresh Coriander / Mint Leaves Garnish -->
+  <g fill="#437A22" opacity="0.95">
+    <path d="M 215 110 C 220 102, 228 105, 225 112 C 222 118, 212 115, 215 110 Z"/>
+    <path d="M 226 112 C 234 108, 238 116, 232 120 C 227 122, 224 116, 226 112 Z"/>
+    <path d="M 180 155 C 185 148, 192 150, 190 157 C 187 162, 178 160, 180 155 Z"/>
+  </g>
+
+  <!-- Authentic Badge -->
+  <rect x="16" y="16" width="135" height="24" rx="4" fill="#5A1F24" fill-opacity="0.9" stroke="#B58A4A" stroke-width="1"/>
+  <text x="83" y="32" fill="#FCFAF5" font-family="serif" font-size="10" font-weight="bold" letter-spacing="1" text-anchor="middle">BHATTI DA MURGH</text>
+</svg>

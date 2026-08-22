@@ -75,16 +75,47 @@ export const CMSProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   const [preselectedBookingLocation, setPreselectedBookingLocation] = useState<'church-street' | 'new-bel-road' | null>(null);
 
   // LocalStorage Persistence Keys
-  const STORAGE_KEY_MENU = 'queens_restaurant_menu_v2';
-  const STORAGE_KEY_JOURNAL = 'queens_restaurant_journal_v2';
-  const STORAGE_KEY_RECIPES = 'queens_restaurant_recipes_v2';
-  const STORAGE_KEY_RESERVATIONS = 'queens_restaurant_reservations_v2';
+  const STORAGE_KEY_MENU = 'queens_restaurant_menu_v3';
+  const STORAGE_KEY_JOURNAL = 'queens_restaurant_journal_v3';
+  const STORAGE_KEY_RECIPES = 'queens_restaurant_recipes_v3';
+  const STORAGE_KEY_RESERVATIONS = 'queens_restaurant_reservations_v3';
+
+  // Helper to ensure valid bundled images
+  const sanitizeMenuItems = (items: MenuItem[]): MenuItem[] => {
+    return items.map((item) => {
+      const defaultMatch = INITIAL_MENU_ITEMS.find((d) => d.id === item.id);
+      if (defaultMatch && (item.image.startsWith('/src/assets/') || item.image.startsWith('/assets/images/'))) {
+        return { ...item, image: defaultMatch.image };
+      }
+      return item;
+    });
+  };
+
+  const sanitizeJournalArticles = (articles: JournalArticle[]): JournalArticle[] => {
+    return articles.map((art) => {
+      const defaultMatch = INITIAL_JOURNAL_ARTICLES.find((d) => d.id === art.id);
+      if (defaultMatch && (art.image.startsWith('/src/assets/') || art.image.startsWith('/assets/images/'))) {
+        return { ...art, image: defaultMatch.image, author: defaultMatch.author };
+      }
+      return art;
+    });
+  };
+
+  const sanitizeRecipes = (recList: RecipeItem[]): RecipeItem[] => {
+    return recList.map((rec) => {
+      const defaultMatch = INITIAL_RECIPES.find((d) => d.id === rec.id);
+      if (defaultMatch && (rec.image.startsWith('/src/assets/') || rec.image.startsWith('/assets/images/'))) {
+        return { ...rec, image: defaultMatch.image };
+      }
+      return rec;
+    });
+  };
 
   // Menu State
   const [menuItems, setMenuItems] = useState<MenuItem[]>(() => {
     try {
       const saved = localStorage.getItem(STORAGE_KEY_MENU);
-      return saved ? JSON.parse(saved) : INITIAL_MENU_ITEMS;
+      return saved ? sanitizeMenuItems(JSON.parse(saved)) : INITIAL_MENU_ITEMS;
     } catch {
       return INITIAL_MENU_ITEMS;
     }
@@ -94,7 +125,7 @@ export const CMSProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   const [journalArticles, setJournalArticles] = useState<JournalArticle[]>(() => {
     try {
       const saved = localStorage.getItem(STORAGE_KEY_JOURNAL);
-      return saved ? JSON.parse(saved) : INITIAL_JOURNAL_ARTICLES;
+      return saved ? sanitizeJournalArticles(JSON.parse(saved)) : INITIAL_JOURNAL_ARTICLES;
     } catch {
       return INITIAL_JOURNAL_ARTICLES;
     }
@@ -104,7 +135,7 @@ export const CMSProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   const [recipes, setRecipes] = useState<RecipeItem[]>(() => {
     try {
       const saved = localStorage.getItem(STORAGE_KEY_RECIPES);
-      return saved ? JSON.parse(saved) : INITIAL_RECIPES;
+      return saved ? sanitizeRecipes(JSON.parse(saved)) : INITIAL_RECIPES;
     } catch {
       return INITIAL_RECIPES;
     }
