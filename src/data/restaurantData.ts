@@ -945,7 +945,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     id: 'g-2',
     title: 'Church Street Heritage Verandah & Dining Salon',
     category: 'interiors',
-    image: VENUE_IMAGES.churchStreetFlagship,
+    image: VENUE_IMAGES.churchStreet1974Dining,
     caption: 'Neo-classical warm wood, brass chandeliers, and heritage portraits.',
     location: 'Church Street',
   },
