@@ -16,48 +16,57 @@ interface CinematicScene {
 const CINEMATIC_SCENES: CinematicScene[] = [
   {
     id: 0,
+    badge: 'Inside Our Heritage',
+    titlePrefix: 'Inside Our Heritage,',
+    titleHighlight: 'A Dining Room Steeped in Tradition',
+    description: 'Step into the warmth, character and hospitality that have defined Queen’s Restaurant since 1974.',
+    image: VENUE_IMAGES.churchStreet1974Dining,
+    panDirection: 'zoom-in',
+  },
+  {
+    id: 1,
     badge: 'Timeless Dining Experience · Since 1974',
     titlePrefix: 'A Heritage of Warmth,',
     titleHighlight: 'Served with Soul',
     description: 'Where timeless Punjabi hospitality meets a welcoming dining experience across Bengaluru.',
     image: VENUE_IMAGES.heroDiningRoom,
-    panDirection: 'zoom-in',
+    panDirection: 'pan-left',
   },
   {
-    id: 1,
+    id: 2,
     badge: 'Royal Tandoori Masterpieces',
     titlePrefix: 'Melt-in-Mouth Kebabs,',
     titleHighlight: 'Crafted with Passion',
     description: 'Slow-marinated with roasted potli spices and char-grilled over glowing coals to sublime perfection.',
     image: DISH_IMAGES.galoutiKebabNawabi,
-    panDirection: 'pan-left',
+    panDirection: 'zoom-out',
   },
   {
-    id: 2,
+    id: 3,
     badge: 'Live Charcoal Earthen Hearth',
     titlePrefix: 'The Magic of Dheemi Aanch,',
     titleHighlight: 'Charcoal-Kissed Flavours',
     description: 'Handcrafted clay tandoors stoked with natural lump wood charcoal for authentic smoky aroma.',
     image: VENUE_IMAGES.tandoorLiveHearth,
-    panDirection: 'zoom-out',
+    panDirection: 'pan-right',
   },
   {
-    id: 3,
+    id: 4,
     badge: 'Queen’s Signature 18-Hour Dish',
     titlePrefix: '18-Hour Slow Simmer,',
     titleHighlight: 'Velvety Dal Makhani',
     description: 'Slow-simmered overnight over gentle embers with fresh cream, whole spices, and churned white butter.',
     image: DISH_IMAGES.dalMakhaniSignature,
-    panDirection: 'pan-right',
+    panDirection: 'zoom-in',
   },
   {
-    id: 4,
+    id: 5,
     badge: 'The Grand Royal Dawat',
     titlePrefix: 'A Feast for Royalty,',
     titleHighlight: 'Celebrated Together',
     description: 'Generous Punjabi thals, rich curries, flaky tandoori kulchas, and chilled saffron desserts.',
     image: VENUE_IMAGES.royalFeastTable,
-    panDirection: 'zoom-in',
+    panDirection: 'pan-left',
   },
 ];
 
@@ -76,8 +85,9 @@ export const CinematicHeroVideo: React.FC<CinematicHeroVideoProps> = ({
   const [progress, setProgress] = useState<number>(0);
 
   useEffect(() => {
-    // 3.5-second per scene cycle (5 scenes x 3500ms = 17.5s)
-    const TOTAL_DURATION_MS = 17500;
+    // 3.5-second per scene cycle
+    const SCENE_DURATION_MS = 3500;
+    const TOTAL_DURATION_MS = SCENE_DURATION_MS * CINEMATIC_SCENES.length;
     const UPDATE_TICK_MS = 50;
 
     const interval = setInterval(() => {

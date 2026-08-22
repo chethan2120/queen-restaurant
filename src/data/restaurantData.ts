@@ -451,7 +451,7 @@ export const HERITAGE_MILESTONES: HeritageMilestone[] = [
     year: '1974',
     title: 'The Tandoor is Lit on Church Street',
     description: 'Founded with a singular vision: to bring the uncompromised, soul-stirring royal flavours of undivided Punjab to the burgeoning garden city of Bengaluru.',
-    image: VENUE_IMAGES.churchStreetFlagship,
+    image: VENUE_IMAGES.churchStreet1974Dining,
     quote: '"We brought clay pots from Amritsar and coal from the northern hills. True flavour cannot be rushed."',
     highlight: 'Bengaluru’s First Authentic Punjabi Hearth',
   },
