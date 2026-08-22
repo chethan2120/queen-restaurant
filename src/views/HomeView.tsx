@@ -473,19 +473,27 @@ export const HomeView: React.FC = () => {
                 className="bg-white rounded-xl border border-[#E8DDCC] overflow-hidden shadow-md flex flex-col justify-between"
               >
                 <div>
-                  <div className="h-60 relative overflow-hidden">
+                  <div className="h-64 sm:h-72 relative overflow-hidden bg-[#1E1714]">
+                    {/* Ambient backdrop to gracefully frame wide aspect ratios */}
+                    <img
+                      src={loc.image}
+                      alt=""
+                      aria-hidden="true"
+                      className="absolute inset-0 w-full h-full object-cover blur-md scale-110 opacity-35 brightness-75"
+                    />
+                    {/* Sharp, uncropped, and undistorted venue photograph */}
                     <img
                       src={loc.image}
                       alt={loc.name}
-                      className="w-full h-full object-cover"
+                      className="relative z-10 w-full h-full object-contain object-center transition-transform duration-500"
                       referrerPolicy="no-referrer"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
-                    <div className="absolute bottom-4 left-4 right-4 text-white">
-                      <span className="text-[10px] uppercase font-bold tracking-widest text-[#B58A4A] bg-[#5A1F24] px-2.5 py-0.5 rounded">
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent z-20 pointer-events-none" />
+                    <div className="absolute bottom-4 left-4 right-4 text-white z-30 pointer-events-none">
+                      <span className="text-[10px] uppercase font-bold tracking-widest text-[#B58A4A] bg-[#5A1F24] px-2.5 py-0.5 rounded shadow-sm">
                         Est. {loc.establishedYear} · {loc.subName}
                       </span>
-                      <h3 className="text-xl font-serif font-bold mt-1">{loc.name}</h3>
+                      <h3 className="text-xl font-serif font-bold mt-1 drop-shadow-md">{loc.name}</h3>
                     </div>
                   </div>
 
