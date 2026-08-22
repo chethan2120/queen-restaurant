@@ -109,15 +109,15 @@ export const Navbar: React.FC = () => {
       <header
         className={`sticky top-0 z-40 transition-all duration-300 ${
           isScrolled
-            ? 'bg-[#FCFAF5]/95 backdrop-blur-md shadow-md py-3 border-b border-[#E8DDCC]'
-            : 'bg-[#F5EFE4]/90 backdrop-blur-sm py-4 border-b border-[#E8DDCC]/70'
+            ? 'bg-[#FCFAF5]/98 backdrop-blur-md shadow-md py-3 border-b border-[#E8DDCC]'
+            : 'bg-[#F5EFE4]/98 backdrop-blur-md py-3.5 sm:py-4 border-b border-[#E8DDCC]/80'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4">
           {/* Logo Brand */}
           <button
             onClick={handleLogoClick}
-            className="flex items-center gap-3 text-left focus:outline-none group cursor-pointer"
+            className="flex items-center gap-3 text-left focus:outline-none group cursor-pointer shrink-0"
             id="nav-brand-logo"
             title="Queen's Restaurant Home"
             aria-label="Queen's Restaurant Home"
@@ -126,7 +126,7 @@ export const Navbar: React.FC = () => {
           </button>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center xl:space-x-6 lg:space-x-4 space-x-3" aria-label="Main Navigation">
+          <nav className="hidden lg:flex items-center justify-center space-x-5 xl:space-x-8" aria-label="Main Navigation">
             {navLinks.map((link) => {
               const isActive = currentPage === link.page;
               return (
@@ -134,15 +134,15 @@ export const Navbar: React.FC = () => {
                   key={link.page}
                   onClick={() => navigateTo(link.page)}
                   id={`nav-link-${link.page}`}
-                  className={`text-xs xl:text-sm tracking-wider uppercase font-medium transition-all relative py-1 ${
+                  className={`text-xs xl:text-[13px] tracking-widest uppercase font-semibold transition-all relative py-1 px-0.5 whitespace-nowrap cursor-pointer ${
                     isActive
-                      ? 'text-[#5A1F24] font-semibold'
+                      ? 'text-[#5A1F24]'
                       : 'text-[#1E1714]/80 hover:text-[#5A1F24]'
                   }`}
                 >
-                  {link.label}
+                  <span>{link.label}</span>
                   {isActive && (
-                    <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#B58A4A] rounded-full" />
+                    <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#B58A4A] rounded-full" />
                   )}
                 </button>
               );
@@ -150,12 +150,12 @@ export const Navbar: React.FC = () => {
           </nav>
 
           {/* Action CTAs */}
-          <div className="flex items-center space-x-3">
+          <div className="flex items-center space-x-3 shrink-0">
             {/* Global Search Button */}
             <button
               onClick={() => setIsSearchModalOpen(true)}
               id="nav-search-btn"
-              className="p-2 rounded-full text-[#5A1F24] hover:bg-[#E8DDCC]/50 transition-colors"
+              className="p-2 rounded-full text-[#5A1F24] hover:bg-[#E8DDCC]/50 transition-colors cursor-pointer"
               title="Search Menu, Recipes, Journal"
               aria-label="Search"
             >
@@ -166,7 +166,7 @@ export const Navbar: React.FC = () => {
             <button
               onClick={() => setIsBookingModalOpen(true)}
               id="nav-book-table-btn"
-              className="relative group overflow-hidden px-4 sm:px-5 py-2.5 bg-[#5A1F24] text-[#FCFAF5] text-xs font-semibold uppercase tracking-widest rounded shadow-sm hover:shadow-md transition-all duration-300 border border-[#B58A4A]/50 hover:border-[#B58A4A]"
+              className="relative group overflow-hidden px-4 sm:px-5 py-2.5 bg-[#5A1F24] text-[#FCFAF5] text-xs font-semibold uppercase tracking-widest rounded shadow-sm hover:shadow-md transition-all duration-300 border border-[#B58A4A]/50 hover:border-[#B58A4A] cursor-pointer whitespace-nowrap shrink-0"
             >
               <span className="relative z-10 flex items-center gap-2">
                 <Calendar className="w-3.5 h-3.5 text-[#B58A4A]" />
@@ -179,7 +179,7 @@ export const Navbar: React.FC = () => {
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               id="nav-mobile-toggle"
-              className="lg:hidden p-2 text-[#5A1F24] hover:bg-[#E8DDCC]/50 rounded transition-colors"
+              className="lg:hidden p-2 text-[#5A1F24] hover:bg-[#E8DDCC]/50 rounded transition-colors cursor-pointer"
               aria-label="Toggle navigation menu"
             >
               {isMobileMenuOpen ? <X className="w-6 h-6" /> : <MenuIcon className="w-6 h-6" />}
