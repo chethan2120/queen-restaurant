@@ -7,11 +7,11 @@ import officialLogoPng from '../assets/images/queens_official_logo.png';
 // Page Hero Images
 import heroOurStory from '../assets/images/hero_our_story_heritage_1787324126069.jpg';
 import heroMenu from '../assets/images/hero_menu_culinary_spread_1787324146292.jpg';
-import churchStreetVenue from '../assets/images/church_street_venue_1787312471768.jpg';
+import churchStreetVenue from '../assets/images/church_street_venue_1787395918125.png';
+import newBelRoadVenue from '../assets/images/new_bel_road_venue_1787395664768.png';
 import tandoorFlame from '../assets/images/tandoor_flame_1787312441035.jpg';
 import royalFeastSpread from '../assets/images/royal_feast_spread_1787312455215.jpg';
 import heroCinematic from '../assets/images/hero_cinematic_1787312426005.jpg';
-import banquetHallVenue from '../assets/images/banquet_hall_venue_1787312487346.jpg';
 import restaurantInteriorDining from '../assets/images/restaurant_interior_dining_1787394728973.jpg';
 import churchStreet1974Dining from '../assets/images/church_street_1974_dining_1787394930404.jpg';
 
@@ -64,7 +64,7 @@ export const PAGE_HERO_IMAGES = {
   recipes: royalFeastSpread,
   locations: churchStreetVenue,
   contact: heroCinematic,
-  faq: banquetHallVenue,
+  faq: newBelRoadVenue,
 } as const;
 
 // Dishes (Starters, Shorbas, Veg Mains, Non-Veg Mains, Breads & Rice, Beverages, Desserts)
@@ -115,8 +115,8 @@ export const VENUE_IMAGES = {
   tandoorLiveHearth: tandoorFlame,
   royalFeastTable: royalFeastSpread,
   churchStreetFlagship: churchStreetVenue,
-  newBelRoadBanquet: banquetHallVenue,
-  newBelRoadLocation: banquetHallVenue,
+  newBelRoadBanquet: newBelRoadVenue,
+  newBelRoadLocation: newBelRoadVenue,
   familyCelebration: royalFeastSpread,
 } as const;
 
@@ -125,7 +125,7 @@ export const HERITAGE_IMAGES = {
   culinaryTradition: tandoorFlame,
   churchStreet1974: churchStreet1974Dining,
   tandoorEvolution: tandoorFlame,
-  newBelRoadExpansion: banquetHallVenue,
+  newBelRoadExpansion: newBelRoadVenue,
   fiftyYearLegacy: heroCinematic,
 } as const;
 
