@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-display: "Cinzel", serif;
+  --font-sans: "Plus Jakarta Sans", sans-serif;
+
+  --color-cream: #F5EFE4;
+  --color-warmwhite: #FCFAF5;
+  --color-charcoal: #1E1714;
+  --color-burgundy: #5A1F24;
+  --color-sand: #E8DDCC;
+  --color-gold: #B58A4A;
+  --color-gold-light: #D4AF37;
+  --color-gold-dark: #8C6527;
+  --color-terracotta: #B84D32;
+  --color-olive: #4B5538;
+}
+
+@layer base {
+  body {
+    background-color: #F5EFE4;
+    color: #1E1714;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: 'Cinzel', serif;
+    letter-spacing: 0.02em;
+  }
+
+  .font-serif-body {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+  }
+}
+
+/* Custom subtle scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F5EFE4;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D8CEBE;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #B58A4A;
+}
+
+/* Print styles for menus and recipes */
+@media print {
+  header, footer, .no-print {
+    display: none !important;
+  }
+}
+

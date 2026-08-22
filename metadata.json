@@ -1,0 +1,6 @@
+{
+  "name": "Queen's Restaurant · Since 1974",
+  "description": "Authentic Punjabi hospitality and heritage dining in Bengaluru since 1974. Explore our royal menu, reserve tables at Church Street and New BEL Road, discover recipes, and plan private celebrations.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

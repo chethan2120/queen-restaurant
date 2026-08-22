@@ -1,0 +1,371 @@
+import React, { useState, useEffect } from 'react';
+import { Logo } from './Logo';
+import { useCMS } from '../context/CMSContext';
+import { PageType } from '../types';
+import {
+  Search,
+  Phone,
+  Calendar,
+  ShoppingBag,
+  Menu as MenuIcon,
+  X,
+  MapPin,
+  Clock,
+  Sliders,
+} from 'lucide-react';
+
+export const Navbar: React.FC = () => {
+  const {
+    currentPage,
+    setCurrentPage,
+    setIsBookingModalOpen,
+    setIsOrderModalOpen,
+    setIsSearchModalOpen,
+    setSelectedJournalSlug,
+    setSelectedRecipeSlug,
+    setSelectedLocationId,
+  } = useCMS();
+
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 30) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const handleLogoClick = () => {
+    setSelectedJournalSlug(null);
+    setSelectedRecipeSlug(null);
+    setSelectedLocationId(null);
+    setIsMobileMenuOpen(false);
+
+    if (currentPage === 'home') {
+      window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+    } else {
+      setCurrentPage('home');
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+      setTimeout(() => {
+        window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+      }, 0);
+    }
+  };
+
+  const navigateTo = (page: PageType) => {
+    setSelectedJournalSlug(null);
+    setSelectedRecipeSlug(null);
+    setSelectedLocationId(null);
+    setIsMobileMenuOpen(false);
+    if (currentPage === page) {
+      window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+    } else {
+      setCurrentPage(page);
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    }
+  };
+
+  const navLinks: { label: string; page: PageType }[] = [
+    { label: 'Our Story', page: 'our-story' },
+    { label: 'Menu', page: 'menu' },
+    { label: 'Gallery', page: 'gallery' },
+    { label: 'Journal', page: 'journal' },
+    { label: 'Recipes', page: 'recipes' },
+    { label: 'Contact Us', page: 'contact' },
+  ];
+
+  return (
+    <>
+      {/* Top Announcement Bar */}
+      <div className="bg-[#5A1F24] text-[#FCFAF5] text-xs py-2 px-4 border-b border-[#B58A4A]/20">
+        <div className="max-w-7xl mx-auto flex items-center justify-between">
+          <div className="flex items-center gap-2 text-xs tracking-wider">
+            <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#B58A4A] animate-pulse" />
+            <span className="font-semibold text-[#B58A4A] uppercase tracking-widest hidden sm:inline">
+              Heritage Since 1974 ·
+            </span>
+            <span className="opacity-90">50 Years of Royal Punjabi Hospitality in Bengaluru</span>
+          </div>
+
+          <div className="flex items-center gap-6 text-xs">
+            <a
+              href="tel:+917204464661"
+              className="hidden md:flex items-center gap-1.5 opacity-80 hover:opacity-100 hover:text-[#B58A4A] transition-colors"
+            >
+              <Phone className="w-3.5 h-3.5 text-[#B58A4A]" />
+              <span>Church St: +91 72044 64661</span>
+            </a>
+            <div className="hidden lg:block w-px h-3 bg-white/20" />
+            <button
+              onClick={() => navigateTo('cms-admin')}
+              className="flex items-center gap-1 opacity-75 hover:opacity-100 hover:text-[#B58A4A] transition-colors"
+              title="Headless Content Management System"
+            >
+              <Sliders className="w-3 h-3 text-[#B58A4A]" />
+              <span className="text-[11px] font-medium">Headless CMS</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Main Sticky Navigation */}
+      <header
+        className={`sticky top-0 z-40 transition-all duration-300 ${
+          isScrolled
+            ? 'bg-[#FCFAF5]/95 backdrop-blur-md shadow-md py-3 border-b border-[#E8DDCC]'
+            : 'bg-[#F5EFE4]/90 backdrop-blur-sm py-4 border-b border-[#E8DDCC]/70'
+        }`}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+          {/* Logo Brand */}
+          <button
+            onClick={handleLogoClick}
+            className="flex items-center gap-3 text-left focus:outline-none group cursor-pointer"
+            id="nav-brand-logo"
+            title="Queen's Restaurant Home"
+            aria-label="Queen's Restaurant Home"
+          >
+            <Logo variant="light" size="sm" className="transition-transform group-hover:scale-[1.02]" />
+          </button>
+
+          {/* Desktop Navigation Links */}
+          <nav className="hidden lg:flex items-center xl:space-x-6 lg:space-x-4 space-x-3" aria-label="Main Navigation">
+            {navLinks.map((link) => {
+              const isActive = currentPage === link.page;
+              return (
+                <button
+                  key={link.page}
+                  onClick={() => navigateTo(link.page)}
+                  id={`nav-link-${link.page}`}
+                  className={`text-xs xl:text-sm tracking-wider uppercase font-medium transition-all relative py-1 ${
+                    isActive
+                      ? 'text-[#5A1F24] font-semibold'
+                      : 'text-[#1E1714]/80 hover:text-[#5A1F24]'
+                  }`}
+                >
+                  {link.label}
+                  {isActive && (
+                    <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#B58A4A] rounded-full" />
+                  )}
+                </button>
+              );
+            })}
+          </nav>
+
+          {/* Action CTAs */}
+          <div className="flex items-center space-x-3">
+            {/* Global Search Button */}
+            <button
+              onClick={() => setIsSearchModalOpen(true)}
+              id="nav-search-btn"
+              className="p-2 rounded-full text-[#5A1F24] hover:bg-[#E8DDCC]/50 transition-colors"
+              title="Search Menu, Recipes, Journal"
+              aria-label="Search"
+            >
+              <Search className="w-5 h-5" />
+            </button>
+
+            {/* Order Online Button */}
+            <button
+              onClick={() => setIsOrderModalOpen(true)}
+              id="nav-order-online-btn"
+              className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-semibold uppercase tracking-wider text-[#5A1F24] border border-[#5A1F24]/30 hover:border-[#5A1F24] rounded hover:bg-[#5A1F24]/5 transition-all"
+            >
+              <ShoppingBag className="w-3.5 h-3.5 text-[#B58A4A]" />
+              <span>Order Online</span>
+            </button>
+
+            {/* Primary Book a Table CTA */}
+            <button
+              onClick={() => setIsBookingModalOpen(true)}
+              id="nav-book-table-btn"
+              className="relative group overflow-hidden px-4 sm:px-5 py-2.5 bg-[#5A1F24] text-[#FCFAF5] text-xs font-semibold uppercase tracking-widest rounded shadow-sm hover:shadow-md transition-all duration-300 border border-[#B58A4A]/50 hover:border-[#B58A4A]"
+            >
+              <span className="relative z-10 flex items-center gap-2">
+                <Calendar className="w-3.5 h-3.5 text-[#B58A4A]" />
+                <span>Book a Table</span>
+              </span>
+              <div className="absolute inset-0 bg-gradient-to-r from-[#B58A4A]/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+            </button>
+
+            {/* Mobile Menu Hamburger Toggle */}
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              id="nav-mobile-toggle"
+              className="lg:hidden p-2 text-[#5A1F24] hover:bg-[#E8DDCC]/50 rounded transition-colors"
+              aria-label="Toggle navigation menu"
+            >
+              {isMobileMenuOpen ? <X className="w-6 h-6" /> : <MenuIcon className="w-6 h-6" />}
+            </button>
+          </div>
+        </div>
+      </header>
+
+      {/* Mobile Drawer Menu */}
+      {isMobileMenuOpen && (
+        <div className="lg:hidden fixed inset-0 z-50 bg-[#1E1714]/60 backdrop-blur-sm animate-fadeIn">
+          <div className="fixed right-0 top-0 bottom-0 w-full max-w-sm bg-[#FCFAF5] shadow-2xl p-6 flex flex-col justify-between overflow-y-auto">
+            {/* Header in Drawer */}
+            <div>
+              <div className="flex items-center justify-between pb-4 border-b border-[#E8DDCC]">
+                <button
+                  onClick={handleLogoClick}
+                  className="flex items-center gap-3 text-left focus:outline-none group cursor-pointer"
+                  title="Queen's Restaurant Home"
+                  aria-label="Queen's Restaurant Home"
+                >
+                  <Logo variant="light" size="sm" />
+                </button>
+                <button
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="p-2 text-[#1E1714] hover:text-[#5A1F24]"
+                >
+                  <X className="w-6 h-6" />
+                </button>
+              </div>
+
+              {/* Links */}
+              <nav className="mt-6 flex flex-col space-y-2">
+                {navLinks.map((link) => (
+                  <button
+                    key={link.page}
+                    onClick={() => navigateTo(link.page)}
+                    className={`text-left px-4 py-2.5 rounded text-sm uppercase tracking-wider font-medium transition-colors flex items-center justify-between ${
+                      currentPage === link.page
+                        ? 'bg-[#5A1F24] text-[#FCFAF5]'
+                        : 'text-[#1E1714] hover:bg-[#E8DDCC]/40'
+                    }`}
+                  >
+                    <span>{link.label}</span>
+                    {currentPage === link.page && (
+                      <span className="w-2 h-2 rounded-full bg-[#B58A4A]" />
+                    )}
+                  </button>
+                ))}
+
+                <div className="pt-2 pb-1 border-t border-[#E8DDCC]/70 my-2">
+                  <span className="px-4 text-[10px] font-bold uppercase tracking-widest text-[#8C6527]">
+                    More Information
+                  </span>
+                </div>
+
+                <button
+                  onClick={() => navigateTo('locations')}
+                  className={`text-left px-4 py-2 rounded text-xs uppercase tracking-wider font-medium flex items-center justify-between ${
+                    currentPage === 'locations' ? 'bg-[#5A1F24] text-[#FCFAF5]' : 'text-[#1E1714]/80 hover:bg-[#E8DDCC]/40'
+                  }`}
+                >
+                  <span>Locations & Directions</span>
+                </button>
+
+                <button
+                  onClick={() => navigateTo('experiences')}
+                  className={`text-left px-4 py-2 rounded text-xs uppercase tracking-wider font-medium flex items-center justify-between ${
+                    currentPage === 'experiences' ? 'bg-[#5A1F24] text-[#FCFAF5]' : 'text-[#1E1714]/80 hover:bg-[#E8DDCC]/40'
+                  }`}
+                >
+                  <span>Banquets & Private Dining</span>
+                </button>
+
+                <button
+                  onClick={() => navigateTo('contact')}
+                  className={`text-left px-4 py-2 rounded text-xs uppercase tracking-wider font-medium flex items-center justify-between ${
+                    currentPage === 'contact' ? 'bg-[#5A1F24] text-[#FCFAF5]' : 'text-[#1E1714]/80 hover:bg-[#E8DDCC]/40'
+                  }`}
+                >
+                  <span>Contact & Feedback</span>
+                </button>
+
+                <button
+                  onClick={() => navigateTo('faq')}
+                  className={`text-left px-4 py-2 rounded text-xs uppercase tracking-wider font-medium flex items-center justify-between ${
+                    currentPage === 'faq' ? 'bg-[#5A1F24] text-[#FCFAF5]' : 'text-[#1E1714]/80 hover:bg-[#E8DDCC]/40'
+                  }`}
+                >
+                  <span>FAQ & Dining Guide</span>
+                </button>
+                
+                <button
+                  onClick={() => navigateTo('cms-admin')}
+                  className="text-left px-4 py-2.5 rounded text-xs uppercase tracking-wider font-medium text-[#B58A4A] bg-[#5A1F24]/5 border border-[#B58A4A]/30 flex items-center gap-2 mt-2"
+                >
+                  <Sliders className="w-3.5 h-3.5 text-[#B58A4A]" />
+                  <span>Headless CMS Dashboard</span>
+                </button>
+              </nav>
+            </div>
+
+            {/* Quick Mobile Action Buttons */}
+            <div className="pt-6 border-t border-[#E8DDCC] space-y-3">
+              <button
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  setIsBookingModalOpen(true);
+                }}
+                className="w-full py-3.5 bg-[#5A1F24] text-[#FCFAF5] font-semibold uppercase tracking-widest text-sm rounded flex items-center justify-center gap-2 shadow-md border border-[#B58A4A]"
+              >
+                <Calendar className="w-4 h-4 text-[#B58A4A]" />
+                <span>Reserve a Table</span>
+              </button>
+
+              <button
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  setIsOrderModalOpen(true);
+                }}
+                className="w-full py-3 bg-[#E8DDCC] text-[#5A1F24] font-semibold uppercase tracking-widest text-xs rounded flex items-center justify-center gap-2 border border-[#5A1F24]/20"
+              >
+                <ShoppingBag className="w-4 h-4" />
+                <span>Order Online (Swiggy / Zomato)</span>
+              </button>
+
+              <div className="pt-2 text-center text-xs text-[#1E1714]/70">
+                <p className="font-serif italic">Church Street · New BEL Road</p>
+                <p className="mt-1">Call: +91 72044 64661 / +91 63660 46260</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Sticky Mobile Action Bottom Bar (Only on mobile for effortless reservations and calling) */}
+      <div className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-[#FCFAF5]/95 backdrop-blur-md border-t border-[#E8DDCC] px-4 py-2.5 shadow-lg flex items-center justify-around">
+        <a
+          href="tel:+917204464661"
+          className="flex flex-col items-center justify-center text-center text-[#5A1F24] hover:text-[#B58A4A]"
+          id="mobile-bottom-call"
+        >
+          <Phone className="w-5 h-5 mb-0.5" />
+          <span className="text-[10px] font-semibold uppercase tracking-wider">Call Church St</span>
+        </a>
+
+        <button
+          onClick={() => {
+            setSelectedLocationId('church-street');
+            setCurrentPage('locations');
+          }}
+          className="flex flex-col items-center justify-center text-center text-[#1E1714] hover:text-[#5A1F24]"
+          id="mobile-bottom-directions"
+        >
+          <MapPin className="w-5 h-5 mb-0.5 text-[#B58A4A]" />
+          <span className="text-[10px] font-semibold uppercase tracking-wider">Locations</span>
+        </button>
+
+        <button
+          onClick={() => setIsBookingModalOpen(true)}
+          className="flex items-center gap-1.5 px-4 py-2 bg-[#5A1F24] text-[#FCFAF5] rounded font-semibold text-xs uppercase tracking-wider shadow-sm border border-[#B58A4A]"
+          id="mobile-bottom-book"
+        >
+          <Calendar className="w-3.5 h-3.5 text-[#B58A4A]" />
+          <span>Book Table</span>
+        </button>
+      </div>
+    </>
+  );
+};
