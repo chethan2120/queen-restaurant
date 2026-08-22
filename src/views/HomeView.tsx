@@ -111,17 +111,17 @@ export const HomeView: React.FC = () => {
               <div className="relative z-10 rounded-lg overflow-hidden shadow-2xl border-4 border-[#FCFAF5]">
                 <img
                   src={VENUE_IMAGES.heroDiningRoom}
-                  alt="Slow-simmering royal dish at Queen's"
+                  alt="Queen's Restaurant Royal Dining Ambiance"
                   className="w-full h-[460px] object-cover"
                   referrerPolicy="no-referrer"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#1E1714]/70 via-transparent to-transparent" />
                 <div className="absolute bottom-6 left-6 right-6 text-white">
                   <span className="text-[10px] uppercase font-bold tracking-widest text-[#B58A4A] bg-[#5A1F24]/90 px-2.5 py-1 rounded">
-                    18-Hour Heritage Simmer
+                    Royal Dining Ambiance
                   </span>
                   <h3 className="text-xl font-serif font-bold mt-2">
-                    "Flavour cannot be rushed; it must be coaxed with patience and fire."
+                    "Where timeless Punjabi hospitality meets a welcoming dining experience."
                   </h3>
                 </div>
               </div>

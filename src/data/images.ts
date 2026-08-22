@@ -12,6 +12,7 @@ import tandoorFlame from '../assets/images/tandoor_flame_1787312441035.jpg';
 import royalFeastSpread from '../assets/images/royal_feast_spread_1787312455215.jpg';
 import heroCinematic from '../assets/images/hero_cinematic_1787312426005.jpg';
 import banquetHallVenue from '../assets/images/banquet_hall_venue_1787312487346.jpg';
+import restaurantInteriorDining from '../assets/images/restaurant_interior_dining_1787394728973.jpg';
 
 // Starters
 import bhattiDaMurgh from '../assets/images/bhatti_da_murgh_1787312038567.jpg';
@@ -107,7 +108,8 @@ export const DISH_IMAGES = {
 
 // Heritage, Venues & Atmosphere
 export const VENUE_IMAGES = {
-  heroDiningRoom: heroCinematic,
+  heroDiningRoom: restaurantInteriorDining,
+  restaurantInterior: restaurantInteriorDining,
   tandoorLiveHearth: tandoorFlame,
   royalFeastTable: royalFeastSpread,
   churchStreetFlagship: churchStreetVenue,
