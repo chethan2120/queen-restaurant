@@ -9,7 +9,7 @@ import {
   FAQItem,
   GalleryItem,
 } from '../types';
-import { DISH_IMAGES, VENUE_IMAGES } from './images';
+import { DISH_IMAGES, VENUE_IMAGES, JOURNAL_IMAGES } from './images';
 
 export const RESTAURANT_LOCATIONS: RestaurantLocation[] = [
   {
@@ -576,7 +576,7 @@ The essence of Punjabi cooking rests on four pillars:
     },
     publishedDate: 'January 14, 2026',
     readTime: '6 min read',
-    image: '/queens_restuarant/assets/img/blogs/10_Punjabi_food.jpg',
+    image: JOURNAL_IMAGES.punjabiHeritage,
     tags: ['Punjabi History', 'Heritage', 'Tandoor', 'Slow Cooking'],
     featured: true,
     relatedDishId: 'm-9',
@@ -608,7 +608,7 @@ When marinades and fat from skewered kebabs drip onto the red-hot coals below, t
     },
     publishedDate: 'February 2, 2026',
     readTime: '5 min read',
-    image: '/queens_restuarant/assets/img/blogs/3_punjabi_rasoi_indian_cuisine_1.jpg',
+    image: JOURNAL_IMAGES.clayTandoor,
     tags: ['Tandoor Science', 'Breads', 'Culinary Craft'],
     featured: false,
     relatedDishId: 'm-1',
@@ -640,7 +640,7 @@ We invite you to taste fifty years of devotion in every bite.
     },
     publishedDate: 'February 18, 2026',
     readTime: '7 min read',
-    image: '/queens_restuarant/assets/img/blogs/5_Church_Street_in_Bangalore.jpg',
+    image: JOURNAL_IMAGES.queensHospitality,
     tags: ['Legacy', 'Church Street', '50 Years', 'Bengaluru History'],
     featured: true,
     relatedDishId: 'm-13',
@@ -669,7 +669,7 @@ Church Street is widely recognized as Bengaluru’s most vibrant pedestrian and 
     },
     publishedDate: 'March 1, 2026',
     readTime: '4 min read',
-    image: '/queens_restuarant/assets/img/blogs/6_Punjabi_food_in_Bangalore_1.jpg',
+    image: JOURNAL_IMAGES.churchStreetDining,
     tags: ['Church Street', 'Bangalore Dining', 'Tips', 'Weekend Guide'],
     featured: false,
     relatedDishId: 'm-1',
@@ -701,7 +701,7 @@ Every Monday morning, our kitchen brigade hand-selects whole spices imported dir
     },
     publishedDate: 'March 12, 2026',
     readTime: '5 min read',
-    image: '/queens_restuarant/assets/img/blogs/13_Cuisine_of_Punjab.jpg',
+    image: JOURNAL_IMAGES.sacredMasalas,
     tags: ['Spice Craft', 'Heritage Cooking', 'Garam Masala', 'Culinary Secrets'],
     featured: true,
     relatedDishId: 'm-9',
@@ -735,7 +735,7 @@ We don't just serve meals; we honor the traditions of your family.
     },
     publishedDate: 'March 24, 2026',
     readTime: '6 min read',
-    image: '/queens_restuarant/assets/img/blogs/9_family_friendly_Punjabi_cuisine_1.jpg',
+    image: JOURNAL_IMAGES.familyFeast,
     tags: ['Family Dining', 'Celebrations', 'Banquets', 'Memories', 'Church Street'],
     featured: false,
     relatedDishId: 'm-13',

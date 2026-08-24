@@ -66,7 +66,7 @@ export const CMSProvider: React.FC<{ children: React.ReactNode }> = ({ children 
 
   // LocalStorage Persistence Keys
   const STORAGE_KEY_MENU = 'queens_restaurant_menu_v3';
-  const STORAGE_KEY_JOURNAL = 'queens_restaurant_journal_v6';
+  const STORAGE_KEY_JOURNAL = 'queens_restaurant_journal_v7';
   const STORAGE_KEY_RESERVATIONS = 'queens_restaurant_reservations_v3';
 
   // Helper to ensure valid bundled images
