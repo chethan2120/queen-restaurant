@@ -1118,7 +1118,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     id: 'g-16',
     title: 'Royal Private Dining Salon',
     category: 'celebrations',
-    image: '/queens_restuarant/assets/img/events-bg.webp',
+    image: VENUE_IMAGES.royalPrivateDiningSalon,
     caption: 'Exclusive heritage suites for intimate private dining and executive banquets.',
     location: 'Church Street',
   },
