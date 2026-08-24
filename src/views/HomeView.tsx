@@ -157,12 +157,16 @@ export const HomeView: React.FC = () => {
               return (
                 <button
                   key={m.year}
+                  type="button"
+                  onMouseEnter={() => setActiveMilestoneIndex(idx)}
+                  onFocus={() => setActiveMilestoneIndex(idx)}
                   onClick={() => setActiveMilestoneIndex(idx)}
-                  className={`px-5 py-3 rounded-lg text-sm font-semibold transition-all border cursor-pointer ${
+                  className={`px-5 py-3 rounded-lg text-sm font-semibold transition-all duration-300 border cursor-pointer select-none ${
                     isActive
                       ? 'bg-[#5A1F24] text-[#FCFAF5] border-[#B58A4A] shadow-md scale-105'
-                      : 'bg-[#F5EFE4] text-[#1E1714] border-[#E8DDCC] hover:border-[#B58A4A]'
+                      : 'bg-[#F5EFE4] text-[#1E1714] border-[#E8DDCC] hover:border-[#B58A4A] hover:bg-[#ECE1CF]'
                   }`}
+                  aria-pressed={isActive}
                 >
                   <span className="block text-xs uppercase tracking-wider opacity-75">Milestone</span>
                   <span className="text-base font-serif font-bold">{m.year}</span>
@@ -172,7 +176,10 @@ export const HomeView: React.FC = () => {
           </div>
 
           {/* Active Milestone Card */}
-          <div className="bg-[#F5EFE4] rounded-xl border border-[#E8DDCC] p-6 sm:p-10 shadow-sm transition-all duration-300">
+          <div
+            key={activeMilestone.year}
+            className="bg-[#F5EFE4] rounded-xl border border-[#E8DDCC] p-6 sm:p-10 shadow-sm transition-all duration-300"
+          >
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
               <div className="lg:col-span-7 space-y-4">
                 <span className="inline-block px-3 py-1 bg-[#5A1F24] text-[#FCFAF5] text-xs font-semibold uppercase tracking-wider rounded">
@@ -195,7 +202,7 @@ export const HomeView: React.FC = () => {
                 <img
                   src={activeMilestone.image}
                   alt={activeMilestone.title}
-                  className="w-full h-72 object-cover rounded-lg shadow-md border border-[#E8DDCC]"
+                  className="w-full h-72 object-cover rounded-lg shadow-md border border-[#E8DDCC] transition-opacity duration-300"
                   referrerPolicy="no-referrer"
                 />
               </div>
