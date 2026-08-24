@@ -10,7 +10,6 @@ import {
   Facebook,
   ArrowRight,
   CheckCircle2,
-  Sliders,
 } from 'lucide-react';
 
 export const Footer: React.FC = () => {
@@ -91,7 +90,7 @@ export const Footer: React.FC = () => {
                 <li key={link.page}>
                   <button
                     onClick={() => setCurrentPage(link.page)}
-                    className="text-sm text-[#D8CEBE] hover:text-[#B58A4A] transition-colors flex items-center gap-1.5 group text-left"
+                    className="text-sm text-[#D8CEBE] hover:text-[#B58A4A] transition-colors flex items-center gap-1.5 group text-left cursor-pointer"
                   >
                     <span className="w-1 h-1 rounded-full bg-[#B58A4A]/60 opacity-0 group-hover:opacity-100 transition-opacity" />
                     <span>{link.label}</span>
@@ -175,7 +174,7 @@ export const Footer: React.FC = () => {
                   />
                   <button
                     type="submit"
-                    className="absolute right-1 top-1 bottom-1 px-3 bg-[#B58A4A] hover:bg-[#D4AF37] text-[#1E1714] rounded text-xs font-semibold transition-colors flex items-center justify-center"
+                    className="absolute right-1 top-1 bottom-1 px-3 bg-[#B58A4A] hover:bg-[#D4AF37] text-[#1E1714] rounded text-xs font-semibold transition-colors flex items-center justify-center cursor-pointer"
                     aria-label="Subscribe"
                   >
                     <ArrowRight className="w-3.5 h-3.5" />
@@ -186,44 +185,46 @@ export const Footer: React.FC = () => {
                 </p>
               </form>
             )}
-
-            {/* CMS Portal Link */}
-            <div className="pt-4">
-              <button
-                onClick={() => setCurrentPage('cms-admin')}
-                className="text-xs text-[#D8CEBE]/70 hover:text-[#B58A4A] flex items-center gap-1.5 transition-colors border border-white/10 hover:border-[#B58A4A]/40 rounded px-2.5 py-1.5"
-              >
-                <Sliders className="w-3.5 h-3.5 text-[#B58A4A]" />
-                <span>Manage via Headless CMS</span>
-              </button>
-            </div>
           </div>
         </div>
 
-        {/* Bottom Copyright & Legal */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-[#D8CEBE]/70 gap-4">
-          <p>
-            © 1974–2026 Queen’s Restaurant. All rights reserved. Designed and Maintained by{' '}
+        {/* Bottom 3-Column Footer Bar */}
+        <div className="pt-8 grid grid-cols-1 md:grid-cols-3 items-center text-xs text-[#D8CEBE]/70 gap-4">
+          
+          {/* Left: Copyright */}
+          <p className="text-center md:text-left">
+            © 1974–2026 Queen’s Restaurant. All rights reserved.
+          </p>
+
+          {/* Center: Maintained by WebNxt */}
+          <p className="text-center">
+            Designed and Maintained by{' '}
             <a
               href="https://webnxt.co/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#D8CEBE] hover:text-[#B58A4A] underline underline-offset-2 transition-colors"
+              className="text-[#D8CEBE] hover:text-[#B58A4A] underline underline-offset-2 transition-colors font-medium"
             >
               WebNxt
             </a>
           </p>
-          <div className="flex items-center space-x-6">
-            <button onClick={() => setCurrentPage('faq')} className="hover:underline">
+
+          {/* Right: Policies & Feedback */}
+          <div className="flex items-center justify-center md:justify-end space-x-6">
+            <button
+              onClick={() => setCurrentPage('faq')}
+              className="hover:text-[#B58A4A] hover:underline transition-colors cursor-pointer"
+            >
               Dining Policies
             </button>
-            <button onClick={() => setCurrentPage('contact')} className="hover:underline">
+            <button
+              onClick={() => setCurrentPage('contact')}
+              className="hover:text-[#B58A4A] hover:underline transition-colors cursor-pointer"
+            >
               Feedback & Enquiries
             </button>
-            <button onClick={() => setCurrentPage('cms-admin')} className="text-[#B58A4A] hover:underline">
-              CMS Portal
-            </button>
           </div>
+
         </div>
       </div>
     </footer>
