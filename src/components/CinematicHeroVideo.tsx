@@ -72,13 +72,12 @@ const CINEMATIC_SCENES: CinematicScene[] = [
 
 interface CinematicHeroVideoProps {
   onExploreMenu: () => void;
-  onDiscoverStory: () => void;
+  onDiscoverStory?: () => void;
   onBookTable: () => void;
 }
 
 export const CinematicHeroVideo: React.FC<CinematicHeroVideoProps> = ({
   onExploreMenu,
-  onDiscoverStory,
   onBookTable,
 }) => {
   const [currentSceneIndex, setCurrentSceneIndex] = useState<number>(0);
@@ -187,41 +186,33 @@ export const CinematicHeroVideo: React.FC<CinematicHeroVideoProps> = ({
           </AnimatePresence>
         </div>
 
-        {/* Primary & Secondary Call to Actions */}
+        {/* Exactly Two Hero Call to Actions */}
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.15 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 w-full max-w-[300px] sm:max-w-xl"
+          className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full max-w-[280px] sm:max-w-none"
         >
           {/* Primary CTA: Explore Menu */}
           <button
             id="hero-explore-menu-btn"
             onClick={onExploreMenu}
-            className="w-full sm:w-auto sm:flex-1 min-h-[44px] sm:min-h-[54px] px-5 sm:px-8 py-2.5 sm:py-3.5 rounded-lg sm:rounded-xl bg-[#B58A4A] hover:bg-[#C89B5B] text-[#1E1714] font-serif font-bold text-xs sm:text-base tracking-wide transition-all duration-300 shadow-lg shadow-[#B58A4A]/20 hover:scale-[1.02] flex items-center justify-center gap-2 group cursor-pointer"
+            className="w-full sm:w-[200px] lg:w-[210px] h-[48px] sm:h-[52px] rounded-lg bg-[#B58A4A] hover:bg-[#C89B5B] text-[#1E1714] font-serif font-bold text-[15px] sm:text-[16px] tracking-wide transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 active:scale-[0.98] flex items-center justify-center gap-2 group cursor-pointer border border-[#B58A4A]"
           >
-            <UtensilsCrossed className="w-4 h-4 sm:w-5 sm:h-5 transition-transform group-hover:rotate-12" />
-            <span>Explore Our Menu</span>
-            <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 transition-transform group-hover:translate-x-1" />
+            <UtensilsCrossed className="w-4 h-4 transition-transform group-hover:rotate-12" />
+            <span>Explore Menu</span>
+            <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
           </button>
 
-          {/* Secondary CTA: Discover Story */}
-          <button
-            id="hero-discover-story-btn"
-            onClick={onDiscoverStory}
-            className="w-full sm:w-auto sm:flex-1 min-h-[44px] sm:min-h-[54px] px-5 sm:px-8 py-2.5 sm:py-3.5 rounded-lg sm:rounded-xl bg-[#5A1F24]/85 hover:bg-[#43161A] text-[#FCFAF5] border border-[#B58A4A]/50 hover:border-[#B58A4A] font-serif font-semibold text-xs sm:text-base tracking-wide transition-all duration-300 backdrop-blur-md shadow-md hover:scale-[1.02] flex items-center justify-center gap-2 cursor-pointer"
-          >
-            <span>Discover Our Story</span>
-          </button>
-
-          {/* Quick Book a Table Trigger */}
+          {/* Secondary CTA: Book Table */}
           <button
             id="hero-book-table-btn"
             onClick={onBookTable}
-            className="w-full sm:w-auto sm:col-span-2 px-4 py-2 rounded-md sm:rounded-lg bg-black/35 hover:bg-black/55 border border-white/20 text-[#FCFAF5]/90 hover:text-white text-[11px] sm:text-sm font-sans tracking-wide transition-all flex items-center justify-center gap-1.5 cursor-pointer mt-0 sm:mt-1 backdrop-blur-sm"
+            className="w-full sm:w-[200px] lg:w-[210px] h-[48px] sm:h-[52px] rounded-lg bg-[#5A1F24] hover:bg-[#43161A] text-[#FCFAF5] font-serif font-semibold text-[15px] sm:text-[16px] tracking-wide transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 active:scale-[0.98] border border-[#B58A4A]/50 hover:border-[#B58A4A] flex items-center justify-center gap-2 group cursor-pointer"
           >
-            <CalendarDays className="w-3.5 h-3.5 text-[#B58A4A]" />
-            <span>Book a Table Online</span>
+            <CalendarDays className="w-4 h-4 text-[#B58A4A]" />
+            <span>Book Table</span>
+            <ArrowRight className="w-4 h-4 text-[#B58A4A] transition-transform duration-300 group-hover:translate-x-1" />
           </button>
         </motion.div>
       </div>
