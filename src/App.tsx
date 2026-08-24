@@ -22,11 +22,6 @@ import { CMSAdminView } from './views/CMSAdminView';
 const MainLayout: React.FC = () => {
   const { currentPage } = useCMS();
 
-  // Scroll to top whenever page changes
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'instant' });
-  }, [currentPage]);
-
   const renderCurrentView = () => {
     switch (currentPage) {
       case 'home':

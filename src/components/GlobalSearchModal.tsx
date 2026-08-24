@@ -204,7 +204,7 @@ export const GlobalSearchModal: React.FC = () => {
                         key={art.id}
                         onClick={() => {
                           setSelectedJournalSlug(art.slug);
-                          setCurrentPage('journal-detail');
+                          setCurrentPage('journal-detail', { journalSlug: art.slug });
                           setIsSearchModalOpen(false);
                         }}
                         className="p-3 rounded bg-white hover:bg-[#F5EFE4] border border-[#E8DDCC] cursor-pointer transition-colors flex items-center justify-between group"
@@ -235,7 +235,7 @@ export const GlobalSearchModal: React.FC = () => {
                         key={loc.id}
                         onClick={() => {
                           setSelectedLocationId(loc.id as 'church-street' | 'new-bel-road');
-                          setCurrentPage('locations');
+                          setCurrentPage('locations', { locationId: loc.id as 'church-street' | 'new-bel-road' });
                           setIsSearchModalOpen(false);
                         }}
                         className="p-3 rounded bg-white hover:bg-[#F5EFE4] border border-[#E8DDCC] cursor-pointer transition-colors flex items-center justify-between group"

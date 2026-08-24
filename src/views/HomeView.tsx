@@ -58,7 +58,7 @@ export const HomeView: React.FC = () => {
       {/* ========================================================
           02 — HERITAGE INTRODUCTION: "A LEGACY OF PUNJABI HOSPITALITY"
          ======================================================== */}
-      <section className="py-20 lg:py-28 bg-[#F5EFE4] border-b border-[#E8DDCC]">
+      <section id="heritage-introduction" className="py-20 lg:py-28 bg-[#F5EFE4] border-b border-[#E8DDCC]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             
@@ -207,7 +207,7 @@ export const HomeView: React.FC = () => {
       {/* ========================================================
           04 — SIGNATURE DISHES: CURATED HIGHLIGHTS
          ======================================================== */}
-      <section className="py-20 lg:py-28 bg-[#F5EFE4] border-b border-[#E8DDCC]">
+      <section id="signature-dishes" className="py-20 lg:py-28 bg-[#F5EFE4] border-b border-[#E8DDCC]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
             <div>
@@ -563,7 +563,7 @@ export const HomeView: React.FC = () => {
       {/* ========================================================
           10 — TESTIMONIALS: "LOVED FOR GENERATIONS"
          ======================================================== */}
-      <section className="py-20 lg:py-28 bg-[#FCFAF5] border-b border-[#E8DDCC]">
+      <section id="loved-for-generations" className="py-20 lg:py-28 bg-[#FCFAF5] border-b border-[#E8DDCC]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-14">
             <span className="text-xs uppercase tracking-widest font-semibold text-[#B58A4A] block mb-2">
@@ -641,7 +641,7 @@ export const HomeView: React.FC = () => {
                 key={art.id}
                 onClick={() => {
                   setSelectedJournalSlug(art.slug);
-                  setCurrentPage('journal-detail');
+                  setCurrentPage('journal-detail', { journalSlug: art.slug });
                 }}
                 className="bg-white rounded-lg border border-[#E8DDCC] overflow-hidden shadow-sm hover:shadow-lg transition-all cursor-pointer flex flex-col justify-between group"
               >

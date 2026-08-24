@@ -179,7 +179,7 @@ export const JournalDetailView: React.FC = () => {
                 key={rel.id}
                 onClick={() => {
                   setSelectedJournalSlug(rel.slug);
-                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                  setCurrentPage('journal-detail', { journalSlug: rel.slug });
                 }}
                 className="bg-white p-5 rounded-xl border border-[#E8DDCC] cursor-pointer hover:shadow-md transition-all flex gap-4 items-center group"
               >

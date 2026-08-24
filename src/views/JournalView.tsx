@@ -82,7 +82,7 @@ export const JournalView: React.FC = () => {
               key={art.id}
               onClick={() => {
                 setSelectedJournalSlug(art.slug);
-                setCurrentPage('journal-detail');
+                setCurrentPage('journal-detail', { journalSlug: art.slug });
               }}
               className="bg-white rounded-xl border border-[#E8DDCC] overflow-hidden shadow-sm hover:shadow-xl transition-all cursor-pointer flex flex-col justify-between group"
             >

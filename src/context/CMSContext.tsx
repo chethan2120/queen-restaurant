@@ -10,10 +10,17 @@ import {
   INITIAL_JOURNAL_ARTICLES,
 } from '../data/restaurantData';
 
+interface NavigationOptions {
+  journalSlug?: string | null;
+  locationId?: 'church-street' | 'new-bel-road' | null;
+  hash?: string | null;
+  replace?: boolean;
+}
+
 interface CMSContextType {
   // Navigation
   currentPage: PageType;
-  setCurrentPage: (page: PageType) => void;
+  setCurrentPage: (page: PageType, options?: NavigationOptions) => void;
   selectedJournalSlug: string | null;
   setSelectedJournalSlug: (slug: string | null) => void;
   selectedLocationId: 'church-street' | 'new-bel-road' | null;
@@ -50,11 +57,69 @@ interface CMSContextType {
 
 const CMSContext = createContext<CMSContextType | undefined>(undefined);
 
+// Helper to parse route from location hash
+const parseInitialRoute = (): {
+  page: PageType;
+  journalSlug: string | null;
+  hash: string | null;
+} => {
+  if (typeof window === 'undefined') {
+    return { page: 'home', journalSlug: null, hash: null };
+  }
+
+  const rawHash = window.location.hash || '';
+  if (!rawHash || rawHash === '#' || rawHash === '#/') {
+    return { page: 'home', journalSlug: null, hash: null };
+  }
+
+  // Handle section anchors like #loved-for-generations
+  const knownSections = ['loved-for-generations', 'signature-dishes', 'heritage-introduction', 'culinary-philosophy', 'experiences', 'locations', 'journal'];
+  const cleanAnchor = rawHash.replace(/^#\/?/, '');
+  if (knownSections.includes(cleanAnchor)) {
+    return { page: 'home', journalSlug: null, hash: cleanAnchor };
+  }
+
+  if (cleanAnchor.startsWith('journal/')) {
+    const slug = cleanAnchor.replace('journal/', '');
+    return { page: 'journal-detail', journalSlug: slug, hash: null };
+  }
+
+  if (cleanAnchor === 'the-queens-table' || cleanAnchor === 'queens-table') {
+    return { page: 'queens-table', journalSlug: null, hash: null };
+  }
+
+  const validPages: PageType[] = [
+    'home',
+    'our-story',
+    'menu',
+    'experiences',
+    'locations',
+    'gallery',
+    'journal',
+    'journal-detail',
+    'queens-table',
+    'contact',
+    'faq',
+    'cms-admin',
+  ];
+
+  if (validPages.includes(cleanAnchor as PageType)) {
+    return { page: cleanAnchor as PageType, journalSlug: null, hash: null };
+  }
+
+  return { page: 'home', journalSlug: null, hash: null };
+};
+
 export const CMSProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  const initialRoute = parseInitialRoute();
+
   // Navigation State
-  const [currentPage, setCurrentPage] = useState<PageType>('home');
-  const [selectedJournalSlug, setSelectedJournalSlug] = useState<string | null>(null);
-  const [selectedLocationId, setSelectedLocationId] = useState<'church-street' | 'new-bel-road' | null>(null);
+  const [currentPage, setCurrentPageState] = useState<PageType>(initialRoute.page);
+  const [selectedJournalSlug, setSelectedJournalSlugState] = useState<string | null>(initialRoute.journalSlug);
+  const [selectedLocationId, setSelectedLocationIdState] = useState<'church-street' | 'new-bel-road' | null>(null);
+
+  // In-memory scroll positions keyed by unique historyKey
+  const scrollMapRef = React.useRef<Map<string, number>>(new Map());
 
   // Modal States
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
@@ -162,10 +227,220 @@ export const CMSProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     }
   }, [reservations]);
 
-  // Scroll to top on page change
+  // Helper to save current scroll position for the current history entry
+  const saveCurrentScroll = () => {
+    if (typeof window === 'undefined') return;
+    const curKey = window.history.state?.historyKey;
+    if (curKey) {
+      const y = window.scrollY || window.pageYOffset || document.documentElement.scrollTop || 0;
+      scrollMapRef.current.set(curKey, y);
+      try {
+        sessionStorage.setItem(`queens_scroll_${curKey}`, String(y));
+      } catch {}
+    }
+  };
+
+  // Initialize history state and manual scroll restoration on mount
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, [currentPage, selectedJournalSlug]);
+    if (typeof window === 'undefined') return;
+
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
+
+    // Ensure initial entry has a unique historyKey
+    if (!window.history.state?.historyKey) {
+      const initialKey = 'hist_' + Date.now() + '_' + Math.random().toString(36).slice(2, 8);
+      const initialHash = window.location.hash;
+      window.history.replaceState(
+        {
+          historyKey: initialKey,
+          page: initialRoute.page,
+          journalSlug: initialRoute.journalSlug,
+          locationId: null,
+          hash: initialRoute.hash || (initialHash ? initialHash.replace(/^#/, '') : null),
+        },
+        ''
+      );
+    }
+
+    // Continuous scroll position tracking
+    let scrollTimer: any = null;
+    const handleScroll = () => {
+      const curKey = window.history.state?.historyKey;
+      if (!curKey) return;
+      const y = window.scrollY || window.pageYOffset || document.documentElement.scrollTop || 0;
+      scrollMapRef.current.set(curKey, y);
+
+      clearTimeout(scrollTimer);
+      scrollTimer = setTimeout(() => {
+        try {
+          sessionStorage.setItem(`queens_scroll_${curKey}`, String(y));
+        } catch {}
+      }, 50);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('beforeunload', saveCurrentScroll);
+    window.addEventListener('pagehide', saveCurrentScroll);
+
+    // Initial anchor scroll if needed
+    if (initialRoute.hash) {
+      setTimeout(() => {
+        const el = document.getElementById(initialRoute.hash!);
+        if (el) el.scrollIntoView({ behavior: 'instant', block: 'start' });
+      }, 150);
+    }
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('beforeunload', saveCurrentScroll);
+      window.removeEventListener('pagehide', saveCurrentScroll);
+      clearTimeout(scrollTimer);
+    };
+  }, []);
+
+  // Browser Back & Forward (popstate) Handler with multi-frame scroll restoration
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+
+    const handlePopState = (event: PopStateEvent) => {
+      const state = event.state;
+      let targetPage: PageType = 'home';
+      let targetSlug: string | null = null;
+      let targetLoc: 'church-street' | 'new-bel-road' | null = null;
+      let targetHash: string | null = null;
+      let targetKey: string | null = null;
+
+      if (state && typeof state === 'object') {
+        targetPage = state.page || 'home';
+        targetSlug = state.journalSlug || null;
+        targetLoc = state.locationId || null;
+        targetHash = state.hash || null;
+        targetKey = state.historyKey || null;
+      } else {
+        const parsed = parseInitialRoute();
+        targetPage = parsed.page;
+        targetSlug = parsed.journalSlug;
+        targetHash = parsed.hash;
+      }
+
+      // Retrieve saved scroll position for this specific history key
+      let savedY = 0;
+      if (targetKey) {
+        if (scrollMapRef.current.has(targetKey)) {
+          savedY = scrollMapRef.current.get(targetKey)!;
+        } else {
+          try {
+            const stored = sessionStorage.getItem(`queens_scroll_${targetKey}`);
+            if (stored !== null) savedY = Number(stored);
+          } catch {}
+        }
+      }
+
+      // Synchronize React state
+      setCurrentPageState(targetPage);
+      setSelectedJournalSlugState(targetSlug);
+      setSelectedLocationIdState(targetLoc);
+
+      // Perform multi-frame scroll restoration
+      const restore = () => {
+        if (targetHash && savedY === 0) {
+          const id = targetHash.replace(/^#/, '');
+          const el = document.getElementById(id);
+          if (el) {
+            el.scrollIntoView({ behavior: 'instant', block: 'start' });
+            return;
+          }
+        }
+        window.scrollTo({ top: savedY, behavior: 'instant' });
+      };
+
+      restore();
+      requestAnimationFrame(restore);
+      [15, 40, 80, 150, 250, 400, 650].forEach((delay) => {
+        setTimeout(restore, delay);
+      });
+    };
+
+    window.addEventListener('popstate', handlePopState);
+    return () => {
+      window.removeEventListener('popstate', handlePopState);
+    };
+  }, []);
+
+  // Central Navigation Dispatcher
+  const setCurrentPage = (page: PageType, options?: NavigationOptions) => {
+    // 1. Save scroll position of current page entry before navigating away
+    saveCurrentScroll();
+
+    const slug = options?.journalSlug !== undefined
+      ? options.journalSlug
+      : (page === 'journal-detail' ? selectedJournalSlug : null);
+
+    const locId = options?.locationId !== undefined
+      ? options.locationId
+      : (page === 'locations' ? selectedLocationId : null);
+
+    const hash = options?.hash || null;
+
+    // 2. Generate unique history key for the new history entry
+    const newKey = 'hist_' + Date.now() + '_' + Math.random().toString(36).slice(2, 8);
+
+    // 3. Compute URL representation
+    let hashPath = `#/${page}`;
+    if (page === 'home' && !hash) {
+      hashPath = '#/';
+    } else if (page === 'home' && hash) {
+      hashPath = `#${hash.replace(/^#/, '')}`;
+    } else if (page === 'journal-detail' && slug) {
+      hashPath = `#/journal/${slug}`;
+    } else if (page === 'queens-table') {
+      hashPath = '#/the-queens-table';
+    }
+
+    const statePayload = {
+      historyKey: newKey,
+      page,
+      journalSlug: slug,
+      locationId: locId,
+      hash,
+    };
+
+    if (options?.replace) {
+      window.history.replaceState(statePayload, '', hashPath);
+    } else {
+      window.history.pushState(statePayload, '', hashPath);
+    }
+
+    // 4. Update React State
+    setCurrentPageState(page);
+    setSelectedJournalSlugState(slug);
+    setSelectedLocationIdState(locId);
+
+    // 5. Scroll behavior for forward navigation
+    if (hash) {
+      requestAnimationFrame(() => {
+        const id = hash.replace(/^#/, '');
+        const el = document.getElementById(id);
+        if (el) {
+          el.scrollIntoView({ behavior: 'instant', block: 'start' });
+        } else {
+          window.scrollTo({ top: 0, behavior: 'instant' });
+        }
+      });
+    } else {
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    }
+  };
+
+  const setSelectedJournalSlug = (slug: string | null) => {
+    setSelectedJournalSlugState(slug);
+  };
+
+  const setSelectedLocationId = (id: 'church-street' | 'new-bel-road' | null) => {
+    setSelectedLocationIdState(id);
+  };
 
   // Menu Handlers
   const addMenuItem = (item: Omit<MenuItem, 'id'>) => {
