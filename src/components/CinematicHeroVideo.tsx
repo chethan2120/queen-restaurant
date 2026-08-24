@@ -114,7 +114,7 @@ export const CinematicHeroVideo: React.FC<CinematicHeroVideoProps> = ({
   const activeScene = CINEMATIC_SCENES[currentSceneIndex];
 
   return (
-    <section className="relative w-full min-h-[580px] sm:min-h-[640px] lg:h-[90vh] lg:min-h-[680px] lg:max-h-[920px] bg-[#1E1714] overflow-hidden flex items-center justify-center py-12 sm:py-16 lg:py-0">
+    <section className="relative w-full min-h-[560px] max-h-[680px] sm:min-h-[640px] sm:max-h-none lg:h-[90vh] lg:min-h-[680px] lg:max-h-[920px] bg-[#1E1714] overflow-hidden flex items-center justify-center pt-8 pb-10 sm:py-16 lg:py-0">
       {/* Background Cinematic Visual Sequences */}
       <div className="absolute inset-0 z-0">
         <AnimatePresence mode="popLayout">
@@ -123,8 +123,8 @@ export const CinematicHeroVideo: React.FC<CinematicHeroVideoProps> = ({
             initial={{ opacity: 0, scale: 1.05 }}
             animate={{
               opacity: 1,
-              scale: activeScene.panDirection === 'zoom-in' ? 1.10 : 1.02,
-              x: activeScene.panDirection === 'pan-left' ? -10 : activeScene.panDirection === 'pan-right' ? 10 : 0,
+              scale: activeScene.panDirection === 'zoom-in' ? 1.08 : 1.02,
+              x: activeScene.panDirection === 'pan-left' ? -8 : activeScene.panDirection === 'pan-right' ? 8 : 0,
             }}
             exit={{ opacity: 0, scale: 1.05 }}
             transition={{
@@ -137,19 +137,18 @@ export const CinematicHeroVideo: React.FC<CinematicHeroVideoProps> = ({
             <img
               src={activeScene.image}
               alt={activeScene.titleHighlight}
-              className="w-full h-full object-cover object-center filter brightness-100 contrast-105"
+              className="w-full h-full object-cover object-[center_35%] sm:object-center filter brightness-105 contrast-105"
               referrerPolicy="no-referrer"
             />
           </motion.div>
         </AnimatePresence>
 
-        {/* Subtle, Balanced Overlay for Crisp Visual Clarity & Text Legibility */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-black/55 z-10" />
-        <div className="absolute inset-0 bg-black/20 z-10" />
+        {/* Subtle, Balanced Gradient Overlay for High Image Visibility & Text Contrast */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/25 via-black/45 to-black/35 z-10" />
 
         {/* Ambient Warm Charcoal Embers Glow */}
-        <div className="absolute inset-0 opacity-20 mix-blend-screen pointer-events-none z-10 overflow-hidden">
-          <div className="w-full h-full bg-[radial-gradient(circle_at_50%_120%,rgba(181,138,74,0.35),transparent_60%)]" />
+        <div className="absolute inset-0 opacity-15 mix-blend-screen pointer-events-none z-10 overflow-hidden">
+          <div className="w-full h-full bg-[radial-gradient(circle_at_50%_120%,rgba(181,138,74,0.3),transparent_60%)]" />
         </div>
       </div>
 
@@ -157,23 +156,23 @@ export const CinematicHeroVideo: React.FC<CinematicHeroVideoProps> = ({
       <div className="relative z-20 w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white flex flex-col items-center">
         
         {/* Dynamic Slide-Specific Text with Smooth Synchronized Transitions */}
-        <div className="w-full min-h-[220px] sm:min-h-[260px] md:min-h-[300px] flex flex-col items-center justify-center">
+        <div className="w-full min-h-[170px] sm:min-h-[260px] md:min-h-[300px] flex flex-col items-center justify-center">
           <AnimatePresence mode="wait">
             <motion.div
               key={activeScene.id}
-              initial={{ opacity: 0, y: 15 }}
+              initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.55, ease: 'easeOut' }}
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ duration: 0.5, ease: 'easeOut' }}
               className="w-full flex flex-col items-center"
             >
               {/* Subtle Heritage Badge */}
-              <div className="inline-flex items-center px-3.5 sm:px-4 py-1 sm:py-1.5 rounded-full bg-[#5A1F24]/85 border border-[#B58A4A]/40 text-[#FDE8AA] text-[11px] sm:text-xs md:text-sm font-serif tracking-widest uppercase mb-4 sm:mb-6 backdrop-blur-md shadow-lg">
+              <div className="inline-flex items-center px-3 sm:px-4 py-0.5 sm:py-1.5 rounded-full bg-[#5A1F24]/85 border border-[#B58A4A]/40 text-[#FDE8AA] text-[10px] sm:text-xs md:text-sm font-serif tracking-widest uppercase mb-2 sm:mb-5 backdrop-blur-md shadow-md">
                 <span>{activeScene.badge}</span>
               </div>
 
               {/* Main Headline */}
-              <h1 className="font-serif text-[32px] xs:text-[38px] sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-[#FCFAF5] leading-[1.08] sm:leading-[1.1] max-w-4xl drop-shadow-[0_4px_16px_rgba(0,0,0,0.85)] mb-3 sm:mb-5 px-2">
+              <h1 className="font-serif text-[27px] xs:text-[31px] sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-[#FCFAF5] leading-[1.08] sm:leading-[1.1] max-w-[340px] sm:max-w-4xl drop-shadow-[0_4px_16px_rgba(0,0,0,0.9)] mb-2 sm:mb-4 px-2">
                 {activeScene.titlePrefix} <br className="hidden sm:inline" />
                 <span className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-[#FDE8AA] via-[#ECC968] to-[#D4AF37] drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]">
                   {activeScene.titleHighlight}
@@ -181,7 +180,7 @@ export const CinematicHeroVideo: React.FC<CinematicHeroVideoProps> = ({
               </h1>
 
               {/* Supporting Tagline */}
-              <p className="text-sm xs:text-base sm:text-lg md:text-xl text-[#FCFAF5]/90 font-sans font-light max-w-[90%] sm:max-w-2xl mx-auto leading-relaxed mb-6 sm:mb-8 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
+              <p className="text-[13px] sm:text-base md:text-xl text-[#FCFAF5]/90 font-sans font-light max-w-[300px] sm:max-w-2xl mx-auto leading-snug sm:leading-relaxed mb-4 sm:mb-8 drop-shadow-[0_2px_8px_rgba(0,0,0,0.85)]">
                 {activeScene.description}
               </p>
             </motion.div>
@@ -190,16 +189,16 @@ export const CinematicHeroVideo: React.FC<CinematicHeroVideoProps> = ({
 
         {/* Primary & Secondary Call to Actions */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full max-w-[340px] sm:max-w-xl"
+          transition={{ duration: 0.6, delay: 0.15 }}
+          className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 w-full max-w-[300px] sm:max-w-xl"
         >
           {/* Primary CTA: Explore Menu */}
           <button
             id="hero-explore-menu-btn"
             onClick={onExploreMenu}
-            className="w-full sm:w-auto sm:flex-1 min-h-[50px] sm:min-h-[54px] px-6 sm:px-8 py-3.5 rounded-xl bg-[#B58A4A] hover:bg-[#C89B5B] text-[#1E1714] font-serif font-bold text-sm sm:text-base tracking-wide transition-all duration-300 shadow-xl shadow-[#B58A4A]/20 hover:scale-[1.02] flex items-center justify-center gap-2 group cursor-pointer"
+            className="w-full sm:w-auto sm:flex-1 min-h-[44px] sm:min-h-[54px] px-5 sm:px-8 py-2.5 sm:py-3.5 rounded-lg sm:rounded-xl bg-[#B58A4A] hover:bg-[#C89B5B] text-[#1E1714] font-serif font-bold text-xs sm:text-base tracking-wide transition-all duration-300 shadow-lg shadow-[#B58A4A]/20 hover:scale-[1.02] flex items-center justify-center gap-2 group cursor-pointer"
           >
             <UtensilsCrossed className="w-4 h-4 sm:w-5 sm:h-5 transition-transform group-hover:rotate-12" />
             <span>Explore Our Menu</span>
@@ -210,7 +209,7 @@ export const CinematicHeroVideo: React.FC<CinematicHeroVideoProps> = ({
           <button
             id="hero-discover-story-btn"
             onClick={onDiscoverStory}
-            className="w-full sm:w-auto sm:flex-1 min-h-[50px] sm:min-h-[54px] px-6 sm:px-8 py-3.5 rounded-xl bg-[#5A1F24]/90 hover:bg-[#43161A] text-[#FCFAF5] border border-[#B58A4A]/50 hover:border-[#B58A4A] font-serif font-semibold text-sm sm:text-base tracking-wide transition-all duration-300 backdrop-blur-md shadow-lg hover:scale-[1.02] flex items-center justify-center gap-2 cursor-pointer"
+            className="w-full sm:w-auto sm:flex-1 min-h-[44px] sm:min-h-[54px] px-5 sm:px-8 py-2.5 sm:py-3.5 rounded-lg sm:rounded-xl bg-[#5A1F24]/85 hover:bg-[#43161A] text-[#FCFAF5] border border-[#B58A4A]/50 hover:border-[#B58A4A] font-serif font-semibold text-xs sm:text-base tracking-wide transition-all duration-300 backdrop-blur-md shadow-md hover:scale-[1.02] flex items-center justify-center gap-2 cursor-pointer"
           >
             <span>Discover Our Story</span>
           </button>
@@ -219,7 +218,7 @@ export const CinematicHeroVideo: React.FC<CinematicHeroVideoProps> = ({
           <button
             id="hero-book-table-btn"
             onClick={onBookTable}
-            className="w-full sm:w-auto sm:col-span-2 px-5 py-2.5 rounded-lg bg-black/40 hover:bg-black/60 border border-white/20 text-[#FCFAF5]/90 hover:text-white text-xs sm:text-sm font-sans tracking-wide transition-all flex items-center justify-center gap-2 cursor-pointer mt-0 sm:mt-1 backdrop-blur-sm"
+            className="w-full sm:w-auto sm:col-span-2 px-4 py-2 rounded-md sm:rounded-lg bg-black/35 hover:bg-black/55 border border-white/20 text-[#FCFAF5]/90 hover:text-white text-[11px] sm:text-sm font-sans tracking-wide transition-all flex items-center justify-center gap-1.5 cursor-pointer mt-0 sm:mt-1 backdrop-blur-sm"
           >
             <CalendarDays className="w-3.5 h-3.5 text-[#B58A4A]" />
             <span>Book a Table Online</span>
