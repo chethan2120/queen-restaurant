@@ -11,9 +11,9 @@ import churchStreetVenue from '../assets/images/church_street_venue_178739591812
 import newBelRoadVenue from '../assets/images/new_bel_road_venue_4k_1787557783344.jpg';
 import tandoorFlame from '../assets/images/tandoor_flame_1787312441035.jpg';
 import royalFeastSpread from '../assets/images/royal_feast_spread_1787312455215.jpg';
-import heroCinematic from '../assets/images/hero_cinematic_1787312426005.jpg';
+import heroCinematic from '../assets/images/hero_4k_royal_dining_scene_1787560536423.jpg';
 import restaurantInteriorDining from '../assets/images/restaurant_interior_dining_1787394728973.jpg';
-import churchStreet1974Dining from '../assets/images/church_street_1974_dining_1787394930404.jpg';
+import churchStreet1974Dining from '../assets/images/hero_4k_royal_dining_scene_1787560536423.jpg';
 import royalPrivateDiningSalon from '../assets/images/royal_private_dining_salon_1787552779208.jpg';
 
 // Starters
