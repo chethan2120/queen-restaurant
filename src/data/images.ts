@@ -56,7 +56,7 @@ import shahiGulabJamunRabri from '../assets/images/shahi_gulab_jamun_17873124078
 import journalPunjabiHeritage from '../assets/images/punjabi_cuisine_heritage_1787547603046.jpg';
 import journalClayTandoor from '../assets/images/clay_tandoor_live_fire_1787547622034.jpg';
 import journalQueensHospitality from '../assets/images/queens_heritage_hospitality_1787547640959.jpg';
-import journalChurchStreetDining from '../assets/images/church_street_dining_scene_1787547743949.jpg';
+import journalChurchStreetDining from '../assets/images/church_street_dining_uploaded_1787548250286.jpg';
 import journalSacredMasalas from '../assets/images/sacred_punjabi_masalas_1787547767976.jpg';
 import journalFamilyFeast from '../assets/images/family_milestone_feast_1787547790032.jpg';
 
