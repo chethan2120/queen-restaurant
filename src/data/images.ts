@@ -8,7 +8,7 @@ import officialLogoPng from '../assets/images/queens_official_logo.png';
 import heroOurStory from '../assets/images/hero_our_story_heritage_1787324126069.jpg';
 import heroMenu from '../assets/images/hero_menu_culinary_spread_1787324146292.jpg';
 import churchStreetVenue from '../assets/images/church_street_venue_1787395918125.png';
-import newBelRoadVenue from '../assets/images/new_bel_road_venue_1787395664768.png';
+import newBelRoadVenue from '../assets/images/new_bel_road_venue_4k_1787557783344.jpg';
 import tandoorFlame from '../assets/images/tandoor_flame_1787312441035.jpg';
 import royalFeastSpread from '../assets/images/royal_feast_spread_1787312455215.jpg';
 import heroCinematic from '../assets/images/hero_cinematic_1787312426005.jpg';
