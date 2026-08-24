@@ -152,7 +152,7 @@ export const HomeView: React.FC = () => {
           </div>
 
           {/* Timeline Navigation Tabs */}
-          <div className="flex items-center justify-center gap-2 sm:gap-4 overflow-x-auto pb-4 mb-10">
+          <div className="flex items-center justify-start sm:justify-center gap-2 sm:gap-4 overflow-x-auto pb-4 mb-10 max-w-full px-2 sm:px-0 scrollbar-thin">
             {HERITAGE_MILESTONES.map((m, idx) => {
               const isActive = activeMilestoneIndex === idx;
               return (

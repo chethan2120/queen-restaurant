@@ -79,22 +79,23 @@ export const Navbar: React.FC = () => {
   return (
     <>
       {/* Top Announcement Bar */}
-      <div className="bg-[#5A1F24] text-[#FCFAF5] text-xs py-2 px-4 border-b border-[#B58A4A]/20">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <div className="flex items-center gap-2 text-xs tracking-wider">
-            <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#B58A4A] animate-pulse" />
-            <span className="font-semibold text-[#B58A4A] uppercase tracking-widest hidden sm:inline">
-              Heritage Since 1974 ·
+      <div className="bg-[#5A1F24] text-[#FCFAF5] text-[11px] sm:text-xs py-1.5 sm:py-2 px-3 sm:px-4 border-b border-[#B58A4A]/20">
+        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-1 sm:gap-2 text-center sm:text-left">
+          <div className="flex items-center justify-center gap-1.5 tracking-wider flex-wrap">
+            <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#B58A4A] animate-pulse shrink-0" />
+            <span className="font-bold text-[#B58A4A] uppercase tracking-widest text-[10px] sm:text-xs">
+              HERITAGE SINCE 1974
             </span>
+            <span className="hidden sm:inline text-[#B58A4A]/60">·</span>
             <span className="opacity-90">50 Years of Royal Punjabi Hospitality in Bengaluru</span>
           </div>
 
-          <div className="flex items-center gap-6 text-xs">
+          <div className="flex items-center justify-center gap-4 text-[11px] sm:text-xs shrink-0">
             <a
               href="tel:+917204464661"
-              className="flex items-center gap-1.5 opacity-80 hover:opacity-100 hover:text-[#B58A4A] transition-colors"
+              className="flex items-center gap-1 opacity-90 hover:opacity-100 hover:text-[#B58A4A] transition-colors whitespace-nowrap"
             >
-              <Phone className="w-3.5 h-3.5 text-[#B58A4A]" />
+              <Phone className="w-3 h-3 text-[#B58A4A]" />
               <span>Church St: +91 72044 64661</span>
             </a>
           </div>
@@ -105,20 +106,20 @@ export const Navbar: React.FC = () => {
       <header
         className={`sticky top-0 z-40 transition-all duration-300 ${
           isScrolled
-            ? 'bg-[#FCFAF5]/98 backdrop-blur-md shadow-md py-3 border-b border-[#E8DDCC]'
-            : 'bg-[#F5EFE4]/98 backdrop-blur-md py-3.5 sm:py-4 border-b border-[#E8DDCC]/80'
+            ? 'bg-[#FCFAF5]/98 backdrop-blur-md shadow-md py-2 sm:py-3 border-b border-[#E8DDCC]'
+            : 'bg-[#F5EFE4]/98 backdrop-blur-md py-2.5 sm:py-3.5 border-b border-[#E8DDCC]/80'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 flex items-center justify-between gap-2 sm:gap-4">
           {/* Logo Brand */}
           <button
             onClick={handleLogoClick}
-            className="flex items-center gap-3 text-left focus:outline-none group cursor-pointer shrink-0"
+            className="flex items-center gap-2 text-left focus:outline-none group cursor-pointer shrink-0"
             id="nav-brand-logo"
             title="Queen's Restaurant Home"
             aria-label="Queen's Restaurant Home"
           >
-            <Logo variant="light" size="sm" className="transition-transform group-hover:scale-[1.02]" />
+            <Logo variant="light" size="sm" className="transition-transform group-hover:scale-[1.02] max-w-[54px] sm:max-w-[64px]" />
           </button>
 
           {/* Desktop Navigation Links */}
@@ -146,27 +147,28 @@ export const Navbar: React.FC = () => {
           </nav>
 
           {/* Action CTAs */}
-          <div className="flex items-center space-x-3 shrink-0">
+          <div className="flex items-center space-x-1.5 sm:space-x-3 shrink-0">
             {/* Global Search Button */}
             <button
               onClick={() => setIsSearchModalOpen(true)}
               id="nav-search-btn"
-              className="p-2 rounded-full text-[#5A1F24] hover:bg-[#E8DDCC]/50 transition-colors cursor-pointer"
+              className="p-1.5 sm:p-2 rounded-full text-[#5A1F24] hover:bg-[#E8DDCC]/50 transition-colors cursor-pointer"
               title="Search Menu, Journal, Locations"
               aria-label="Search"
             >
-              <Search className="w-5 h-5" />
+              <Search className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
 
             {/* Primary Book a Table CTA */}
             <button
               onClick={() => setIsBookingModalOpen(true)}
               id="nav-book-table-btn"
-              className="relative group overflow-hidden px-4 sm:px-5 py-2.5 bg-[#5A1F24] text-[#FCFAF5] text-xs font-semibold uppercase tracking-widest rounded shadow-sm hover:shadow-md transition-all duration-300 border border-[#B58A4A]/50 hover:border-[#B58A4A] cursor-pointer whitespace-nowrap shrink-0"
+              className="relative group overflow-hidden px-2.5 sm:px-5 py-2 sm:py-2.5 bg-[#5A1F24] text-[#FCFAF5] text-[11px] sm:text-xs font-semibold uppercase tracking-wider sm:tracking-widest rounded shadow-sm hover:shadow-md transition-all duration-300 border border-[#B58A4A]/50 hover:border-[#B58A4A] cursor-pointer whitespace-nowrap shrink-0"
             >
-              <span className="relative z-10 flex items-center gap-2">
-                <Calendar className="w-3.5 h-3.5 text-[#B58A4A]" />
-                <span>Book a Table</span>
+              <span className="relative z-10 flex items-center gap-1.5 sm:gap-2">
+                <Calendar className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#B58A4A]" />
+                <span className="hidden xs:inline">Book a Table</span>
+                <span className="xs:hidden">Book</span>
               </span>
               <div className="absolute inset-0 bg-gradient-to-r from-[#B58A4A]/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
             </button>
@@ -175,10 +177,10 @@ export const Navbar: React.FC = () => {
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               id="nav-mobile-toggle"
-              className="lg:hidden p-2 text-[#5A1F24] hover:bg-[#E8DDCC]/50 rounded transition-colors cursor-pointer"
+              className="lg:hidden p-1.5 sm:p-2 text-[#5A1F24] hover:bg-[#E8DDCC]/50 rounded transition-colors cursor-pointer"
               aria-label="Toggle navigation menu"
             >
-              {isMobileMenuOpen ? <X className="w-6 h-6" /> : <MenuIcon className="w-6 h-6" />}
+              {isMobileMenuOpen ? <X className="w-5 h-5 sm:w-6 sm:h-6" /> : <MenuIcon className="w-5 h-5 sm:w-6 sm:h-6" />}
             </button>
           </div>
         </div>

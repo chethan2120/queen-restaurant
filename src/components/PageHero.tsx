@@ -22,7 +22,7 @@ export const PageHero: React.FC<PageHeroProps> = ({
   const shouldReduceMotion = useReducedMotion();
 
   return (
-    <section className="bg-[#1E1714] text-[#FCFAF5] py-16 sm:py-20 lg:py-24 relative overflow-hidden text-center border-b border-[#B58A4A]/30 min-h-[380px] sm:min-h-[420px] lg:min-h-[460px] flex items-center justify-center">
+    <section className="bg-[#1E1714] text-[#FCFAF5] py-12 sm:py-20 lg:py-24 relative overflow-hidden text-center border-b border-[#B58A4A]/30 min-h-[340px] sm:min-h-[420px] lg:min-h-[460px] flex items-center justify-center">
       {/* Background Image with Slow Ambient Cinematic Depth */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         {shouldReduceMotion ? (
@@ -52,7 +52,7 @@ export const PageHero: React.FC<PageHeroProps> = ({
       </div>
 
       {/* Subtle Lighter Gradient Overlay for Optimal Image Visibility & Text Contrast */}
-      <div className="absolute inset-0 bg-gradient-to-t from-[#1E1714]/80 via-[#1E1714]/35 to-[#1E1714]/60 z-0" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#1E1714]/85 via-[#1E1714]/40 to-[#1E1714]/65 z-0" />
       <div className="absolute inset-0 bg-black/20 z-0" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(181,138,74,0.18),transparent_70%)] z-0" />
 
@@ -61,23 +61,23 @@ export const PageHero: React.FC<PageHeroProps> = ({
         initial={shouldReduceMotion ? {} : { opacity: 0, y: 16 }}
         animate={shouldReduceMotion ? {} : { opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-        className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4 my-auto"
+        className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-3 sm:space-y-4 my-auto w-full"
       >
-        <Logo variant="dark" size="sm" className="mx-auto" />
+        <Logo variant="dark" size="sm" className="mx-auto max-w-[56px] sm:max-w-[64px]" />
         
         <div className="inline-flex items-center justify-center gap-2">
           <span className="w-6 sm:w-8 h-px bg-[#B58A4A]/60" />
-          <span className="text-[11px] sm:text-xs uppercase tracking-widest text-[#B58A4A] font-bold">
+          <span className="text-[10px] sm:text-xs uppercase tracking-widest text-[#B58A4A] font-bold">
             {eyebrow}
           </span>
           <span className="w-6 sm:w-8 h-px bg-[#B58A4A]/60" />
         </div>
 
-        <h1 className="text-3xl sm:text-5xl lg:text-6xl font-serif font-bold text-[#FCFAF5] tracking-tight leading-tight drop-shadow-[0_4px_16px_rgba(0,0,0,0.85)]">
+        <h1 className="text-2xl xs:text-3xl sm:text-5xl lg:text-6xl font-serif font-bold text-[#FCFAF5] tracking-tight leading-[1.12] drop-shadow-[0_4px_16px_rgba(0,0,0,0.85)] px-2">
           {title}
         </h1>
 
-        <p className="text-xs sm:text-sm lg:text-base text-[#FCFAF5]/90 max-w-2xl mx-auto font-light leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
+        <p className="text-xs sm:text-sm lg:text-base text-[#FCFAF5]/90 max-w-2xl mx-auto font-light leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)] px-2">
           {description}
         </p>
 
