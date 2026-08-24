@@ -1026,6 +1026,14 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     location: 'New BEL Road',
   },
   {
+    id: 'g-5b',
+    title: 'Warm Heritage Ambience & Evening Dining',
+    category: 'interiors',
+    image: VENUE_IMAGES.churchStreet1974Dining,
+    caption: 'Intimate candlelit dining salon adorned with vintage woodwork and warm chandeliers.',
+    location: 'Church Street',
+  },
+  {
     id: 'g-6',
     title: 'New BEL Road Grand Celebration Banquet Pavilion',
     category: 'interiors',

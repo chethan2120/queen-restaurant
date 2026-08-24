@@ -89,7 +89,7 @@ export const GalleryView: React.FC = () => {
         {/* Editorial Asymmetric Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredItems.map((item, idx) => {
-            const isSpan = item.featured && activeCategory === 'all' && (idx === 0 || idx === 5);
+            const isSpan = item.featured && activeCategory === 'all' && (idx === 0 || item.id === 'g-6');
             return (
               <div
                 key={item.id}
