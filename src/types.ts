@@ -50,8 +50,8 @@ export interface RestaurantLocation {
   seatingCapacity: number;
   mapEmbedUrl: string;
   googleMapsLink: string;
-  swiggyLink: string;
-  zomatoLink: string;
+  swiggyLink?: string;
+  zomatoLink?: string;
   image: string;
   gallery: string[];
 }

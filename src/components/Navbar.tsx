@@ -19,7 +19,6 @@ export const Navbar: React.FC = () => {
     currentPage,
     setCurrentPage,
     setIsBookingModalOpen,
-    setIsOrderModalOpen,
     setIsSearchModalOpen,
     setSelectedJournalSlug,
     setSelectedLocationId,
@@ -290,17 +289,6 @@ export const Navbar: React.FC = () => {
               >
                 <Calendar className="w-4 h-4 text-[#B58A4A]" />
                 <span>Reserve a Table</span>
-              </button>
-
-              <button
-                onClick={() => {
-                  setIsMobileMenuOpen(false);
-                  setIsOrderModalOpen(true);
-                }}
-                className="w-full py-3 bg-[#E8DDCC] text-[#5A1F24] font-semibold uppercase tracking-widest text-xs rounded flex items-center justify-center gap-2 border border-[#5A1F24]/20"
-              >
-                <ShoppingBag className="w-4 h-4" />
-                <span>Order Online (Swiggy / Zomato)</span>
               </button>
 
               <div className="pt-2 text-center text-xs text-[#1E1714]/70">

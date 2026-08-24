@@ -22,7 +22,7 @@ import {
 } from 'lucide-react';
 
 export const ContactView: React.FC = () => {
-  const { setCurrentPage, setIsBookingModalOpen, setIsOrderModalOpen, setPreselectedBookingLocation } = useCMS();
+  const { setCurrentPage, setIsBookingModalOpen, setPreselectedBookingLocation } = useCMS();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
@@ -61,13 +61,6 @@ export const ContactView: React.FC = () => {
           >
             <Calendar className="w-3.5 h-3.5 text-[#B58A4A]" />
             <span>Instant Table Reservation</span>
-          </button>
-          <button
-            onClick={() => setIsOrderModalOpen(true)}
-            className="px-6 py-3 bg-white/10 hover:bg-white/20 text-[#FCFAF5] rounded border border-white/20 transition-all flex items-center gap-2 cursor-pointer"
-          >
-            <ShoppingBag className="w-3.5 h-3.5 text-[#B58A4A]" />
-            <span>Order Takeaway / Delivery</span>
           </button>
         </div>
       </PageHero>
@@ -497,7 +490,7 @@ export const ContactView: React.FC = () => {
               Ready to Experience Royal Punjabi Dining?
             </h3>
             <p className="text-xs sm:text-sm text-[#D8CEBE] max-w-lg mx-auto font-light leading-relaxed">
-              Reserve your table in 6 simple steps with live instant confirmation, or explore our menu and order online.
+              Reserve your table with live instant confirmation, or explore our royal dining locations.
             </p>
           </div>
 
@@ -508,13 +501,6 @@ export const ContactView: React.FC = () => {
             >
               <Calendar className="w-3.5 h-3.5" />
               <span>Book a Table</span>
-            </button>
-            <button
-              onClick={() => setIsOrderModalOpen(true)}
-              className="px-8 py-3.5 bg-white/10 hover:bg-white/20 text-[#FCFAF5] rounded font-semibold text-xs uppercase tracking-wider transition-colors border border-white/30 flex items-center gap-2 cursor-pointer"
-            >
-              <ShoppingBag className="w-3.5 h-3.5 text-[#B58A4A]" />
-              <span>Order Online</span>
             </button>
             <button
               onClick={() => setCurrentPage('locations')}

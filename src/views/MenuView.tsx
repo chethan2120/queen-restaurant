@@ -12,7 +12,7 @@ import {
 } from 'lucide-react';
 
 export const MenuView: React.FC = () => {
-  const { menuItems, setIsBookingModalOpen, setIsOrderModalOpen } = useCMS();
+  const { menuItems, setIsBookingModalOpen } = useCMS();
 
   const [activeCategory, setActiveCategory] = useState<string>('all');
   const [dietaryFilter, setDietaryFilter] = useState<'all' | 'veg' | 'non-veg' | 'special'>('all');
@@ -70,17 +70,10 @@ export const MenuView: React.FC = () => {
         <div className="flex items-center justify-center gap-3 no-print">
           <button
             onClick={() => setIsBookingModalOpen(true)}
-            className="px-5 py-2.5 bg-[#5A1F24] hover:bg-[#72272e] text-[#FCFAF5] text-xs font-semibold uppercase tracking-wider rounded border border-[#B58A4A] flex items-center gap-2 cursor-pointer"
+            className="px-6 py-2.5 bg-[#5A1F24] hover:bg-[#72272e] text-[#FCFAF5] text-xs font-semibold uppercase tracking-wider rounded border border-[#B58A4A] flex items-center gap-2 cursor-pointer shadow-md transition-all"
           >
             <Calendar className="w-3.5 h-3.5 text-[#B58A4A]" />
             <span>Book a Table</span>
-          </button>
-          <button
-            onClick={() => setIsOrderModalOpen(true)}
-            className="px-5 py-2.5 bg-white/10 hover:bg-white/20 text-[#FCFAF5] text-xs font-semibold uppercase tracking-wider rounded border border-white/20 flex items-center gap-2 cursor-pointer"
-          >
-            <ShoppingBag className="w-3.5 h-3.5 text-[#B58A4A]" />
-            <span>Order Delivery</span>
           </button>
         </div>
       </PageHero>

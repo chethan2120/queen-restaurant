@@ -27,7 +27,6 @@ export const HomeView: React.FC = () => {
   const {
     setCurrentPage,
     setIsBookingModalOpen,
-    setIsOrderModalOpen,
     setSelectedJournalSlug,
     setPreselectedBookingLocation,
     menuItems,
@@ -708,18 +707,10 @@ export const HomeView: React.FC = () => {
           <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
             <button
               onClick={() => setIsBookingModalOpen(true)}
-              className="w-full sm:w-auto px-8 py-3.5 bg-[#5A1F24] hover:bg-[#72272e] text-[#FCFAF5] rounded font-semibold uppercase tracking-widest text-xs border border-[#B58A4A] shadow-xl flex items-center justify-center gap-2 cursor-pointer"
+              className="w-full sm:w-auto px-8 py-3.5 bg-[#5A1F24] hover:bg-[#72272e] text-[#FCFAF5] rounded font-semibold uppercase tracking-widest text-xs border border-[#B58A4A] shadow-xl flex items-center justify-center gap-2 cursor-pointer transition-all"
             >
               <Calendar className="w-4 h-4 text-[#B58A4A]" />
               <span>Book a Table Now</span>
-            </button>
-
-            <button
-              onClick={() => setIsOrderModalOpen(true)}
-              className="w-full sm:w-auto px-8 py-3.5 bg-[#FCFAF5]/10 hover:bg-[#FCFAF5]/20 text-[#FCFAF5] rounded font-semibold uppercase tracking-widest text-xs border border-white/20 transition-colors flex items-center justify-center gap-2 cursor-pointer"
-            >
-              <ShoppingBag className="w-4 h-4 text-[#B58A4A]" />
-              <span>Order Delivery Online</span>
             </button>
           </div>
         </div>

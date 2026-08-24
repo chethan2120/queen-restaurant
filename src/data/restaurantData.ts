@@ -993,8 +993,8 @@ export const FAQ_ITEMS: FAQItem[] = [
   {
     id: 'faq-7',
     category: 'Locations & Service',
-    question: 'Do you offer direct home delivery or online ordering?',
-    answer: 'Yes, you can order online directly through Swiggy and Zomato from both locations, or call us directly for bulk party takeaways packed in thermal-insulated containers.',
+    question: 'Do you accommodate private dining and milestone family celebrations?',
+    answer: 'Yes, both our Church Street dining salon and New BEL Road banquet hall feature dedicated spaces for milestone family celebrations, anniversaries, and executive gatherings.',
   },
 ];
 

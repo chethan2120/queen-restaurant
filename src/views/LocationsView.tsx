@@ -17,7 +17,6 @@ export const LocationsView: React.FC = () => {
   const {
     setCurrentPage,
     setIsBookingModalOpen,
-    setIsOrderModalOpen,
     setPreselectedBookingLocation,
     selectedLocationId,
     setSelectedLocationId,
@@ -168,13 +167,13 @@ export const LocationsView: React.FC = () => {
               </div>
 
               {/* Action Buttons */}
-              <div className="pt-6 border-t border-[#E8DDCC] grid grid-cols-1 sm:grid-cols-3 gap-3">
+              <div className="pt-6 border-t border-[#E8DDCC] grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <button
                   onClick={() => {
                     setPreselectedBookingLocation(activeLocation.id);
                     setIsBookingModalOpen(true);
                   }}
-                  className="py-3 bg-[#5A1F24] text-[#FCFAF5] rounded text-xs font-semibold uppercase tracking-wider hover:bg-[#43161A] transition-colors flex items-center justify-center gap-1.5 border border-[#B58A4A] cursor-pointer"
+                  className="py-3 bg-[#5A1F24] text-[#FCFAF5] rounded text-xs font-semibold uppercase tracking-wider hover:bg-[#43161A] transition-colors flex items-center justify-center gap-1.5 border border-[#B58A4A] cursor-pointer shadow-sm"
                 >
                   <Calendar className="w-3.5 h-3.5 text-[#B58A4A]" />
                   <span>Book Table</span>
@@ -189,14 +188,6 @@ export const LocationsView: React.FC = () => {
                   <span>Get Directions</span>
                   <ExternalLink className="w-3 h-3" />
                 </a>
-
-                <button
-                  onClick={() => setIsOrderModalOpen(true)}
-                  className="py-3 bg-[#FC8019]/10 text-[#FC8019] border border-[#FC8019]/40 rounded text-xs font-semibold uppercase tracking-wider hover:bg-[#FC8019]/20 transition-colors flex items-center justify-center gap-1.5 cursor-pointer"
-                >
-                  <ShoppingBag className="w-3.5 h-3.5" />
-                  <span>Order Online</span>
-                </button>
               </div>
             </div>
 

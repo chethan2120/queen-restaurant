@@ -22,8 +22,6 @@ interface CMSContextType {
   // Modals
   isBookingModalOpen: boolean;
   setIsBookingModalOpen: (open: boolean) => void;
-  isOrderModalOpen: boolean;
-  setIsOrderModalOpen: (open: boolean) => void;
   isSearchModalOpen: boolean;
   setIsSearchModalOpen: (open: boolean) => void;
   preselectedBookingLocation: 'church-street' | 'new-bel-road' | null;
@@ -60,7 +58,6 @@ export const CMSProvider: React.FC<{ children: React.ReactNode }> = ({ children 
 
   // Modal States
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
-  const [isOrderModalOpen, setIsOrderModalOpen] = useState(false);
   const [isSearchModalOpen, setIsSearchModalOpen] = useState(false);
   const [preselectedBookingLocation, setPreselectedBookingLocation] = useState<'church-street' | 'new-bel-road' | null>(null);
 
@@ -284,8 +281,6 @@ export const CMSProvider: React.FC<{ children: React.ReactNode }> = ({ children 
 
         isBookingModalOpen,
         setIsBookingModalOpen,
-        isOrderModalOpen,
-        setIsOrderModalOpen,
         isSearchModalOpen,
         setIsSearchModalOpen,
         preselectedBookingLocation,
