@@ -1,6 +1,7 @@
 import React from 'react';
 import { useCMS } from '../context/CMSContext';
-import { Logo } from '../components/Logo';
+import { PageHero } from '../components/PageHero';
+import { PAGE_HERO_IMAGES } from '../data/images';
 import { Utensils, Calendar, ArrowRight, Heart, Clock, Flame, Users } from 'lucide-react';
 
 export const QueensTableView: React.FC = () => {
@@ -46,61 +47,33 @@ export const QueensTableView: React.FC = () => {
       {/* ========================================================
           01 — HERO SECTION: THE QUEEN'S TABLE
          ======================================================== */}
-      <section className="relative min-h-[520px] lg:min-h-[580px] bg-[#1E1714] text-[#FCFAF5] flex items-center justify-center overflow-hidden border-b border-[#B58A4A]/30">
-        {/* Background Image with balanced luxury overlay */}
-        <div className="absolute inset-0 z-0">
-          <img
-            src="/queens_restuarant/assets/img/hero-bg-6.webp"
-            alt="The Queen's Table - Royal Dining Ambiance"
-            className="w-full h-full object-cover object-center scale-105 transition-transform duration-1000 brightness-95 contrast-105"
-            referrerPolicy="no-referrer"
-          />
+      <PageHero
+        backgroundImage={PAGE_HERO_IMAGES.queensTable}
+        eyebrow="QUEEN'S RESTAURANT · SINCE 1974"
+        title="The Queen’s Table"
+        description="Where every table holds a story, every dish carries a tradition, and every gathering becomes a memory."
+        imageAlt="The Queen's Table - Royal Dining Ambiance"
+      >
+        <div className="pt-2 flex flex-wrap items-center justify-center gap-4 text-xs font-semibold uppercase tracking-wider">
+          <button
+            onClick={() => setCurrentPage('menu')}
+            id="queens-table-explore-menu-btn"
+            className="px-6 py-2.5 bg-[#B58A4A] text-[#1E1714] font-semibold text-xs uppercase tracking-wider rounded shadow-md hover:bg-[#C89B5B] transition-all flex items-center gap-2 cursor-pointer"
+          >
+            <Utensils className="w-3.5 h-3.5" />
+            <span>Explore Menu</span>
+            <ArrowRight className="w-3.5 h-3.5" />
+          </button>
+
+          <button
+            onClick={() => setIsBookingModalOpen(true)}
+            className="px-6 py-2.5 bg-[#5A1F24] hover:bg-[#43161A] text-[#FCFAF5] rounded border border-[#B58A4A] text-xs font-semibold uppercase tracking-wider shadow-md transition-all flex items-center gap-2 cursor-pointer"
+          >
+            <Calendar className="w-3.5 h-3.5 text-[#B58A4A]" />
+            <span>Reserve Table</span>
+          </button>
         </div>
-        <div className="absolute inset-0 bg-gradient-to-t from-[#1E1714]/85 via-[#1E1714]/40 to-[#1E1714]/65 z-0" />
-        <div className="absolute inset-0 bg-black/20 z-0" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(181,138,74,0.18),transparent_70%)] z-0" />
-
-        {/* Content */}
-        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-5 my-auto py-16">
-          <Logo variant="dark" size="sm" className="mx-auto" />
-
-          <div className="inline-flex items-center justify-center gap-2">
-            <span className="w-8 h-px bg-[#B58A4A]/70" />
-            <span className="text-xs uppercase tracking-widest text-[#B58A4A] font-bold">
-              QUEEN'S RESTAURANT
-            </span>
-            <span className="w-8 h-px bg-[#B58A4A]/70" />
-          </div>
-
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-serif font-bold text-[#FCFAF5] tracking-tight leading-[1.1] drop-shadow-[0_4px_16px_rgba(0,0,0,0.85)]">
-            The Queen’s Table
-          </h1>
-
-          <p className="text-base sm:text-lg lg:text-xl text-[#FCFAF5]/90 max-w-2xl mx-auto font-light leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
-            Where every table holds a story, every dish carries a tradition, and every gathering becomes a memory.
-          </p>
-
-          <div className="pt-4 flex flex-wrap items-center justify-center gap-4">
-            <button
-              onClick={() => setCurrentPage('menu')}
-              id="queens-table-explore-menu-btn"
-              className="px-8 py-3.5 bg-[#B58A4A] text-[#1E1714] font-semibold text-xs uppercase tracking-widest rounded shadow-lg hover:bg-[#C89B5B] transition-all flex items-center gap-2 cursor-pointer"
-            >
-              <Utensils className="w-4 h-4" />
-              <span>Explore Our Menu</span>
-              <ArrowRight className="w-4 h-4" />
-            </button>
-
-            <button
-              onClick={() => setIsBookingModalOpen(true)}
-              className="px-8 py-3.5 bg-transparent text-[#FCFAF5] border border-[#FCFAF5]/40 hover:border-[#FCFAF5] rounded text-xs font-semibold uppercase tracking-widest transition-all flex items-center gap-2 cursor-pointer"
-            >
-              <Calendar className="w-4 h-4 text-[#B58A4A]" />
-              <span>Reserve a Table</span>
-            </button>
-          </div>
-        </div>
-      </section>
+      </PageHero>
 
       {/* ========================================================
           02 — A TABLE MADE FOR STORIES

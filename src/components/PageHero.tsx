@@ -19,7 +19,7 @@ export const PageHero: React.FC<PageHeroProps> = ({
   imageAlt = "Queen's Restaurant Hero Image",
 }) => {
   return (
-    <section className="bg-[#1E1714] text-[#FCFAF5] py-16 sm:py-20 lg:py-24 relative overflow-hidden text-center border-b border-[#B58A4A]/30 min-h-[360px] sm:min-h-[400px] flex items-center justify-center">
+    <section className="bg-[#1E1714] text-[#FCFAF5] py-16 sm:py-20 lg:py-24 relative overflow-hidden text-center border-b border-[#B58A4A]/30 min-h-[380px] sm:min-h-[420px] lg:min-h-[460px] flex items-center justify-center">
       {/* Background Image with Balanced Editorial Clarity */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         <img

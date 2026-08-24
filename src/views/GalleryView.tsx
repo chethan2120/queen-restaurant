@@ -57,9 +57,9 @@ export const GalleryView: React.FC = () => {
       {/* Gallery Hero Header */}
       <PageHero
         backgroundImage={PAGE_HERO_IMAGES.gallery}
-        eyebrow="Visual Chronicle & Atmosphere"
+        eyebrow="VISUAL CHRONICLE & ATMOSPHERE"
         title="The Queen's Visual Gallery"
-        description="An editorial look inside our kitchens, historic spaces, charcoal embers, and fifty years of celebrations."
+        description="An editorial look inside our kitchens, historic spaces, signature flavours, cherished conversations, and fifty years of celebrations."
         imageAlt="Queen's Restaurant Atmosphere, Interiors and Fine Dining Spaces"
       />
 

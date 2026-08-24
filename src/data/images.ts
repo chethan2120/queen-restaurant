@@ -76,9 +76,9 @@ export const OFFICIAL_LOGO_URL = officialLogoPng;
 export const PAGE_HERO_IMAGES = {
   ourStory: heroOurStory,
   menu: heroMenu,
-  gallery: churchStreetVenue,
+  gallery: restaurantInteriorDining,
   journal: tandoorFlame,
-  queensTable: '/queens_restuarant/assets/img/hero-bg-6.webp',
+  queensTable: royalFeastSpread,
   locations: churchStreetVenue,
   contact: heroCinematic,
   faq: newBelRoadVenue,
