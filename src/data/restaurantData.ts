@@ -572,11 +572,11 @@ The essence of Punjabi cooking rests on four pillars:
     author: {
       name: 'Chef Harinder Singh',
       role: 'Master Chef & Culinary Historian',
-      avatar: DISH_IMAGES.bhattiDaMurgh,
+      avatar: '/queens_restuarant/assets/img/chefs/chefs-1.webp',
     },
     publishedDate: 'January 14, 2026',
     readTime: '6 min read',
-    image: DISH_IMAGES.dalMakhaniSignature,
+    image: '/queens_restuarant/assets/img/blogs/10_Punjabi_food.jpg',
     tags: ['Punjabi History', 'Heritage', 'Tandoor', 'Slow Cooking'],
     featured: true,
     relatedDishId: 'm-9',
@@ -604,11 +604,11 @@ When marinades and fat from skewered kebabs drip onto the red-hot coals below, t
     author: {
       name: 'Simranjit Randhawa',
       role: 'Senior Food Columnist & Patron',
-      avatar: DISH_IMAGES.galoutiKebabNawabi,
+      avatar: '/queens_restuarant/assets/img/gallery/people/68_sonaleem-and-anshul-chodha.webp',
     },
     publishedDate: 'February 2, 2026',
     readTime: '5 min read',
-    image: VENUE_IMAGES.tandoorLiveHearth,
+    image: '/queens_restuarant/assets/img/blogs/3_punjabi_rasoi_indian_cuisine_1.jpg',
     tags: ['Tandoor Science', 'Breads', 'Culinary Craft'],
     featured: false,
     relatedDishId: 'm-1',
@@ -636,11 +636,11 @@ We invite you to taste fifty years of devotion in every bite.
     author: {
       name: 'Gurpreet Singh',
       role: 'Managing Partner',
-      avatar: VENUE_IMAGES.heroDiningRoom,
+      avatar: '/queens_restuarant/assets/img/gallery/people/69_people-at-restaurant.webp',
     },
     publishedDate: 'February 18, 2026',
     readTime: '7 min read',
-    image: VENUE_IMAGES.churchStreetFlagship,
+    image: '/queens_restuarant/assets/img/blogs/5_Church_Street_in_Bangalore.jpg',
     tags: ['Legacy', 'Church Street', '50 Years', 'Bengaluru History'],
     featured: true,
     relatedDishId: 'm-13',
@@ -665,14 +665,80 @@ Church Street is widely recognized as Bengaluru’s most vibrant pedestrian and 
     author: {
       name: 'Pooja Kashyap',
       role: 'Bengaluru Food & Culture Writer',
-      avatar: DISH_IMAGES.kesarPistaBadamMilk,
+      avatar: '/queens_restuarant/assets/img/gallery/people/64_people-5.webp',
     },
     publishedDate: 'March 1, 2026',
     readTime: '4 min read',
-    image: DISH_IMAGES.bhattiDaMurgh,
+    image: '/queens_restuarant/assets/img/blogs/6_Punjabi_food_in_Bangalore_1.jpg',
     tags: ['Church Street', 'Bangalore Dining', 'Tips', 'Weekend Guide'],
     featured: false,
     relatedDishId: 'm-1',
+  },
+  {
+    id: 'j-5',
+    slug: 'art-of-punjabi-masalas-dheemi-aanch',
+    title: 'The Sacred Art of Punjabi Masalas: Whole Spices, Potlis, and Dheemi Aanch',
+    excerpt: 'Discover how Queen\'s signature garam masala is hand-blended, tied in cotton potlis, and coaxed over gentle embers to create deep, soul-warming layers of flavour.',
+    content: `
+# The Sacred Symphony of Khada Masala
+
+In traditional Punjabi kitchens, masala is never an afterthought or a commercial powder shaken from a jar. It is a living, breathing craft perfected through generations of master khansamas.
+
+## The Potli Method: Infusing Without Bitterness
+For our legendary gravies and slow-cooked rogan josh, spices are tied securely inside an unbleached muslin cloth pouch (*potli*). This allows the quills of cinnamon, pods of black cardamom, whole mace flowers, and cloves to gently steep in simmering stocks for hours, imparting subtle warmth and ethereal aroma without clouding the sauce with gritty powder.
+
+## The Rule of Dheemi Aanch (Gentle Simmer)
+Spices roasted over aggressive flames scorch instantly, releasing bitter acrid tannins. At Queen's, our spice base is gently bloomed in golden desi ghee over low charcoal embers (*dheemi aanch*). This allows the natural essential oils to emulsify with onions, ginger, garlic, and ripe tomatoes into a velvety, fragrant base.
+
+## The Weekly Small-Batch Roast
+Every Monday morning, our kitchen brigade hand-selects whole spices imported directly from Malabar and Kashmir, dry-roasting them in heavy iron kadhais before coarsely pounding them in brass mortars. This freshness is the unmistakable signature of Queen's dining.
+    `,
+    category: 'Punjabi Food & Culture',
+    author: {
+      name: 'Chef Balvinder Deol',
+      role: 'Executive Chef, Queen\'s Kitchen',
+      avatar: '/queens_restuarant/assets/img/chefs/chefs-2.webp',
+    },
+    publishedDate: 'March 12, 2026',
+    readTime: '5 min read',
+    image: '/queens_restuarant/assets/img/blogs/13_Cuisine_of_Punjab.jpg',
+    tags: ['Spice Craft', 'Heritage Cooking', 'Garam Masala', 'Culinary Secrets'],
+    featured: true,
+    relatedDishId: 'm-9',
+  },
+  {
+    id: 'j-6',
+    slug: 'family-feasts-and-milestone-banquets-at-queens',
+    title: 'Family Feasts & Milestone Banquets: Creating Lasting Memories at Queen’s',
+    excerpt: 'From first dates in the 1970s to multi-generational anniversary feasts, how Queen\'s became Bengaluru\'s cherished home for heartfelt celebrations.',
+    content: `
+# Tables That Bring Generations Together
+
+For fifty years, Queen's Restaurant has witnessed the evolving tapestry of Bengaluru’s families. Grandparents who dined with us as college sweethearts on Church Street in 1978 now bring their grandchildren to celebrate graduation feasts at our New BEL Road banquet hall.
+
+## The Magic of Family-Style Thaal Dining
+Punjabi dining is inherently generous and communal. We believe the sweetest laughter is shared over brimming copper handis passed from hand to hand across the table. When a family gathers at Queen's:
+- Every table begins with crispy, paper-thin papads and freshly whipped mint-coriander chutney.
+- Sizzling tandoori platters are placed centrally, inviting everyone to share and savor.
+- Steaming garlic naans and butter kulchas arrive hot from the tandoor in woven wicker baskets.
+
+## Hosting Life’s Milestones
+Whether an intimate 25th wedding anniversary or a grand 150-guest milestone gala, our banquet team curates every detail—from personalized brass service to custom royal dessert platters garnished with pure silver vark.
+
+We don't just serve meals; we honor the traditions of your family.
+    `,
+    category: "Queen's Legacy",
+    author: {
+      name: 'Ananya & Vikram Sengupta',
+      role: 'Lifelong Patrons Since 1984',
+      avatar: '/queens_restuarant/assets/img/gallery/people/62_people-9.webp',
+    },
+    publishedDate: 'March 24, 2026',
+    readTime: '6 min read',
+    image: '/queens_restuarant/assets/img/blogs/9_family_friendly_Punjabi_cuisine_1.jpg',
+    tags: ['Family Dining', 'Celebrations', 'Banquets', 'Memories', 'Church Street'],
+    featured: false,
+    relatedDishId: 'm-13',
   },
 ];
 

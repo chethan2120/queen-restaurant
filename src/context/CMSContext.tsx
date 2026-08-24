@@ -66,7 +66,7 @@ export const CMSProvider: React.FC<{ children: React.ReactNode }> = ({ children 
 
   // LocalStorage Persistence Keys
   const STORAGE_KEY_MENU = 'queens_restaurant_menu_v3';
-  const STORAGE_KEY_JOURNAL = 'queens_restaurant_journal_v3';
+  const STORAGE_KEY_JOURNAL = 'queens_restaurant_journal_v6';
   const STORAGE_KEY_RESERVATIONS = 'queens_restaurant_reservations_v3';
 
   // Helper to ensure valid bundled images
@@ -81,9 +81,12 @@ export const CMSProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   };
 
   const sanitizeJournalArticles = (articles: JournalArticle[]): JournalArticle[] => {
+    if (!Array.isArray(articles) || articles.length !== INITIAL_JOURNAL_ARTICLES.length) {
+      return INITIAL_JOURNAL_ARTICLES;
+    }
     return articles.map((art) => {
       const defaultMatch = INITIAL_JOURNAL_ARTICLES.find((d) => d.id === art.id);
-      if (defaultMatch && (art.image.startsWith('/src/assets/') || art.image.startsWith('/assets/images/'))) {
+      if (defaultMatch) {
         return { ...art, image: defaultMatch.image, author: defaultMatch.author };
       }
       return art;
