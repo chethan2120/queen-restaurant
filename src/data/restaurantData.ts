@@ -367,22 +367,6 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     image: DISH_IMAGES.garlicCorianderNaan,
     allergens: ['Gluten', 'Dairy'],
   },
-  {
-    id: 'm-19',
-    name: 'Gosht Dum Biryani',
-    hindiName: 'गोश्त दम बिरयानी',
-    description: 'Aged long-grain basmati rice layered with fragrant spiced lamb, saffron milk, kewra water, and fried brown onions, sealed with dough and slow-cooked in dum.',
-    price: 625,
-    category: 'breads-rice',
-    isVeg: false,
-    isChefSpecial: true,
-    isPopular: true,
-    spiceLevel: 2,
-    image: DISH_IMAGES.goshtDumBiryani,
-    portion: 'Serves 2',
-    allergens: ['Dairy'],
-    pairing: 'Burani Raita & Mirchi Ka Salan',
-  },
 
   // BEVERAGES
   {

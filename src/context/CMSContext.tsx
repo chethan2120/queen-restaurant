@@ -127,7 +127,7 @@ export const CMSProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   const [preselectedBookingLocation, setPreselectedBookingLocation] = useState<'church-street' | 'new-bel-road' | null>(null);
 
   // LocalStorage Persistence Keys
-  const STORAGE_KEY_MENU = 'queens_restaurant_menu_v3';
+  const STORAGE_KEY_MENU = 'queens_restaurant_menu_v4';
   const STORAGE_KEY_JOURNAL = 'queens_restaurant_journal_v8';
   const STORAGE_KEY_RESERVATIONS = 'queens_restaurant_reservations_v3';
 
