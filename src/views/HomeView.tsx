@@ -8,6 +8,7 @@ import {
 } from '../data/restaurantData';
 import { VENUE_IMAGES, DISH_IMAGES } from '../data/images';
 import { CinematicHeroVideo } from '../components/CinematicHeroVideo';
+import { ScrollReveal, StaggerContainer, StaggerItem } from '../components/motion/MotionReveal';
 import { Logo } from '../components/Logo';
 import {
   Calendar,
@@ -58,12 +59,12 @@ export const HomeView: React.FC = () => {
       {/* ========================================================
           02 — HERITAGE INTRODUCTION: "A LEGACY OF PUNJABI HOSPITALITY"
          ======================================================== */}
-      <section id="heritage-introduction" className="py-20 lg:py-28 bg-[#F5EFE4] border-b border-[#E8DDCC]">
+      <section id="heritage-introduction" className="py-20 lg:py-28 bg-[#F5EFE4] border-b border-[#E8DDCC] overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             
             {/* Left Editorial Narrative */}
-            <div className="lg:col-span-6 space-y-6">
+            <ScrollReveal direction="up" className="lg:col-span-6 space-y-6">
               <div className="inline-flex items-center gap-2">
                 <span className="w-8 h-px bg-[#B58A4A]" />
                 <span className="text-xs uppercase tracking-widest font-semibold text-[#5A1F24]">
@@ -90,7 +91,7 @@ export const HomeView: React.FC = () => {
                 <button
                   onClick={() => setCurrentPage('our-story')}
                   id="heritage-read-story-btn"
-                  className="px-6 py-3 bg-[#5A1F24] text-[#FCFAF5] rounded text-xs font-semibold uppercase tracking-wider hover:bg-[#43161A] transition-all flex items-center gap-2 border border-[#B58A4A]"
+                  className="px-6 py-3 bg-[#5A1F24] text-[#FCFAF5] rounded text-xs font-semibold uppercase tracking-wider hover:bg-[#43161A] transition-all flex items-center gap-2 border border-[#B58A4A] cursor-pointer shadow-sm hover:shadow-md"
                 >
                   <span>Discover Our 50-Year Story</span>
                   <ChevronRight className="w-4 h-4 text-[#B58A4A]" />
@@ -98,24 +99,24 @@ export const HomeView: React.FC = () => {
 
                 <button
                   onClick={() => setIsBookingModalOpen(true)}
-                  className="px-6 py-3 bg-transparent text-[#5A1F24] border border-[#5A1F24]/30 hover:border-[#5A1F24] rounded text-xs font-semibold uppercase tracking-wider transition-colors"
+                  className="px-6 py-3 bg-transparent text-[#5A1F24] border border-[#5A1F24]/30 hover:border-[#5A1F24] rounded text-xs font-semibold uppercase tracking-wider transition-colors cursor-pointer"
                 >
                   Reserve a Table
                 </button>
               </div>
-            </div>
+            </ScrollReveal>
 
             {/* Right Editorial Image Frame */}
-            <div className="lg:col-span-6 relative">
-              <div className="relative z-10 rounded-lg overflow-hidden shadow-2xl border-4 border-[#FCFAF5]">
+            <ScrollReveal direction="left" delay={0.2} className="lg:col-span-6 relative">
+              <div className="relative z-10 rounded-lg overflow-hidden shadow-2xl border-4 border-[#FCFAF5] group">
                 <img
                   src={VENUE_IMAGES.heroDiningRoom}
                   alt="Queen's Restaurant Royal Dining Ambiance"
-                  className="w-full h-[460px] object-cover"
+                  className="w-full h-[460px] object-cover transition-transform duration-1000 ease-out group-hover:scale-105"
                   referrerPolicy="no-referrer"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#1E1714]/70 via-transparent to-transparent" />
-                <div className="absolute bottom-6 left-6 right-6 text-white">
+                <div className="absolute inset-0 bg-gradient-to-t from-[#1E1714]/70 via-transparent to-transparent opacity-85 group-hover:opacity-75 transition-opacity" />
+                <div className="absolute bottom-6 left-6 right-6 text-white transform transition-transform duration-500 group-hover:-translate-y-1">
                   <span className="text-[10px] uppercase font-bold tracking-widest text-[#B58A4A] bg-[#5A1F24]/90 px-2.5 py-1 rounded">
                     Royal Dining Ambiance
                   </span>
@@ -127,7 +128,7 @@ export const HomeView: React.FC = () => {
 
               {/* Decorative Floating Frame Offset */}
               <div className="absolute -bottom-5 -right-5 w-48 h-48 border-2 border-[#B58A4A] rounded-lg -z-0 hidden sm:block" />
-            </div>
+            </ScrollReveal>
 
           </div>
         </div>
@@ -214,9 +215,9 @@ export const HomeView: React.FC = () => {
       {/* ========================================================
           04 — SIGNATURE DISHES: CURATED HIGHLIGHTS
          ======================================================== */}
-      <section id="signature-dishes" className="py-20 lg:py-28 bg-[#F5EFE4] border-b border-[#E8DDCC]">
+      <section id="signature-dishes" className="py-20 lg:py-28 bg-[#F5EFE4] border-b border-[#E8DDCC] overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
+          <ScrollReveal direction="up" className="flex flex-col md:flex-row md:items-end justify-between mb-12">
             <div>
               <span className="text-xs uppercase tracking-widest font-semibold text-[#B58A4A] block mb-2">
                 Handcrafted from the Royal Hearth
@@ -232,93 +233,92 @@ export const HomeView: React.FC = () => {
               <span>Explore Full Royal Menu</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </button>
-          </div>
+          </ScrollReveal>
 
           {/* Dishes Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {signatureDishes.map((dish) => (
-              <div
-                key={dish.id}
-                className="bg-white rounded-lg border border-[#E8DDCC] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group"
-              >
-                {/* Dish Photo */}
-                <div className="relative h-56 overflow-hidden bg-[#1E1714]">
-                  <img
-                    src={dish.image}
-                    alt={dish.name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                    referrerPolicy="no-referrer"
-                  />
-                  <div className="absolute top-3 left-3 flex items-center gap-2">
-                    <span
-                      className={`inline-flex items-center gap-1 px-2.5 py-1 rounded text-[11px] font-bold uppercase tracking-wider text-white shadow ${
-                        dish.isVeg ? 'bg-emerald-700' : 'bg-red-700'
-                      }`}
-                    >
-                      <span className="w-1.5 h-1.5 rounded-full bg-white" />
-                      {dish.isVeg ? 'Veg' : 'Non-Veg'}
-                    </span>
-                    {dish.isChefSpecial && (
-                      <span className="bg-[#B58A4A] text-[#1E1714] px-2.5 py-1 rounded text-[11px] font-bold uppercase tracking-wider shadow">
-                        Chef Special
+              <StaggerItem key={dish.id} className="flex">
+                <div className="bg-white rounded-lg border border-[#E8DDCC] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col justify-between group w-full hover:-translate-y-1">
+                  {/* Dish Photo */}
+                  <div className="relative h-56 overflow-hidden bg-[#1E1714]">
+                    <img
+                      src={dish.image}
+                      alt={dish.name}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                      referrerPolicy="no-referrer"
+                    />
+                    <div className="absolute top-3 left-3 flex items-center gap-2">
+                      <span
+                        className={`inline-flex items-center gap-1 px-2.5 py-1 rounded text-[11px] font-bold uppercase tracking-wider text-white shadow ${
+                          dish.isVeg ? 'bg-emerald-700' : 'bg-red-700'
+                        }`}
+                      >
+                        <span className="w-1.5 h-1.5 rounded-full bg-white" />
+                        {dish.isVeg ? 'Veg' : 'Non-Veg'}
                       </span>
-                    )}
-                  </div>
-                  <div className="absolute bottom-3 right-3 bg-[#1E1714]/80 backdrop-blur-sm text-[#FCFAF5] px-3 py-1 rounded text-xs font-bold font-serif">
-                    ₹{dish.price}
-                  </div>
-                </div>
-
-                {/* Dish Description & Details */}
-                <div className="p-5 flex-1 flex flex-col justify-between space-y-3">
-                  <div>
-                    {dish.hindiName && (
-                      <span className="text-xs text-[#B58A4A] font-serif block">
-                        {dish.hindiName}
-                      </span>
-                    )}
-                    <h3 className="text-lg font-serif font-bold text-[#5A1F24] group-hover:text-[#B58A4A] transition-colors">
-                      {dish.name}
-                    </h3>
-                    <p className="text-xs text-[#1E1714]/70 mt-1.5 line-clamp-3 leading-relaxed">
-                      {dish.description}
-                    </p>
+                      {dish.isChefSpecial && (
+                        <span className="bg-[#B58A4A] text-[#1E1714] px-2.5 py-1 rounded text-[11px] font-bold uppercase tracking-wider shadow">
+                          Chef Special
+                        </span>
+                      )}
+                    </div>
+                    <div className="absolute bottom-3 right-3 bg-[#1E1714]/80 backdrop-blur-sm text-[#FCFAF5] px-3 py-1 rounded text-xs font-bold font-serif">
+                      ₹{dish.price}
+                    </div>
                   </div>
 
-                  <div className="pt-3 border-t border-[#E8DDCC] flex items-center justify-between text-xs">
-                    <span className="text-[#1E1714]/60">{dish.portion || 'Signature Serving'}</span>
-                    <button
-                      onClick={() => setIsBookingModalOpen(true)}
-                      className="text-[#5A1F24] font-semibold hover:underline flex items-center gap-1 cursor-pointer"
-                    >
-                      <span>Taste at Table</span>
-                      <ChevronRight className="w-3.5 h-3.5" />
-                    </button>
+                  {/* Dish Description & Details */}
+                  <div className="p-5 flex-1 flex flex-col justify-between space-y-3">
+                    <div>
+                      {dish.hindiName && (
+                        <span className="text-xs text-[#B58A4A] font-serif block">
+                          {dish.hindiName}
+                        </span>
+                      )}
+                      <h3 className="text-lg font-serif font-bold text-[#5A1F24] group-hover:text-[#B58A4A] transition-colors">
+                        {dish.name}
+                      </h3>
+                      <p className="text-xs text-[#1E1714]/70 mt-1.5 line-clamp-3 leading-relaxed">
+                        {dish.description}
+                      </p>
+                    </div>
+
+                    <div className="pt-3 border-t border-[#E8DDCC] flex items-center justify-between text-xs">
+                      <span className="text-[#1E1714]/60">{dish.portion || 'Signature Serving'}</span>
+                      <button
+                        onClick={() => setIsBookingModalOpen(true)}
+                        className="text-[#5A1F24] font-semibold hover:underline flex items-center gap-1 cursor-pointer"
+                      >
+                        <span>Taste at Table</span>
+                        <ChevronRight className="w-3.5 h-3.5" />
+                      </button>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
 
-          <div className="mt-12 text-center">
+          <ScrollReveal direction="up" delay={0.2} className="mt-12 text-center">
             <button
               onClick={() => setCurrentPage('menu')}
               className="px-8 py-3.5 bg-[#5A1F24] text-[#FCFAF5] rounded font-semibold uppercase tracking-widest text-xs hover:bg-[#43161A] transition-colors border border-[#B58A4A] shadow-md cursor-pointer"
             >
               Browse Complete Menu (80+ Authentic Dishes)
             </button>
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 
       {/* ========================================================
           05 — PUNJABI CULINARY EXPERIENCE & TANDOOR HEARTH
          ======================================================== */}
-      <section className="py-20 lg:py-28 bg-[#1E1714] text-[#FCFAF5]">
+      <section className="py-20 lg:py-28 bg-[#1E1714] text-[#FCFAF5] overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             
-            <div className="lg:col-span-6 space-y-6">
+            <ScrollReveal direction="up" className="lg:col-span-6 space-y-6">
               <span className="text-xs uppercase tracking-widest font-semibold text-[#B58A4A]">
                 The Culinary Philosophy
               </span>
@@ -360,22 +360,26 @@ export const HomeView: React.FC = () => {
                   </div>
                 ))}
               </div>
-            </div>
+            </ScrollReveal>
 
-            <div className="lg:col-span-6 grid grid-cols-2 gap-4">
-              <img
-                src={DISH_IMAGES.bhattiDaMurgh}
-                alt="Tandoori chicken hot off skewers"
-                className="rounded-lg shadow-lg object-cover h-64 w-full border border-white/10"
-                referrerPolicy="no-referrer"
-              />
-              <img
-                src={DISH_IMAGES.dalMakhaniSignature}
-                alt="18-Hour slow simmered dal makhani"
-                className="rounded-lg shadow-lg object-cover h-64 w-full border border-white/10 mt-6"
-                referrerPolicy="no-referrer"
-              />
-            </div>
+            <ScrollReveal direction="left" delay={0.2} className="lg:col-span-6 grid grid-cols-2 gap-4">
+              <div className="overflow-hidden rounded-lg shadow-lg border border-white/10 group">
+                <img
+                  src={DISH_IMAGES.bhattiDaMurgh}
+                  alt="Tandoori chicken hot off skewers"
+                  className="object-cover h-64 w-full group-hover:scale-105 transition-transform duration-700 ease-out"
+                  referrerPolicy="no-referrer"
+                />
+              </div>
+              <div className="overflow-hidden rounded-lg shadow-lg border border-white/10 mt-6 group">
+                <img
+                  src={DISH_IMAGES.dalMakhaniSignature}
+                  alt="18-Hour slow simmered dal makhani"
+                  className="object-cover h-64 w-full group-hover:scale-105 transition-transform duration-700 ease-out"
+                  referrerPolicy="no-referrer"
+                />
+              </div>
+            </ScrollReveal>
 
           </div>
         </div>
@@ -384,9 +388,9 @@ export const HomeView: React.FC = () => {
       {/* ========================================================
           06 & 07 — EXPERIENCES & PRIVATE DINING
          ======================================================== */}
-      <section className="py-20 lg:py-28 bg-[#FCFAF5] border-b border-[#E8DDCC]">
+      <section className="py-20 lg:py-28 bg-[#FCFAF5] border-b border-[#E8DDCC] overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-14">
+          <ScrollReveal direction="up" className="text-center max-w-3xl mx-auto mb-14">
             <span className="text-xs uppercase tracking-widest font-semibold text-[#B58A4A] block mb-2">
               Bespoke Banquets & Celebrations
             </span>
@@ -396,71 +400,70 @@ export const HomeView: React.FC = () => {
             <p className="mt-3 text-sm text-[#1E1714]/70">
               From high-level executive corporate dinners to milestone family anniversaries and grand celebrations.
             </p>
-          </div>
+          </ScrollReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {EXPERIENCE_PACKAGES.map((pkg) => (
-              <div
-                key={pkg.id}
-                className="bg-[#F5EFE4] rounded-xl border border-[#E8DDCC] overflow-hidden shadow-sm hover:shadow-lg transition-all flex flex-col justify-between"
-              >
-                <div>
-                  <div className="h-48 relative overflow-hidden">
-                    <img
-                      src={pkg.image}
-                      alt={pkg.title}
-                      className="w-full h-full object-cover"
-                      referrerPolicy="no-referrer"
-                    />
-                    <div className="absolute top-3 right-3 bg-[#5A1F24] text-[#FCFAF5] px-2.5 py-1 rounded text-xs font-semibold">
-                      {pkg.capacity}
+              <StaggerItem key={pkg.id} className="flex">
+                <div className="bg-[#F5EFE4] rounded-xl border border-[#E8DDCC] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col justify-between w-full group hover:-translate-y-1">
+                  <div>
+                    <div className="h-48 relative overflow-hidden bg-[#1E1714]">
+                      <img
+                        src={pkg.image}
+                        alt={pkg.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                        referrerPolicy="no-referrer"
+                      />
+                      <div className="absolute top-3 right-3 bg-[#5A1F24] text-[#FCFAF5] px-2.5 py-1 rounded text-xs font-semibold">
+                        {pkg.capacity}
+                      </div>
+                    </div>
+
+                    <div className="p-6 space-y-3">
+                      <h3 className="text-lg font-serif font-bold text-[#5A1F24] group-hover:text-[#B58A4A] transition-colors">
+                        {pkg.title}
+                      </h3>
+                      <p className="text-xs text-[#1E1714]/70 leading-relaxed">
+                        {pkg.description}
+                      </p>
+
+                      <div className="pt-2">
+                        <span className="text-[11px] font-bold uppercase tracking-wider text-[#B58A4A] block mb-1.5">
+                          Key Inclusions:
+                        </span>
+                        <ul className="space-y-1 text-xs text-[#1E1714]/80">
+                          {pkg.features.slice(0, 3).map((f, i) => (
+                            <li key={i} className="flex items-center gap-1.5">
+                              <span className="w-1.5 h-1.5 rounded-full bg-[#5A1F24]" />
+                              <span>{f}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
                     </div>
                   </div>
 
-                  <div className="p-6 space-y-3">
-                    <h3 className="text-lg font-serif font-bold text-[#5A1F24]">
-                      {pkg.title}
-                    </h3>
-                    <p className="text-xs text-[#1E1714]/70 leading-relaxed">
-                      {pkg.description}
-                    </p>
-
-                    <div className="pt-2">
-                      <span className="text-[11px] font-bold uppercase tracking-wider text-[#B58A4A] block mb-1.5">
-                        Key Inclusions:
-                      </span>
-                      <ul className="space-y-1 text-xs text-[#1E1714]/80">
-                        {pkg.features.slice(0, 3).map((f, i) => (
-                          <li key={i} className="flex items-center gap-1.5">
-                            <span className="w-1.5 h-1.5 rounded-full bg-[#5A1F24]" />
-                            <span>{f}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
+                  <div className="p-6 pt-0">
+                    <button
+                      onClick={() => setCurrentPage('experiences')}
+                      className="w-full py-2.5 bg-[#5A1F24] text-[#FCFAF5] rounded text-xs font-semibold uppercase tracking-wider hover:bg-[#43161A] transition-colors border border-[#B58A4A] cursor-pointer"
+                    >
+                      Plan This Event
+                    </button>
                   </div>
                 </div>
-
-                <div className="p-6 pt-0">
-                  <button
-                    onClick={() => setCurrentPage('experiences')}
-                    className="w-full py-2.5 bg-[#5A1F24] text-[#FCFAF5] rounded text-xs font-semibold uppercase tracking-wider hover:bg-[#43161A] transition-colors border border-[#B58A4A] cursor-pointer"
-                  >
-                    Plan This Event
-                  </button>
-                </div>
-              </div>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
         </div>
       </section>
 
       {/* ========================================================
           08 — LOCATIONS: CHURCH STREET & NEW BEL ROAD
          ======================================================== */}
-      <section className="py-20 lg:py-28 bg-[#F5EFE4] border-b border-[#E8DDCC]">
+      <section className="py-20 lg:py-28 bg-[#F5EFE4] border-b border-[#E8DDCC] overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-14">
+          <ScrollReveal direction="up" className="text-center max-w-3xl mx-auto mb-14">
             <span className="text-xs uppercase tracking-widest font-semibold text-[#B58A4A] block mb-2">
               Two Iconic Bengaluru Destinations
             </span>
@@ -470,109 +473,108 @@ export const HomeView: React.FC = () => {
             <p className="mt-3 text-sm text-[#1E1714]/70">
               Centrally located on historic Church Street and grandly appointed on New BEL Road.
             </p>
-          </div>
+          </ScrollReveal>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <StaggerContainer className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {RESTAURANT_LOCATIONS.map((loc) => (
-              <div
-                key={loc.id}
-                className="bg-white rounded-xl border border-[#E8DDCC] overflow-hidden shadow-md flex flex-col justify-between"
-              >
-                <div>
-                  <div className="h-64 sm:h-72 relative overflow-hidden bg-[#1E1714]">
-                    {/* Ambient backdrop to gracefully frame wide aspect ratios */}
-                    <img
-                      src={loc.image}
-                      alt=""
-                      aria-hidden="true"
-                      className="absolute inset-0 w-full h-full object-cover blur-md scale-110 opacity-35 brightness-75"
-                    />
-                    {/* Sharp, uncropped, and undistorted venue photograph */}
-                    <img
-                      src={loc.image}
-                      alt={loc.name}
-                      className="relative z-10 w-full h-full object-contain object-center transition-transform duration-500"
-                      referrerPolicy="no-referrer"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent z-20 pointer-events-none" />
-                    <div className="absolute bottom-4 left-4 right-4 text-white z-30 pointer-events-none">
-                      <span className="text-[10px] uppercase font-bold tracking-widest text-[#B58A4A] bg-[#5A1F24] px-2.5 py-0.5 rounded shadow-sm">
-                        Est. {loc.establishedYear} · {loc.subName}
-                      </span>
-                      <h3 className="text-xl font-serif font-bold mt-1 drop-shadow-md">{loc.name}</h3>
-                    </div>
-                  </div>
-
-                  <div className="p-6 space-y-4 text-xs">
-                    <div className="flex items-start gap-2.5 text-[#1E1714]">
-                      <MapPin className="w-4 h-4 text-[#5A1F24] shrink-0 mt-0.5" />
-                      <div>
-                        <strong>{loc.address}</strong>
-                        <p className="text-[#1E1714]/60 mt-0.5">{loc.landmark}</p>
+              <StaggerItem key={loc.id} className="flex">
+                <div className="bg-white rounded-xl border border-[#E8DDCC] overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 flex flex-col justify-between w-full group hover:-translate-y-1">
+                  <div>
+                    <div className="h-64 sm:h-72 relative overflow-hidden bg-[#1E1714]">
+                      {/* Ambient backdrop to gracefully frame wide aspect ratios */}
+                      <img
+                        src={loc.image}
+                        alt=""
+                        aria-hidden="true"
+                        className="absolute inset-0 w-full h-full object-cover blur-md scale-110 opacity-35 brightness-75"
+                      />
+                      {/* Sharp, uncropped, and undistorted venue photograph */}
+                      <img
+                        src={loc.image}
+                        alt={loc.name}
+                        className="relative z-10 w-full h-full object-contain object-center transition-transform duration-700 ease-out group-hover:scale-105"
+                        referrerPolicy="no-referrer"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent z-20 pointer-events-none" />
+                      <div className="absolute bottom-4 left-4 right-4 text-white z-30 pointer-events-none transform transition-transform duration-500 group-hover:-translate-y-1">
+                        <span className="text-[10px] uppercase font-bold tracking-widest text-[#B58A4A] bg-[#5A1F24] px-2.5 py-0.5 rounded shadow-sm">
+                          Est. {loc.establishedYear} · {loc.subName}
+                        </span>
+                        <h3 className="text-xl font-serif font-bold mt-1 drop-shadow-md">{loc.name}</h3>
                       </div>
                     </div>
 
-                    <div className="flex items-start gap-2.5 text-[#1E1714]">
-                      <Clock className="w-4 h-4 text-[#5A1F24] shrink-0 mt-0.5" />
-                      <div>
-                        {loc.hours.map((h, i) => (
-                          <p key={i} className="text-[#1E1714]/80">
-                            <strong>{h.days}:</strong> {h.timings}
-                          </p>
+                    <div className="p-6 space-y-4 text-xs">
+                      <div className="flex items-start gap-2.5 text-[#1E1714]">
+                        <MapPin className="w-4 h-4 text-[#5A1F24] shrink-0 mt-0.5" />
+                        <div>
+                          <strong>{loc.address}</strong>
+                          <p className="text-[#1E1714]/60 mt-0.5">{loc.landmark}</p>
+                        </div>
+                      </div>
+
+                      <div className="flex items-start gap-2.5 text-[#1E1714]">
+                        <Clock className="w-4 h-4 text-[#5A1F24] shrink-0 mt-0.5" />
+                        <div>
+                          {loc.hours.map((h, i) => (
+                            <p key={i} className="text-[#1E1714]/80">
+                              <strong>{h.days}:</strong> {h.timings}
+                            </p>
+                          ))}
+                        </div>
+                      </div>
+
+                      <div className="flex items-center gap-2.5 text-[#1E1714]">
+                        <Phone className="w-4 h-4 text-[#5A1F24] shrink-0" />
+                        <a href={`tel:${loc.phone.replace(/\s+/g, '')}`} className="font-bold text-[#5A1F24] hover:underline">
+                          {loc.phone}
+                        </a>
+                      </div>
+
+                      <div className="pt-2 flex flex-wrap gap-1.5">
+                        {loc.features.slice(0, 4).map((f, i) => (
+                          <span key={i} className="bg-[#F5EFE4] text-[#5A1F24] px-2.5 py-1 rounded text-[11px] font-medium border border-[#E8DDCC]">
+                            {f}
+                          </span>
                         ))}
                       </div>
                     </div>
+                  </div>
 
-                    <div className="flex items-center gap-2.5 text-[#1E1714]">
-                      <Phone className="w-4 h-4 text-[#5A1F24] shrink-0" />
-                      <a href={`tel:${loc.phone.replace(/\s+/g, '')}`} className="font-bold text-[#5A1F24] hover:underline">
-                        {loc.phone}
-                      </a>
-                    </div>
+                  <div className="p-6 pt-0 grid grid-cols-2 gap-3">
+                    <button
+                      onClick={() => {
+                        setPreselectedBookingLocation(loc.id);
+                        setIsBookingModalOpen(true);
+                      }}
+                      className="py-2.5 bg-[#5A1F24] text-[#FCFAF5] rounded text-xs font-semibold uppercase tracking-wider hover:bg-[#43161A] transition-colors text-center border border-[#B58A4A] cursor-pointer"
+                    >
+                      Reserve Table
+                    </button>
 
-                    <div className="pt-2 flex flex-wrap gap-1.5">
-                      {loc.features.slice(0, 4).map((f, i) => (
-                        <span key={i} className="bg-[#F5EFE4] text-[#5A1F24] px-2.5 py-1 rounded text-[11px] font-medium border border-[#E8DDCC]">
-                          {f}
-                        </span>
-                      ))}
-                    </div>
+                    <a
+                      href={loc.googleMapsLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="py-2.5 bg-[#F5EFE4] text-[#5A1F24] border border-[#5A1F24]/30 rounded text-xs font-semibold uppercase tracking-wider hover:bg-[#E8DDCC] transition-colors flex items-center justify-center gap-1.5"
+                    >
+                      <span>Directions</span>
+                      <ExternalLink className="w-3 h-3" />
+                    </a>
                   </div>
                 </div>
-
-                <div className="p-6 pt-0 grid grid-cols-2 gap-3">
-                  <button
-                    onClick={() => {
-                      setPreselectedBookingLocation(loc.id);
-                      setIsBookingModalOpen(true);
-                    }}
-                    className="py-2.5 bg-[#5A1F24] text-[#FCFAF5] rounded text-xs font-semibold uppercase tracking-wider hover:bg-[#43161A] transition-colors text-center border border-[#B58A4A] cursor-pointer"
-                  >
-                    Reserve Table
-                  </button>
-
-                  <a
-                    href={loc.googleMapsLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="py-2.5 bg-[#F5EFE4] text-[#5A1F24] border border-[#5A1F24]/30 rounded text-xs font-semibold uppercase tracking-wider hover:bg-[#E8DDCC] transition-colors flex items-center justify-center gap-1.5"
-                  >
-                    <span>Directions</span>
-                    <ExternalLink className="w-3 h-3" />
-                  </a>
-                </div>
-              </div>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
         </div>
       </section>
 
       {/* ========================================================
           10 — TESTIMONIALS: "LOVED FOR GENERATIONS"
          ======================================================== */}
-      <section id="loved-for-generations" className="py-20 lg:py-28 bg-[#FCFAF5] border-b border-[#E8DDCC]">
+      <section id="loved-for-generations" className="py-20 lg:py-28 bg-[#FCFAF5] border-b border-[#E8DDCC] overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-14">
+          <ScrollReveal direction="up" className="text-center max-w-3xl mx-auto mb-14">
             <span className="text-xs uppercase tracking-widest font-semibold text-[#B58A4A] block mb-2">
               Heartfelt Memories
             </span>
@@ -582,49 +584,48 @@ export const HomeView: React.FC = () => {
             <p className="mt-3 text-sm text-[#1E1714]/70">
               Why Bengaluru families and visitors have returned to our tables for over five decades.
             </p>
-          </div>
+          </ScrollReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {TESTIMONIALS.map((t) => (
-              <div
-                key={t.id}
-                className="bg-[#F5EFE4] p-8 rounded-xl border border-[#E8DDCC] relative flex flex-col justify-between shadow-sm"
-              >
-                <div>
-                  <Quote className="w-8 h-8 text-[#B58A4A]/40 mb-4" />
-                  <p className="text-sm text-[#1E1714]/80 italic font-serif-body text-base leading-relaxed">
-                    "{t.content}"
-                  </p>
-                </div>
+              <StaggerItem key={t.id} className="flex">
+                <div className="bg-[#F5EFE4] p-8 rounded-xl border border-[#E8DDCC] relative flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow duration-300 w-full">
+                  <div>
+                    <Quote className="w-8 h-8 text-[#B58A4A]/40 mb-4" />
+                    <p className="text-sm text-[#1E1714]/80 italic font-serif-body text-base leading-relaxed">
+                      "{t.content}"
+                    </p>
+                  </div>
 
-                <div className="mt-6 pt-4 border-t border-[#E8DDCC]/70">
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <h4 className="text-sm font-serif font-bold text-[#5A1F24]">{t.name}</h4>
-                      <p className="text-xs text-[#1E1714]/60">{t.vintage}</p>
+                  <div className="mt-6 pt-4 border-t border-[#E8DDCC]/70">
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <h4 className="text-sm font-serif font-bold text-[#5A1F24]">{t.name}</h4>
+                        <p className="text-xs text-[#1E1714]/60">{t.vintage}</p>
+                      </div>
+                      <div className="flex text-[#B58A4A]">
+                        {[...Array(5)].map((_, i) => (
+                          <Star key={i} className="w-3.5 h-3.5 fill-[#B58A4A]" />
+                        ))}
+                      </div>
                     </div>
-                    <div className="flex text-[#B58A4A]">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="w-3.5 h-3.5 fill-[#B58A4A]" />
-                      ))}
+                    <div className="mt-2 text-[11px] text-[#B58A4A] font-medium">
+                      Favorite: {t.favoriteDish}
                     </div>
-                  </div>
-                  <div className="mt-2 text-[11px] text-[#B58A4A] font-medium">
-                    Favorite: {t.favoriteDish}
                   </div>
                 </div>
-              </div>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
         </div>
       </section>
 
       {/* ========================================================
           11 — JOURNAL & RECIPES PREVIEW
          ======================================================== */}
-      <section className="py-20 lg:py-28 bg-[#F5EFE4] border-b border-[#E8DDCC]">
+      <section className="py-20 lg:py-28 bg-[#F5EFE4] border-b border-[#E8DDCC] overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
+          <ScrollReveal direction="up" className="flex flex-col md:flex-row md:items-end justify-between mb-12">
             <div>
               <span className="text-xs uppercase tracking-widest font-semibold text-[#B58A4A] block mb-2">
                 Culinary Stories & Chronicles
@@ -640,48 +641,49 @@ export const HomeView: React.FC = () => {
               <span>View All Articles & Guides</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </button>
-          </div>
+          </ScrollReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {featuredArticles.map((art) => (
-              <div
-                key={art.id}
-                onClick={() => {
-                  setSelectedJournalSlug(art.slug);
-                  setCurrentPage('journal-detail', { journalSlug: art.slug });
-                }}
-                className="bg-white rounded-lg border border-[#E8DDCC] overflow-hidden shadow-sm hover:shadow-lg transition-all cursor-pointer flex flex-col justify-between group"
-              >
-                <div>
-                  <div className="h-48 overflow-hidden bg-[#1E1714]">
-                    <img
-                      src={art.image}
-                      alt={art.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                      referrerPolicy="no-referrer"
-                    />
-                  </div>
-                  <div className="p-6 space-y-2.5">
-                    <div className="flex items-center justify-between text-xs text-[#B58A4A] font-semibold uppercase tracking-wider">
-                      <span>{art.category}</span>
-                      <span className="text-[#1E1714]/40">{art.readTime}</span>
+              <StaggerItem key={art.id} className="flex">
+                <div
+                  onClick={() => {
+                    setSelectedJournalSlug(art.slug);
+                    setCurrentPage('journal-detail', { journalSlug: art.slug });
+                  }}
+                  className="bg-white rounded-lg border border-[#E8DDCC] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 cursor-pointer flex flex-col justify-between group w-full hover:-translate-y-1"
+                >
+                  <div>
+                    <div className="h-48 overflow-hidden bg-[#1E1714]">
+                      <img
+                        src={art.image}
+                        alt={art.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                        referrerPolicy="no-referrer"
+                      />
                     </div>
-                    <h3 className="text-base font-serif font-bold text-[#5A1F24] group-hover:text-[#B58A4A] transition-colors leading-snug">
-                      {art.title}
-                    </h3>
-                    <p className="text-xs text-[#1E1714]/70 line-clamp-3 leading-relaxed">
-                      {art.excerpt}
-                    </p>
+                    <div className="p-6 space-y-2.5">
+                      <div className="flex items-center justify-between text-xs text-[#B58A4A] font-semibold uppercase tracking-wider">
+                        <span>{art.category}</span>
+                        <span className="text-[#1E1714]/40">{art.readTime}</span>
+                      </div>
+                      <h3 className="text-base font-serif font-bold text-[#5A1F24] group-hover:text-[#B58A4A] transition-colors leading-snug">
+                        {art.title}
+                      </h3>
+                      <p className="text-xs text-[#1E1714]/70 line-clamp-3 leading-relaxed">
+                        {art.excerpt}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="px-6 pb-6 pt-2 border-t border-[#E8DDCC]/50 flex items-center justify-between text-xs text-[#5A1F24] font-semibold">
+                    <span>Read Article</span>
+                    <ChevronRight className="w-4 h-4 text-[#B58A4A] group-hover:translate-x-1 transition-transform" />
                   </div>
                 </div>
-
-                <div className="px-6 pb-6 pt-2 border-t border-[#E8DDCC]/50 flex items-center justify-between text-xs text-[#5A1F24] font-semibold">
-                  <span>Read Article</span>
-                  <ChevronRight className="w-4 h-4 text-[#B58A4A] group-hover:translate-x-1 transition-transform" />
-                </div>
-              </div>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
         </div>
       </section>
 
@@ -693,13 +695,13 @@ export const HomeView: React.FC = () => {
           <img
             src={VENUE_IMAGES.churchStreetFlagship}
             alt="Queen's Restaurant Interior"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover scale-105"
             referrerPolicy="no-referrer"
           />
         </div>
         <div className="absolute inset-0 bg-gradient-to-t from-[#1E1714] via-[#1E1714]/80 to-[#1E1714]" />
 
-        <div className="relative z-10 max-w-3xl mx-auto px-4 space-y-6">
+        <ScrollReveal direction="up" className="relative z-10 max-w-3xl mx-auto px-4 space-y-6">
           <Logo variant="dark" size="sm" className="mx-auto" />
           <span className="text-xs uppercase tracking-widest text-[#B58A4A] font-bold block">
             Authentic Punjabi Hospitality Since 1974
@@ -714,13 +716,13 @@ export const HomeView: React.FC = () => {
           <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
             <button
               onClick={() => setIsBookingModalOpen(true)}
-              className="w-full sm:w-auto px-8 py-3.5 bg-[#5A1F24] hover:bg-[#72272e] text-[#FCFAF5] rounded font-semibold uppercase tracking-widest text-xs border border-[#B58A4A] shadow-xl flex items-center justify-center gap-2 cursor-pointer transition-all"
+              className="w-full sm:w-auto px-8 py-3.5 bg-[#5A1F24] hover:bg-[#72272e] text-[#FCFAF5] rounded font-semibold uppercase tracking-widest text-xs border border-[#B58A4A] shadow-xl flex items-center justify-center gap-2 cursor-pointer transition-all hover:scale-105"
             >
               <Calendar className="w-4 h-4 text-[#B58A4A]" />
               <span>Book a Table Now</span>
             </button>
           </div>
-        </div>
+        </ScrollReveal>
       </section>
     </div>
   );

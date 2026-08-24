@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion, useReducedMotion } from 'motion/react';
 import { Logo } from './Logo';
 
 interface PageHeroProps {
@@ -18,24 +19,50 @@ export const PageHero: React.FC<PageHeroProps> = ({
   children,
   imageAlt = "Queen's Restaurant Hero Image",
 }) => {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
     <section className="bg-[#1E1714] text-[#FCFAF5] py-16 sm:py-20 lg:py-24 relative overflow-hidden text-center border-b border-[#B58A4A]/30 min-h-[380px] sm:min-h-[420px] lg:min-h-[460px] flex items-center justify-center">
-      {/* Background Image with Balanced Editorial Clarity */}
+      {/* Background Image with Slow Ambient Cinematic Depth */}
       <div className="absolute inset-0 z-0 overflow-hidden">
-        <img
-          src={backgroundImage}
-          alt={imageAlt}
-          className="w-full h-full object-cover object-center scale-105 transition-transform duration-1000 brightness-95 contrast-105"
-          referrerPolicy="no-referrer"
-        />
+        {shouldReduceMotion ? (
+          <img
+            src={backgroundImage}
+            alt={imageAlt}
+            className="w-full h-full object-cover object-center scale-105 brightness-95 contrast-105"
+            referrerPolicy="no-referrer"
+          />
+        ) : (
+          <motion.img
+            src={backgroundImage}
+            alt={imageAlt}
+            initial={{ scale: 1.08, opacity: 0.85 }}
+            animate={{
+              scale: [1.08, 1.03, 1.08],
+              opacity: 1,
+            }}
+            transition={{
+              scale: { duration: 18, repeat: Infinity, ease: 'easeInOut' },
+              opacity: { duration: 1.2, ease: 'easeOut' },
+            }}
+            className="w-full h-full object-cover object-center brightness-95 contrast-105"
+            referrerPolicy="no-referrer"
+          />
+        )}
       </div>
-      {/* Subtle Lighter Gradient Overlay for Optimal Image Visibility & Text Contrast */}
-      <div className="absolute inset-0 bg-gradient-to-t from-[#1E1714]/75 via-[#1E1714]/35 to-[#1E1714]/55 z-0" />
-      <div className="absolute inset-0 bg-black/20 z-0" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(181,138,74,0.15),transparent_70%)] z-0" />
 
-      {/* Content Container */}
-      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4 my-auto">
+      {/* Subtle Lighter Gradient Overlay for Optimal Image Visibility & Text Contrast */}
+      <div className="absolute inset-0 bg-gradient-to-t from-[#1E1714]/80 via-[#1E1714]/35 to-[#1E1714]/60 z-0" />
+      <div className="absolute inset-0 bg-black/20 z-0" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(181,138,74,0.18),transparent_70%)] z-0" />
+
+      {/* Content Container with Smooth Staggered Editorial Reveal */}
+      <motion.div
+        initial={shouldReduceMotion ? {} : { opacity: 0, y: 16 }}
+        animate={shouldReduceMotion ? {} : { opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+        className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4 my-auto"
+      >
         <Logo variant="dark" size="sm" className="mx-auto" />
         
         <div className="inline-flex items-center justify-center gap-2">
@@ -54,8 +81,9 @@ export const PageHero: React.FC<PageHeroProps> = ({
           {description}
         </p>
 
-        {children && <div className="pt-2 flex items-center justify-center gap-3">{children}</div>}
-      </div>
+        {children && <div className="pt-2 flex flex-wrap items-center justify-center gap-3">{children}</div>}
+      </motion.div>
     </section>
   );
 };
+

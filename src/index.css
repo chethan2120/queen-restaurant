@@ -53,6 +53,34 @@
   background: #B58A4A;
 }
 
+/* Luxury Motion & Easing Utilities */
+@layer utilities {
+  .ease-luxury {
+    transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .ease-editorial {
+    transition-timing-function: cubic-bezier(0.25, 1, 0.5, 1);
+  }
+  .will-change-transform {
+    will-change: transform;
+  }
+  .will-change-opacity {
+    will-change: opacity;
+  }
+}
+
+/* Reduce motion accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 /* Print styles for menus and recipes */
 @media print {
   header, footer, .no-print {

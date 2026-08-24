@@ -1,6 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { useCMS } from '../context/CMSContext';
 import { PageHero } from '../components/PageHero';
+import { StaggerContainer, StaggerItem, ScrollReveal } from '../components/motion/MotionReveal';
 import { VENUE_IMAGES, PAGE_HERO_IMAGES } from '../data/images';
 import {
   Search,
@@ -186,87 +187,88 @@ export const MenuView: React.FC = () => {
             </button>
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {filteredDishes.map((dish) => (
-              <div
-                key={dish.id}
-                className="bg-white rounded-xl border border-[#E8DDCC] p-5 shadow-sm hover:shadow-md transition-all flex flex-col sm:flex-row gap-4 justify-between group"
-              >
-                <div className="flex-1 space-y-2">
-                  <div className="flex items-center gap-2">
-                    {/* Veg / Non-Veg Indicator Symbol */}
-                    <div
-                      className={`w-3.5 h-3.5 rounded-sm border ${
-                        dish.isVeg ? 'border-green-600' : 'border-red-600'
-                      } flex items-center justify-center p-0.5`}
-                      title={dish.isVeg ? 'Vegetarian' : 'Non-Vegetarian'}
-                    >
+              <StaggerItem key={dish.id} className="flex">
+                <div
+                  className="bg-white rounded-xl border border-[#E8DDCC] p-5 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col sm:flex-row gap-4 justify-between group w-full hover:-translate-y-0.5"
+                >
+                  <div className="flex-1 space-y-2">
+                    <div className="flex items-center gap-2">
+                      {/* Veg / Non-Veg Indicator Symbol */}
                       <div
-                        className={`w-1.5 h-1.5 rounded-full ${
-                          dish.isVeg ? 'bg-green-600' : 'bg-red-600'
-                        }`}
+                        className={`w-3.5 h-3.5 rounded-sm border ${
+                          dish.isVeg ? 'border-green-600' : 'border-red-600'
+                        } flex items-center justify-center p-0.5`}
+                        title={dish.isVeg ? 'Vegetarian' : 'Non-Vegetarian'}
+                      >
+                        <div
+                          className={`w-1.5 h-1.5 rounded-full ${
+                            dish.isVeg ? 'bg-green-600' : 'bg-red-600'
+                          }`}
+                        />
+                      </div>
+
+                      {dish.isChefSpecial && (
+                        <span className="bg-[#B58A4A]/20 text-[#8C6527] text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded">
+                          1974 Signature
+                        </span>
+                      )}
+
+                      {dish.spiceLevel > 1 && (
+                        <span className="flex items-center text-amber-600 text-[11px] gap-0.5">
+                          {[...Array(dish.spiceLevel)].map((_, i) => (
+                            <Flame key={i} className="w-3 h-3 fill-amber-600" />
+                          ))}
+                        </span>
+                      )}
+                    </div>
+
+                    <div>
+                      {dish.hindiName && (
+                        <span className="text-[11px] text-[#B58A4A] font-serif block">
+                          {dish.hindiName}
+                        </span>
+                      )}
+                      <h3 className="text-base font-serif font-bold text-[#5A1F24] group-hover:text-[#B58A4A] transition-colors">
+                        {dish.name}
+                      </h3>
+                    </div>
+
+                    <p className="text-xs text-[#1E1714]/70 leading-relaxed">
+                      {dish.description}
+                    </p>
+
+                    {dish.portion && (
+                      <span className="text-[11px] text-[#1E1714]/50 block">
+                        Portion: {dish.portion}
+                      </span>
+                    )}
+
+                    {dish.allergens && dish.allergens.length > 0 && (
+                      <div className="text-[10px] text-[#1E1714]/50 flex items-center gap-1">
+                        <span>Contains: {dish.allergens.join(', ')}</span>
+                      </div>
+                    )}
+                  </div>
+
+                  <div className="flex sm:flex-col items-center sm:items-end justify-between sm:justify-between shrink-0 gap-2 border-t sm:border-t-0 pt-3 sm:pt-0 border-[#E8DDCC]">
+                    <div className="h-20 w-20 rounded-lg overflow-hidden bg-[#1E1714] shrink-0 border border-[#E8DDCC]">
+                      <img
+                        src={dish.image}
+                        alt={dish.name}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                        referrerPolicy="no-referrer"
                       />
                     </div>
-
-                    {dish.isChefSpecial && (
-                      <span className="bg-[#B58A4A]/20 text-[#8C6527] text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded">
-                        1974 Signature
-                      </span>
-                    )}
-
-                    {dish.spiceLevel > 1 && (
-                      <span className="flex items-center text-amber-600 text-[11px] gap-0.5">
-                        {[...Array(dish.spiceLevel)].map((_, i) => (
-                          <Flame key={i} className="w-3 h-3 fill-amber-600" />
-                        ))}
-                      </span>
-                    )}
-                  </div>
-
-                  <div>
-                    {dish.hindiName && (
-                      <span className="text-[11px] text-[#B58A4A] font-serif block">
-                        {dish.hindiName}
-                      </span>
-                    )}
-                    <h3 className="text-base font-serif font-bold text-[#5A1F24] group-hover:text-[#B58A4A] transition-colors">
-                      {dish.name}
-                    </h3>
-                  </div>
-
-                  <p className="text-xs text-[#1E1714]/70 leading-relaxed">
-                    {dish.description}
-                  </p>
-
-                  {dish.portion && (
-                    <span className="text-[11px] text-[#1E1714]/50 block">
-                      Portion: {dish.portion}
+                    <span className="text-base font-serif font-bold text-[#5A1F24]">
+                      ₹{dish.price}
                     </span>
-                  )}
-
-                  {dish.allergens && dish.allergens.length > 0 && (
-                    <div className="text-[10px] text-[#1E1714]/50 flex items-center gap-1">
-                      <span>Contains: {dish.allergens.join(', ')}</span>
-                    </div>
-                  )}
-                </div>
-
-                <div className="flex sm:flex-col items-center sm:items-end justify-between sm:justify-between shrink-0 gap-2 border-t sm:border-t-0 pt-3 sm:pt-0 border-[#E8DDCC]">
-                  <div className="h-20 w-20 rounded-lg overflow-hidden bg-[#1E1714] shrink-0 border border-[#E8DDCC]">
-                    <img
-                      src={dish.image}
-                      alt={dish.name}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform"
-                      referrerPolicy="no-referrer"
-                    />
                   </div>
-                  <span className="text-base font-serif font-bold text-[#5A1F24]">
-                    ₹{dish.price}
-                  </span>
                 </div>
-              </div>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
         )}
 
         {/* Dietary Note at Bottom */}

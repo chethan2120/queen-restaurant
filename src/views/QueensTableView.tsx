@@ -1,6 +1,7 @@
 import React from 'react';
 import { useCMS } from '../context/CMSContext';
 import { PageHero } from '../components/PageHero';
+import { StaggerContainer, StaggerItem, ScrollReveal } from '../components/motion/MotionReveal';
 import { PAGE_HERO_IMAGES } from '../data/images';
 import { Utensils, Calendar, ArrowRight, Heart, Clock, Flame, Users } from 'lucide-react';
 
@@ -43,7 +44,7 @@ export const QueensTableView: React.FC = () => {
   ];
 
   return (
-    <div className="bg-[#F5EFE4] text-[#1E1714] pb-24">
+    <div className="bg-[#F5EFE4] text-[#1E1714] pb-24 overflow-hidden">
       {/* ========================================================
           01 — HERO SECTION: THE QUEEN'S TABLE
          ======================================================== */}
@@ -78,21 +79,21 @@ export const QueensTableView: React.FC = () => {
       {/* ========================================================
           02 — A TABLE MADE FOR STORIES
          ======================================================== */}
-      <section className="py-20 lg:py-28 bg-[#FCFAF5] border-b border-[#E8DDCC]">
+      <section className="py-20 lg:py-28 bg-[#FCFAF5] border-b border-[#E8DDCC] overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             
-            {/* Editorial Image with Gold Accent Frame */}
-            <div className="lg:col-span-6 relative order-2 lg:order-1">
-              <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
+            {/* Visual Frame */}
+            <ScrollReveal direction="right" className="lg:col-span-6 relative order-2 lg:order-1">
+              <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl border-4 border-[#FCFAF5] group">
                 <img
                   src="/queens_restuarant/assets/img/gallery/people/69_people-at-restaurant.webp"
                   alt="Conversations and Shared Meals at Queen's Restaurant"
-                  className="w-full h-[440px] sm:h-[480px] object-cover"
+                  className="w-full h-[440px] sm:h-[480px] object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                   referrerPolicy="no-referrer"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#1E1714]/80 via-transparent to-transparent" />
-                <div className="absolute bottom-6 left-6 right-6 text-white">
+                <div className="absolute bottom-6 left-6 right-6 text-white transform transition-transform duration-500 group-hover:-translate-y-1">
                   <span className="text-[10px] uppercase font-bold tracking-widest text-[#B58A4A] bg-[#5A1F24]/90 px-3 py-1 rounded">
                     50 Years of Fellowship · Since 1974
                   </span>
@@ -102,10 +103,10 @@ export const QueensTableView: React.FC = () => {
                 </div>
               </div>
               <div className="absolute -bottom-4 -left-4 w-48 h-48 border-2 border-[#B58A4A]/50 rounded-2xl -z-0 hidden sm:block" />
-            </div>
+            </ScrollReveal>
 
             {/* Editorial Narrative */}
-            <div className="lg:col-span-6 space-y-6 order-1 lg:order-2">
+            <ScrollReveal direction="up" delay={0.2} className="lg:col-span-6 space-y-6 order-1 lg:order-2">
               <div className="inline-flex items-center gap-2">
                 <span className="w-8 h-px bg-[#B58A4A]" />
                 <span className="text-xs uppercase tracking-widest font-semibold text-[#5A1F24]">
@@ -138,7 +139,7 @@ export const QueensTableView: React.FC = () => {
                   <span>Generations of Families</span>
                 </div>
               </div>
-            </div>
+            </ScrollReveal>
 
           </div>
         </div>
@@ -147,9 +148,9 @@ export const QueensTableView: React.FC = () => {
       {/* ========================================================
           03 — SIGNATURES OF THE TABLE
          ======================================================== */}
-      <section className="py-20 lg:py-28 bg-[#F5EFE4] border-b border-[#E8DDCC]">
+      <section className="py-20 lg:py-28 bg-[#F5EFE4] border-b border-[#E8DDCC] overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-16">
+          <ScrollReveal direction="up" className="text-center max-w-3xl mx-auto mb-16">
             <span className="text-xs uppercase tracking-widest font-semibold text-[#B58A4A] block mb-2">
               Time-Honoured Culinary Art
             </span>
@@ -159,53 +160,57 @@ export const QueensTableView: React.FC = () => {
             <p className="mt-3 text-sm text-[#1E1714]/75 max-w-xl mx-auto">
               The dishes that have defined royal Punjabi fine dining in Bengaluru for over half a century.
             </p>
-          </div>
+          </ScrollReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {signatureDishes.map((dish, idx) => (
-              <div
-                key={idx}
-                className="bg-white rounded-2xl border border-[#E8DDCC] overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between group"
-              >
-                <div>
-                  <div className="h-56 relative overflow-hidden bg-[#1E1714]">
-                    <img
-                      src={dish.image}
-                      alt={dish.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                      referrerPolicy="no-referrer"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
-                    <span className="absolute top-3 left-3 text-[9px] font-bold uppercase tracking-widest text-[#B58A4A] bg-[#5A1F24]/90 px-2.5 py-1 rounded shadow">
-                      {dish.category}
-                    </span>
-                    <span className="absolute bottom-3 left-3 right-3 text-[11px] font-medium text-white/90">
-                      {dish.highlight}
-                    </span>
+              <StaggerItem key={idx} className="flex">
+                <div
+                  className="bg-white rounded-2xl border border-[#E8DDCC] overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 flex flex-col justify-between group w-full hover:-translate-y-1"
+                >
+                  <div>
+                    <div className="h-56 relative overflow-hidden bg-[#1E1714]">
+                      <img
+                        src={dish.image}
+                        alt={dish.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                        referrerPolicy="no-referrer"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+                      <span className="absolute top-3 left-3 text-[9px] font-bold uppercase tracking-widest text-[#B58A4A] bg-[#5A1F24]/90 px-2.5 py-1 rounded shadow">
+                        {dish.category}
+                      </span>
+                    </div>
+
+                    <div className="p-6 space-y-3">
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-[#B58A4A] flex items-center gap-1">
+                        <Flame className="w-3 h-3 text-[#B58A4A]" />
+                        <span>{dish.highlight}</span>
+                      </span>
+
+                      <h3 className="text-lg font-serif font-bold text-[#5A1F24] group-hover:text-[#B58A4A] transition-colors leading-snug">
+                        {dish.title}
+                      </h3>
+
+                      <p className="text-xs text-[#1E1714]/75 leading-relaxed">
+                        {dish.description}
+                      </p>
+                    </div>
                   </div>
 
-                  <div className="p-6 space-y-3">
-                    <h3 className="text-xl font-serif font-bold text-[#5A1F24] leading-snug">
-                      {dish.title}
-                    </h3>
-                    <p className="text-xs text-[#1E1714]/75 leading-relaxed">
-                      {dish.description}
-                    </p>
+                  <div className="p-6 pt-0">
+                    <button
+                      onClick={() => setIsBookingModalOpen(true)}
+                      className="w-full py-2.5 bg-[#F5EFE4] hover:bg-[#5A1F24] text-[#5A1F24] hover:text-[#FCFAF5] border border-[#B58A4A]/50 rounded text-xs font-semibold uppercase tracking-wider transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-sm"
+                    >
+                      <span>Reserve for Table</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </button>
                   </div>
                 </div>
-
-                <div className="p-6 pt-0">
-                  <button
-                    onClick={() => setCurrentPage('menu')}
-                    className="w-full py-2.5 bg-[#F5EFE4] hover:bg-[#5A1F24] text-[#5A1F24] hover:text-[#FCFAF5] rounded text-xs font-semibold uppercase tracking-wider transition-colors flex items-center justify-center gap-1.5 border border-[#5A1F24]/20 cursor-pointer"
-                  >
-                    <span>Explore the Menu</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </button>
-                </div>
-              </div>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
         </div>
       </section>
 

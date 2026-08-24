@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { GALLERY_ITEMS } from '../data/restaurantData';
 import { PAGE_HERO_IMAGES } from '../data/images';
 import { PageHero } from '../components/PageHero';
+import { StaggerContainer, StaggerItem, ScrollReveal } from '../components/motion/MotionReveal';
 import { X, ChevronLeft, ChevronRight, Maximize2, MapPin } from 'lucide-react';
 
 export const GalleryView: React.FC = () => {
@@ -87,52 +88,56 @@ export const GalleryView: React.FC = () => {
         </div>
 
         {/* Editorial Asymmetric Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredItems.map((item, idx) => {
             const isSpan = item.featured && activeCategory === 'all' && (idx === 0 || item.id === 'g-6');
             return (
-              <div
+              <StaggerItem
                 key={item.id}
-                onClick={() => openLightbox(idx)}
-                className={`group relative rounded-2xl overflow-hidden shadow-sm bg-[#1E1714] cursor-pointer border border-[#E8DDCC] hover:shadow-xl transition-all duration-300 ${
-                  isSpan ? 'sm:col-span-2 sm:row-span-2 min-h-[380px] sm:min-h-[440px]' : 'min-h-[280px] sm:min-h-[320px]'
-                }`}
+                className={isSpan ? 'sm:col-span-2 sm:row-span-2' : ''}
               >
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-90 group-hover:opacity-100"
-                  referrerPolicy="no-referrer"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent opacity-85 group-hover:opacity-95 transition-opacity" />
-                
-                <div className="absolute bottom-5 left-5 right-5 text-white">
-                  <div className="flex items-center gap-2 mb-1.5">
-                    <span className="text-[9px] uppercase tracking-widest text-[#B58A4A] font-bold bg-[#5A1F24]/90 px-2 py-0.5 rounded">
-                      {item.category}
-                    </span>
-                    {item.location && (
-                      <span className="text-[10px] text-white/80 flex items-center gap-1 font-medium">
-                        <MapPin className="w-3 h-3 text-[#B58A4A]" />
-                        <span>{item.location}</span>
+                <div
+                  onClick={() => openLightbox(idx)}
+                  className={`group relative rounded-2xl overflow-hidden shadow-sm bg-[#1E1714] cursor-pointer border border-[#E8DDCC] hover:shadow-2xl transition-all duration-500 w-full h-full hover:-translate-y-1 ${
+                    isSpan ? 'min-h-[380px] sm:min-h-[440px]' : 'min-h-[280px] sm:min-h-[320px]'
+                  }`}
+                >
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out opacity-90 group-hover:opacity-100"
+                    referrerPolicy="no-referrer"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent opacity-85 group-hover:opacity-95 transition-opacity" />
+                  
+                  <div className="absolute bottom-5 left-5 right-5 text-white transform transition-transform duration-500 group-hover:-translate-y-1">
+                    <div className="flex items-center gap-2 mb-1.5">
+                      <span className="text-[9px] uppercase tracking-widest text-[#B58A4A] font-bold bg-[#5A1F24]/90 px-2 py-0.5 rounded">
+                        {item.category}
                       </span>
-                    )}
+                      {item.location && (
+                        <span className="text-[10px] text-white/80 flex items-center gap-1 font-medium">
+                          <MapPin className="w-3 h-3 text-[#B58A4A]" />
+                          <span>{item.location}</span>
+                        </span>
+                      )}
+                    </div>
+                    <h3 className={`font-serif font-bold text-[#FCFAF5] leading-snug ${isSpan ? 'text-xl sm:text-2xl' : 'text-base sm:text-lg'}`}>
+                      {item.title}
+                    </h3>
+                    <p className="text-xs text-[#D8CEBE] mt-1.5 line-clamp-2 opacity-80 group-hover:opacity-100 transition-opacity">
+                      {item.caption}
+                    </p>
                   </div>
-                  <h3 className={`font-serif font-bold text-[#FCFAF5] leading-snug ${isSpan ? 'text-xl sm:text-2xl' : 'text-base sm:text-lg'}`}>
-                    {item.title}
-                  </h3>
-                  <p className="text-xs text-[#D8CEBE] mt-1.5 line-clamp-2 opacity-80 group-hover:opacity-100 transition-opacity">
-                    {item.caption}
-                  </p>
-                </div>
 
-                <div className="absolute top-4 right-4 bg-black/50 backdrop-blur-sm p-2 rounded-full text-white opacity-0 group-hover:opacity-100 transition-opacity">
-                  <Maximize2 className="w-4 h-4" />
+                  <div className="absolute top-4 right-4 bg-black/50 backdrop-blur-sm p-2 rounded-full text-white opacity-0 group-hover:opacity-100 transition-all duration-300 transform group-hover:scale-110">
+                    <Maximize2 className="w-4 h-4" />
+                  </div>
                 </div>
-              </div>
+              </StaggerItem>
             );
           })}
-        </div>
+        </StaggerContainer>
 
       </div>
 

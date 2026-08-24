@@ -3,6 +3,7 @@ import { useCMS } from '../context/CMSContext';
 import { HERITAGE_MILESTONES, EXPERIENCE_PACKAGES } from '../data/restaurantData';
 import { HERITAGE_IMAGES, VENUE_IMAGES, PAGE_HERO_IMAGES } from '../data/images';
 import { PageHero } from '../components/PageHero';
+import { ScrollReveal, StaggerContainer, StaggerItem } from '../components/motion/MotionReveal';
 import { Logo } from '../components/Logo';
 import { ArrowRight, CheckCircle } from 'lucide-react';
 
@@ -10,7 +11,7 @@ export const OurStoryView: React.FC = () => {
   const { setIsBookingModalOpen, setCurrentPage } = useCMS();
 
   return (
-    <div className="bg-[#F5EFE4] text-[#1E1714] pb-24">
+    <div className="bg-[#F5EFE4] text-[#1E1714] pb-24 overflow-hidden">
       {/* Editorial Heritage Hero Header */}
       <PageHero
         backgroundImage={PAGE_HERO_IMAGES.ourStory}
@@ -26,7 +27,7 @@ export const OurStoryView: React.FC = () => {
         
         {/* The 1974 Beginning */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 items-center">
-          <div className="md:col-span-7 space-y-4">
+          <ScrollReveal direction="up" className="md:col-span-7 space-y-4">
             <span className="text-xs uppercase tracking-widest font-bold text-[#B58A4A]">
               Chapter I · The Spark of 1974
             </span>
@@ -42,21 +43,21 @@ export const OurStoryView: React.FC = () => {
               We sourced handcrafted clay tandoors from northern master potters, transported raw lump charcoal, 
               and instituted our family's sacred spice blend ratios that remain unchanged to this day.
             </p>
-          </div>
-          <div className="md:col-span-5">
-            <div className="rounded-lg overflow-hidden border-4 border-white shadow-xl">
+          </ScrollReveal>
+          <ScrollReveal direction="left" delay={0.2} className="md:col-span-5">
+            <div className="rounded-lg overflow-hidden border-4 border-white shadow-xl group">
               <img
                 src={HERITAGE_IMAGES.culinaryTradition}
                 alt="Heritage Punjabi Culinary Craft"
-                className="w-full h-80 object-cover"
+                className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                 referrerPolicy="no-referrer"
               />
             </div>
-          </div>
+          </ScrollReveal>
         </div>
 
         {/* The Sacred 4 Culinary Pillars */}
-        <div className="bg-[#FCFAF5] p-8 sm:p-12 rounded-xl border border-[#E8DDCC] shadow-sm space-y-8">
+        <ScrollReveal direction="up" className="bg-[#FCFAF5] p-8 sm:p-12 rounded-xl border border-[#E8DDCC] shadow-sm space-y-8">
           <div className="text-center max-w-2xl mx-auto">
             <span className="text-xs uppercase tracking-widest font-bold text-[#B58A4A]">
               The Queen's Code
@@ -107,47 +108,48 @@ export const OurStoryView: React.FC = () => {
               </p>
             </div>
           </div>
-        </div>
+        </ScrollReveal>
 
         {/* 5-Decade Timeline */}
         <div className="space-y-8">
-          <div className="text-center">
+          <ScrollReveal direction="up" className="text-center">
             <span className="text-xs uppercase tracking-widest font-bold text-[#B58A4A]">
               Chronology
             </span>
             <h3 className="text-2xl sm:text-3xl font-serif font-bold text-[#5A1F24] mt-1">
               Five Decades of Memories
             </h3>
-          </div>
+          </ScrollReveal>
 
-          <div className="space-y-6">
+          <StaggerContainer className="space-y-6">
             {HERITAGE_MILESTONES.map((m, idx) => (
-              <div
-                key={idx}
-                className="bg-white p-6 sm:p-8 rounded-xl border border-[#E8DDCC] shadow-sm flex flex-col md:flex-row gap-6 items-start"
-              >
-                <div className="bg-[#5A1F24] text-[#FCFAF5] px-4 py-2 rounded font-serif font-bold text-lg shrink-0 border border-[#B58A4A]">
-                  {m.year}
-                </div>
-                <div className="space-y-2 flex-1">
-                  <span className="text-xs uppercase tracking-widest font-bold text-[#B58A4A]">
-                    {m.highlight}
-                  </span>
-                  <h4 className="text-xl font-serif font-bold text-[#1E1714]">
-                    {m.title}
-                  </h4>
-                  <p className="text-sm text-[#1E1714]/80 leading-relaxed">
-                    {m.description}
-                  </p>
-                  {m.quote && (
-                    <p className="italic text-xs text-[#5A1F24] font-serif pt-1">
-                      {m.quote}
+              <StaggerItem key={idx}>
+                <div
+                  className="bg-white p-6 sm:p-8 rounded-xl border border-[#E8DDCC] shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col md:flex-row gap-6 items-start"
+                >
+                  <div className="bg-[#5A1F24] text-[#FCFAF5] px-4 py-2 rounded font-serif font-bold text-lg shrink-0 border border-[#B58A4A]">
+                    {m.year}
+                  </div>
+                  <div className="space-y-2 flex-1">
+                    <span className="text-xs uppercase tracking-widest font-bold text-[#B58A4A]">
+                      {m.highlight}
+                    </span>
+                    <h4 className="text-xl font-serif font-bold text-[#1E1714]">
+                      {m.title}
+                    </h4>
+                    <p className="text-sm text-[#1E1714]/80 leading-relaxed">
+                      {m.description}
                     </p>
-                  )}
+                    {m.quote && (
+                      <p className="italic text-xs text-[#5A1F24] font-serif pt-1">
+                        {m.quote}
+                      </p>
+                    )}
+                  </div>
                 </div>
-              </div>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
         </div>
 
         {/* Integrated Experiences Section: Banquets & Private Dining */}
