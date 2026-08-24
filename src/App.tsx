@@ -4,6 +4,7 @@ import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { BookingModal } from './components/BookingModal';
 import { GlobalSearchModal } from './components/GlobalSearchModal';
+import { WhatsAppChatButton } from './components/WhatsAppChatButton';
 
 // Page Views
 import { HomeView } from './views/HomeView';
@@ -65,6 +66,9 @@ const MainLayout: React.FC = () => {
 
       {/* Global Footer (hidden in CMS admin view for cleaner workspace) */}
       {currentPage !== 'cms-admin' && <Footer />}
+
+      {/* Floating WhatsApp Action Utility */}
+      <WhatsAppChatButton />
 
       {/* Global Interactive Modals */}
       <BookingModal />
