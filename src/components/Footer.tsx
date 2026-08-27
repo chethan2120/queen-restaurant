@@ -13,7 +13,7 @@ import {
 } from 'lucide-react';
 
 export const Footer: React.FC = () => {
-  const { setCurrentPage, setSelectedLocationId } = useCMS();
+  const { setCurrentPage, setIsOrderModalOpen, setIsBookingModalOpen } = useCMS();
   const [email, setEmail] = useState('');
   const [isSubscribed, setIsSubscribed] = useState(false);
 
@@ -86,6 +86,16 @@ export const Footer: React.FC = () => {
               Explore Queen's
             </h3>
             <ul className="space-y-2.5">
+              <li>
+                <button
+                  onClick={() => setIsOrderModalOpen(true)}
+                  className="text-sm text-[#B58A4A] font-bold hover:text-[#FCFAF5] transition-colors flex items-center gap-1.5 group text-left cursor-pointer"
+                  id="footer-order-online-btn"
+                >
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#B58A4A]" />
+                  <span>Order Online (Swiggy / Zomato)</span>
+                </button>
+              </li>
               {navLinks.map((link) => (
                 <li key={link.page}>
                   <button

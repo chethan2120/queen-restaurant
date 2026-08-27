@@ -17,7 +17,9 @@ export const LocationsView: React.FC = () => {
   const {
     setCurrentPage,
     setIsBookingModalOpen,
+    setIsOrderModalOpen,
     setPreselectedBookingLocation,
+    setPreselectedOrderLocation,
     selectedLocationId,
     setSelectedLocationId,
   } = useCMS();
@@ -167,7 +169,7 @@ export const LocationsView: React.FC = () => {
               </div>
 
               {/* Action Buttons */}
-              <div className="pt-6 border-t border-[#E8DDCC] grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div className="pt-6 border-t border-[#E8DDCC] grid grid-cols-1 sm:grid-cols-3 gap-2.5">
                 <button
                   onClick={() => {
                     setPreselectedBookingLocation(activeLocation.id);
@@ -177,6 +179,18 @@ export const LocationsView: React.FC = () => {
                 >
                   <Calendar className="w-3.5 h-3.5 text-[#B58A4A]" />
                   <span>Book Table</span>
+                </button>
+
+                <button
+                  onClick={() => {
+                    setPreselectedOrderLocation(activeLocation.id);
+                    setIsOrderModalOpen(true);
+                  }}
+                  className="py-3 bg-[#B58A4A] text-[#1E1714] rounded text-xs font-bold uppercase tracking-wider hover:bg-[#C89B5B] transition-colors flex items-center justify-center gap-1.5 border border-[#B58A4A] cursor-pointer shadow-sm"
+                  id="location-order-online-btn"
+                >
+                  <ShoppingBag className="w-3.5 h-3.5 text-[#1E1714]" />
+                  <span>Order Online</span>
                 </button>
 
                 <a

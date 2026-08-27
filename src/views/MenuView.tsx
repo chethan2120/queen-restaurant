@@ -10,10 +10,12 @@ import {
   ShoppingBag,
   Calendar,
   Info,
+  Quote,
+  ArrowRight,
 } from 'lucide-react';
 
 export const MenuView: React.FC = () => {
-  const { menuItems, setIsBookingModalOpen } = useCMS();
+  const { menuItems, setIsBookingModalOpen, setIsOrderModalOpen } = useCMS();
 
   const [activeCategory, setActiveCategory] = useState<string>('all');
   const [dietaryFilter, setDietaryFilter] = useState<'all' | 'veg' | 'non-veg' | 'special'>('all');
@@ -68,9 +70,18 @@ export const MenuView: React.FC = () => {
         description="Prepared fresh daily with hand-roasted spices, pure desi ghee, farm cream, and the intense heat of clay tandoor embers."
         imageAlt="Queen's Authentic Royal Indian Culinary Feast & Signature Tandoor Dishes"
       >
-        <div className="flex items-center justify-center gap-3 no-print">
+        <div className="flex flex-wrap items-center justify-center gap-3 no-print">
+          <button
+            onClick={() => setIsOrderModalOpen(true)}
+            id="menu-hero-order-btn"
+            className="px-6 py-2.5 bg-[#B58A4A] hover:bg-[#C89B5B] text-[#1E1714] text-xs font-bold uppercase tracking-wider rounded border border-[#B58A4A] flex items-center gap-2 cursor-pointer shadow-md transition-all"
+          >
+            <ShoppingBag className="w-3.5 h-3.5 text-[#1E1714]" />
+            <span>Order Online (Swiggy / Zomato)</span>
+          </button>
           <button
             onClick={() => setIsBookingModalOpen(true)}
+            id="menu-hero-book-btn"
             className="px-6 py-2.5 bg-[#5A1F24] hover:bg-[#72272e] text-[#FCFAF5] text-xs font-semibold uppercase tracking-wider rounded border border-[#B58A4A] flex items-center gap-2 cursor-pointer shadow-md transition-all"
           >
             <Calendar className="w-3.5 h-3.5 text-[#B58A4A]" />
@@ -287,6 +298,95 @@ export const MenuView: React.FC = () => {
             • Government taxes as applicable. We do not levy mandatory service charges.
           </p>
         </div>
+
+        {/* ========================================================
+            CLOSING SECTION — SIGNATURE QUOTE & ORDER ONLINE CTA
+           ======================================================== */}
+        <section className="mt-20 sm:mt-28 space-y-16 sm:space-y-24 no-print">
+          
+          {/* 1. SIGNATURE EDITORIAL QUOTE */}
+          <ScrollReveal direction="up">
+            <div className="relative bg-[#1E1714] text-[#FCFAF5] rounded-2xl sm:rounded-3xl p-8 sm:p-14 lg:p-20 text-center overflow-hidden border border-[#B58A4A]/30 shadow-2xl">
+              {/* Background Decorative Pattern & Warm Glow */}
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(181,138,74,0.12),transparent_70%)] pointer-events-none" />
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-48 h-1 bg-gradient-to-r from-transparent via-[#B58A4A] to-transparent opacity-60" />
+
+              <div className="relative z-10 max-w-4xl mx-auto space-y-6 sm:space-y-8">
+                {/* Ornamental Crest / Quote Icon */}
+                <div className="inline-flex items-center justify-center gap-3">
+                  <span className="w-10 sm:w-16 h-px bg-[#B58A4A]/40" />
+                  <Quote className="w-8 h-8 sm:w-10 sm:h-10 text-[#B58A4A] opacity-90" />
+                  <span className="w-10 sm:w-16 h-px bg-[#B58A4A]/40" />
+                </div>
+
+                {/* Main Quote */}
+                <h2 className="font-serif text-2xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#FCFAF5] leading-tight sm:leading-snug">
+                  “Some flavours fill a plate. The unforgettable ones become part of your story.”
+                </h2>
+
+                {/* Decorative Divider */}
+                <div className="flex items-center justify-center gap-2 py-1">
+                  <span className="w-2 h-2 rounded-full bg-[#B58A4A]" />
+                  <span className="w-12 h-px bg-[#B58A4A]/50" />
+                  <span className="w-2 h-2 rounded-full bg-[#B58A4A]" />
+                </div>
+
+                {/* Supporting Line */}
+                <p className="text-sm sm:text-base lg:text-lg text-[#D8CEBE] font-serif italic max-w-2xl mx-auto leading-relaxed">
+                  At Queen's, every dish carries a legacy of Punjabi warmth, passion and hospitality.
+                </p>
+              </div>
+
+              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-48 h-1 bg-gradient-to-r from-transparent via-[#B58A4A] to-transparent opacity-60" />
+            </div>
+          </ScrollReveal>
+
+          {/* 2. PREMIUM ORDER ONLINE CTA */}
+          <ScrollReveal direction="up" delay={0.15}>
+            <div className="bg-[#FCFAF5] rounded-2xl sm:rounded-3xl p-8 sm:p-12 lg:p-16 border-2 border-[#E8DDCC] shadow-lg text-center space-y-6 sm:space-y-8 relative overflow-hidden">
+              <div className="max-w-2xl mx-auto space-y-3 sm:space-y-4">
+                <span className="text-xs uppercase tracking-widest font-bold text-[#B58A4A] block">
+                  Queen's Express Doorstep Delivery
+                </span>
+                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-[#5A1F24]">
+                  Your favourites are only a few clicks away.
+                </h2>
+                <p className="text-sm sm:text-base text-[#1E1714]/80 leading-relaxed font-sans">
+                  From our kitchen to your table — choose your preferred delivery partner and order from your nearest Queen's Restaurant location.
+                </p>
+              </div>
+
+              {/* Primary CTA Button */}
+              <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4">
+                <button
+                  onClick={() => setIsOrderModalOpen(true)}
+                  id="menu-end-order-online-btn"
+                  className="w-full sm:w-auto px-8 sm:px-12 py-4 bg-[#B58A4A] hover:bg-[#C89B5B] text-[#1E1714] font-serif font-bold text-sm sm:text-base uppercase tracking-widest rounded-xl shadow-md hover:shadow-xl hover:-translate-y-0.5 active:scale-[0.99] transition-all duration-300 border border-[#B58A4A] flex items-center justify-center gap-3 cursor-pointer group"
+                >
+                  <ShoppingBag className="w-5 h-5 text-[#1E1714] transition-transform group-hover:rotate-12" />
+                  <span>ORDER ONLINE</span>
+                  <ArrowRight className="w-4 h-4 text-[#1E1714] transition-transform group-hover:translate-x-1" />
+                </button>
+              </div>
+
+              {/* Platform & Outlet Subtle Badges */}
+              <div className="pt-4 flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-xs text-[#1E1714]/60">
+                <span className="flex items-center gap-1.5 font-medium">
+                  <span className="w-2 h-2 rounded-full bg-[#FC8019]" />
+                  Swiggy Delivery
+                </span>
+                <span className="text-[#E8DDCC]">•</span>
+                <span className="flex items-center gap-1.5 font-medium">
+                  <span className="w-2 h-2 rounded-full bg-[#CB202D]" />
+                  Zomato Delivery
+                </span>
+                <span className="text-[#E8DDCC]">•</span>
+                <span className="font-serif italic text-[#5A1F24]">Church Street & New BEL Road</span>
+              </div>
+            </div>
+          </ScrollReveal>
+
+        </section>
 
       </div>
     </div>

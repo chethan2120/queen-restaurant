@@ -29,10 +29,16 @@ interface CMSContextType {
   // Modals
   isBookingModalOpen: boolean;
   setIsBookingModalOpen: (open: boolean) => void;
+  isOrderModalOpen: boolean;
+  setIsOrderModalOpen: (open: boolean) => void;
   isSearchModalOpen: boolean;
   setIsSearchModalOpen: (open: boolean) => void;
   preselectedBookingLocation: 'church-street' | 'new-bel-road' | null;
   setPreselectedBookingLocation: (loc: 'church-street' | 'new-bel-road' | null) => void;
+  preselectedOrderLocation: 'church-street' | 'new-bel-road' | null;
+  setPreselectedOrderLocation: (loc: 'church-street' | 'new-bel-road' | null) => void;
+  preselectedOrderPlatform: 'swiggy' | 'zomato' | null;
+  setPreselectedOrderPlatform: (platform: 'swiggy' | 'zomato' | null) => void;
 
   // Data Store (CMS Managed)
   menuItems: MenuItem[];
@@ -123,8 +129,11 @@ export const CMSProvider: React.FC<{ children: React.ReactNode }> = ({ children 
 
   // Modal States
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
+  const [isOrderModalOpen, setIsOrderModalOpen] = useState(false);
   const [isSearchModalOpen, setIsSearchModalOpen] = useState(false);
   const [preselectedBookingLocation, setPreselectedBookingLocation] = useState<'church-street' | 'new-bel-road' | null>(null);
+  const [preselectedOrderLocation, setPreselectedOrderLocation] = useState<'church-street' | 'new-bel-road' | null>(null);
+  const [preselectedOrderPlatform, setPreselectedOrderPlatform] = useState<'swiggy' | 'zomato' | null>(null);
 
   // LocalStorage Persistence Keys
   const STORAGE_KEY_MENU = 'queens_restaurant_menu_v4';
@@ -556,10 +565,16 @@ export const CMSProvider: React.FC<{ children: React.ReactNode }> = ({ children 
 
         isBookingModalOpen,
         setIsBookingModalOpen,
+        isOrderModalOpen,
+        setIsOrderModalOpen,
         isSearchModalOpen,
         setIsSearchModalOpen,
         preselectedBookingLocation,
         setPreselectedBookingLocation,
+        preselectedOrderLocation,
+        setPreselectedOrderLocation,
+        preselectedOrderPlatform,
+        setPreselectedOrderPlatform,
 
         menuItems,
         addMenuItem,

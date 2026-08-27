@@ -28,8 +28,10 @@ export const HomeView: React.FC = () => {
   const {
     setCurrentPage,
     setIsBookingModalOpen,
+    setIsOrderModalOpen,
     setSelectedJournalSlug,
     setPreselectedBookingLocation,
+    setPreselectedOrderLocation,
     menuItems,
     journalArticles,
   } = useCMS();
@@ -541,7 +543,7 @@ export const HomeView: React.FC = () => {
                     </div>
                   </div>
 
-                  <div className="p-6 pt-0 grid grid-cols-2 gap-3">
+                  <div className="p-6 pt-0 grid grid-cols-1 sm:grid-cols-3 gap-2.5">
                     <button
                       onClick={() => {
                         setPreselectedBookingLocation(loc.id);
@@ -550,6 +552,17 @@ export const HomeView: React.FC = () => {
                       className="py-2.5 bg-[#5A1F24] text-[#FCFAF5] rounded text-xs font-semibold uppercase tracking-wider hover:bg-[#43161A] transition-colors text-center border border-[#B58A4A] cursor-pointer"
                     >
                       Reserve Table
+                    </button>
+
+                    <button
+                      onClick={() => {
+                        setPreselectedOrderLocation(loc.id);
+                        setIsOrderModalOpen(true);
+                      }}
+                      className="py-2.5 bg-[#B58A4A] text-[#1E1714] rounded text-xs font-bold uppercase tracking-wider hover:bg-[#C89B5B] transition-colors text-center border border-[#B58A4A] cursor-pointer flex items-center justify-center gap-1"
+                    >
+                      <ShoppingBag className="w-3.5 h-3.5" />
+                      <span>Order Delivery</span>
                     </button>
 
                     <a

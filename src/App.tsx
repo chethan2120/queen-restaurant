@@ -3,6 +3,7 @@ import { CMSProvider, useCMS } from './context/CMSContext';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { BookingModal } from './components/BookingModal';
+import { OrderOnlineModal } from './components/OrderOnlineModal';
 import { GlobalSearchModal } from './components/GlobalSearchModal';
 import { WhatsAppChatButton } from './components/WhatsAppChatButton';
 
@@ -72,6 +73,7 @@ const MainLayout: React.FC = () => {
 
       {/* Global Interactive Modals */}
       <BookingModal />
+      <OrderOnlineModal />
       <GlobalSearchModal />
     </div>
   );

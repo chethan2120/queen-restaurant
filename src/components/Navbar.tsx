@@ -19,6 +19,7 @@ export const Navbar: React.FC = () => {
     currentPage,
     setCurrentPage,
     setIsBookingModalOpen,
+    setIsOrderModalOpen,
     setIsSearchModalOpen,
     setSelectedJournalSlug,
     setSelectedLocationId,
@@ -159,11 +160,24 @@ export const Navbar: React.FC = () => {
               <Search className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
 
+            {/* Order Online CTA */}
+            <button
+              onClick={() => setIsOrderModalOpen(true)}
+              id="nav-order-online-btn"
+              className="relative group overflow-hidden px-2.5 sm:px-4 py-2 sm:py-2.5 bg-[#B58A4A] hover:bg-[#C89B5B] text-[#1E1714] text-[11px] sm:text-xs font-bold uppercase tracking-wider sm:tracking-widest rounded shadow-sm hover:shadow-md transition-all duration-300 border border-[#B58A4A] cursor-pointer whitespace-nowrap shrink-0"
+            >
+              <span className="relative z-10 flex items-center gap-1.5 sm:gap-2">
+                <ShoppingBag className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#1E1714]" />
+                <span className="hidden xs:inline">Order Online</span>
+                <span className="xs:hidden">Order</span>
+              </span>
+            </button>
+
             {/* Primary Book a Table CTA */}
             <button
               onClick={() => setIsBookingModalOpen(true)}
               id="nav-book-table-btn"
-              className="relative group overflow-hidden px-2.5 sm:px-5 py-2 sm:py-2.5 bg-[#5A1F24] text-[#FCFAF5] text-[11px] sm:text-xs font-semibold uppercase tracking-wider sm:tracking-widest rounded shadow-sm hover:shadow-md transition-all duration-300 border border-[#B58A4A]/50 hover:border-[#B58A4A] cursor-pointer whitespace-nowrap shrink-0"
+              className="relative group overflow-hidden px-2.5 sm:px-4 py-2 sm:py-2.5 bg-[#5A1F24] text-[#FCFAF5] text-[11px] sm:text-xs font-semibold uppercase tracking-wider sm:tracking-widest rounded shadow-sm hover:shadow-md transition-all duration-300 border border-[#B58A4A]/50 hover:border-[#B58A4A] cursor-pointer whitespace-nowrap shrink-0"
             >
               <span className="relative z-10 flex items-center gap-1.5 sm:gap-2">
                 <Calendar className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#B58A4A]" />
@@ -281,13 +295,26 @@ export const Navbar: React.FC = () => {
             </div>
 
             {/* Quick Mobile Action Buttons */}
-            <div className="pt-6 border-t border-[#E8DDCC] space-y-3">
+            <div className="pt-6 border-t border-[#E8DDCC] space-y-2.5">
+              <button
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  setIsOrderModalOpen(true);
+                }}
+                className="w-full py-3.5 bg-[#B58A4A] text-[#1E1714] font-bold uppercase tracking-widest text-sm rounded flex items-center justify-center gap-2 shadow-md border border-[#B58A4A] cursor-pointer"
+                id="mobile-drawer-order-btn"
+              >
+                <ShoppingBag className="w-4 h-4 text-[#1E1714]" />
+                <span>Order Online (Swiggy / Zomato)</span>
+              </button>
+
               <button
                 onClick={() => {
                   setIsMobileMenuOpen(false);
                   setIsBookingModalOpen(true);
                 }}
-                className="w-full py-3.5 bg-[#5A1F24] text-[#FCFAF5] font-semibold uppercase tracking-widest text-sm rounded flex items-center justify-center gap-2 shadow-md border border-[#B58A4A]"
+                className="w-full py-3.5 bg-[#5A1F24] text-[#FCFAF5] font-semibold uppercase tracking-widest text-sm rounded flex items-center justify-center gap-2 shadow-md border border-[#B58A4A] cursor-pointer"
+                id="mobile-drawer-book-btn"
               >
                 <Calendar className="w-4 h-4 text-[#B58A4A]" />
                 <span>Reserve a Table</span>
@@ -303,31 +330,28 @@ export const Navbar: React.FC = () => {
       )}
 
       {/* Sticky Mobile Action Bottom Bar (Only on mobile for effortless reservations and calling) */}
-      <div className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-[#FCFAF5]/95 backdrop-blur-md border-t border-[#E8DDCC] px-4 py-2.5 shadow-lg flex items-center justify-around">
+      <div className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-[#FCFAF5]/95 backdrop-blur-md border-t border-[#E8DDCC] px-2 sm:px-4 py-2 shadow-lg flex items-center justify-around gap-1">
         <a
           href="tel:+917204464661"
-          className="flex flex-col items-center justify-center text-center text-[#5A1F24] hover:text-[#B58A4A]"
+          className="flex flex-col items-center justify-center text-center text-[#5A1F24] hover:text-[#B58A4A] px-1 py-1"
           id="mobile-bottom-call"
         >
-          <Phone className="w-5 h-5 mb-0.5" />
-          <span className="text-[10px] font-semibold uppercase tracking-wider">Call Church St</span>
+          <Phone className="w-4 h-4 mb-0.5" />
+          <span className="text-[9px] sm:text-[10px] font-semibold uppercase tracking-wider">Call Us</span>
         </a>
 
         <button
-          onClick={() => {
-            setSelectedLocationId('church-street');
-            setCurrentPage('locations');
-          }}
-          className="flex flex-col items-center justify-center text-center text-[#1E1714] hover:text-[#5A1F24]"
-          id="mobile-bottom-directions"
+          onClick={() => setIsOrderModalOpen(true)}
+          className="flex items-center gap-1 px-3 py-2 bg-[#B58A4A] text-[#1E1714] rounded font-bold text-xs uppercase tracking-wider shadow-xs border border-[#B58A4A] shrink-0"
+          id="mobile-bottom-order"
         >
-          <MapPin className="w-5 h-5 mb-0.5 text-[#B58A4A]" />
-          <span className="text-[10px] font-semibold uppercase tracking-wider">Locations</span>
+          <ShoppingBag className="w-3.5 h-3.5 text-[#1E1714]" />
+          <span>Order Online</span>
         </button>
 
         <button
           onClick={() => setIsBookingModalOpen(true)}
-          className="flex items-center gap-1.5 px-4 py-2 bg-[#5A1F24] text-[#FCFAF5] rounded font-semibold text-xs uppercase tracking-wider shadow-sm border border-[#B58A4A]"
+          className="flex items-center gap-1 px-3 py-2 bg-[#5A1F24] text-[#FCFAF5] rounded font-semibold text-xs uppercase tracking-wider shadow-xs border border-[#B58A4A] shrink-0"
           id="mobile-bottom-book"
         >
           <Calendar className="w-3.5 h-3.5 text-[#B58A4A]" />

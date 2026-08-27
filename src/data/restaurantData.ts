@@ -39,8 +39,8 @@ export const RESTAURANT_LOCATIONS: RestaurantLocation[] = [
     seatingCapacity: 140,
     mapEmbedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.9854497672264!2d77.6033334!3d12.9734167!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1681283d5a23%3A0x6b3064cb058e38d7!2sChurch%20St%2C%20Bengaluru%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin',
     googleMapsLink: 'https://maps.google.com/?q=52+Church+St+Bengaluru+560001',
-    swiggyLink: 'https://www.swiggy.com/restaurants/queens-restaurant-church-street-bangalore',
-    zomatoLink: 'https://www.zomato.com/bangalore/queens-restaurant-church-street',
+    swiggyLink: 'https://www.swiggy.com/city/bangalore/queens-restaurant-church-street-central-bangalore-rest811581',
+    zomatoLink: 'https://www.zomato.com/bangalore/queens-restaurant-church-street-bangalore',
     image: VENUE_IMAGES.churchStreetFlagship,
     gallery: [
       VENUE_IMAGES.churchStreetFlagship,
@@ -77,8 +77,8 @@ export const RESTAURANT_LOCATIONS: RestaurantLocation[] = [
     seatingCapacity: 180,
     mapEmbedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.684128362489!2d77.5684532!3d13.0315481!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae17dd8b0e8b2b%3A0xb35a0cf075cf3981!2sNew%20BEL%20Rd%2C%20Bengaluru%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin',
     googleMapsLink: 'https://maps.google.com/?q=45+1st+Main+Rd+New+BEL+Rd+Mathikere+Bengaluru+560094',
-    swiggyLink: 'https://www.swiggy.com/restaurants/queens-restaurant-new-bel-road-bangalore',
-    zomatoLink: 'https://www.zomato.com/bangalore/queens-restaurant-new-bel-road',
+    swiggyLink: 'https://www.swiggy.com/city/bangalore/queens-restaurant-new-bel-road-rest406543',
+    zomatoLink: 'https://www.zomato.com/bangalore/queens-restaurant-new-bel-road-bangalore',
     image: VENUE_IMAGES.newBelRoadBanquet,
     gallery: [
       VENUE_IMAGES.newBelRoadBanquet,
