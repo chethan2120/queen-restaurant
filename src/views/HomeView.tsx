@@ -726,9 +726,19 @@ export const HomeView: React.FC = () => {
             Experience fifty years of royal culinary tradition at Church Street or New BEL Road. Reserve your dining experience in advance.
           </p>
 
-          <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
+            <button
+              onClick={() => setIsOrderModalOpen(true)}
+              id="your-table-awaits-order-now-btn"
+              className="w-full sm:w-auto px-8 py-3.5 bg-[#B58A4A] hover:bg-[#C89B5B] text-[#1E1714] rounded font-serif font-bold uppercase tracking-widest text-xs border border-[#B58A4A] shadow-xl flex items-center justify-center gap-2 cursor-pointer transition-all hover:scale-105"
+            >
+              <ShoppingBag className="w-4 h-4 text-[#1E1714]" />
+              <span>Order Now</span>
+            </button>
+
             <button
               onClick={() => setIsBookingModalOpen(true)}
+              id="your-table-awaits-book-now-btn"
               className="w-full sm:w-auto px-8 py-3.5 bg-[#5A1F24] hover:bg-[#72272e] text-[#FCFAF5] rounded font-semibold uppercase tracking-widest text-xs border border-[#B58A4A] shadow-xl flex items-center justify-center gap-2 cursor-pointer transition-all hover:scale-105"
             >
               <Calendar className="w-4 h-4 text-[#B58A4A]" />
