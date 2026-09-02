@@ -23,7 +23,7 @@ export interface MenuItem {
   isVeg: boolean;
   isChefSpecial?: boolean;
   isPopular?: boolean;
-  spiceLevel: 1 | 2 | 3; // 1: Mild, 2: Medium, 3: Spicy
+  spiceLevel?: 1 | 2 | 3; // 1: Mild, 2: Medium, 3: Spicy
   image: string;
   portion?: string;
   allergens?: string[];
