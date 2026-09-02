@@ -15,6 +15,7 @@ import heroCinematic from '../assets/images/hero_4k_royal_dining_scene_178756053
 import restaurantInteriorDining from '../assets/images/restaurant_interior_dining_1787394728973.jpg';
 import churchStreet1974Dining from '../assets/images/hero_4k_royal_dining_scene_1787560536423.jpg';
 import royalPrivateDiningSalon from '../assets/images/royal_private_dining_salon_1787552779208.jpg';
+import tandoorLit1974Image from '../../public/queens_restuarant/assets/img/DSC00134-Large.webp';
 
 // Starters
 import bhattiDaMurgh from '../assets/images/bhatti_da_murgh_1787312038567.jpg';
@@ -174,6 +175,7 @@ export const VENUE_IMAGES = {
   heroDiningRoom: restaurantInteriorDining,
   restaurantInterior: restaurantInteriorDining,
   churchStreet1974Dining: churchStreet1974Dining,
+  tandoorLit1974: tandoorLit1974Image,
   royalPrivateDiningSalon: royalPrivateDiningSalon,
   tandoorLiveHearth: tandoorFlame,
   royalFeastTable: royalFeastSpread,
