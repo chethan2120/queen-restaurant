@@ -53,6 +53,28 @@ import kesarPistaBadamMilk from '../assets/images/kesar_badam_milk_1787312377894
 import kesariPhirniClayPot from '../assets/images/kesari_phirni_1787312392557.jpg';
 import shahiGulabJamunRabri from '../assets/images/shahi_gulab_jamun_1787312407840.jpg';
 
+// Additional Authentic Food Photography from Queen's Archive
+import paniPuriWebp from '../../public/queens_restuarant/assets/img/Pani-Puri.webp';
+import papdiChaatJpg from '../../public/queens_restuarant/assets/img/recipes/19_Papdi-Chaat.JPG';
+import sevPuriWebp from '../../public/queens_restuarant/assets/img/gallery/other/44_Sev-Puri.webp';
+import paneerMakhaniPng from '../../public/queens_restuarant/assets/img/recipes/18_Paneer-Makhani.png';
+import paneerJalfreziPng from '../../public/queens_restuarant/assets/img/recipes/27_Paneer-Jalfrezi.png';
+import matarPaneerPng from '../../public/queens_restuarant/assets/img/recipes/9_Matar-Paneer.png';
+import baiganBharthaJpg from '../../public/queens_restuarant/assets/img/recipes/8_Baigan-Bhartha.jpg';
+import rajmaJpg from '../../public/queens_restuarant/assets/img/recipes/7_Rajma.jpg';
+import phulkaJpg from '../../public/queens_restuarant/assets/img/recipes/23_Phulka.jpg';
+import tawaLachhaParathaJpg from '../../public/queens_restuarant/assets/img/recipes/14_Tawa-Lachha-Paratha.JPG';
+import cheeseNaanPng from '../../public/queens_restuarant/assets/img/recipes/12_Cheese-Naan.png';
+import haryaliChickenKebabJpg from '../../public/queens_restuarant/assets/img/recipes/28_Haryali-Cheese-Chicken-Kebab.JPG';
+import tomatoShorbaJpg from '../../public/queens_restuarant/assets/img/recipes/21_Tomato-Shorba.JPG';
+import butterChickenWebp from '../../public/queens_restuarant/assets/img/butter-chicken.webp';
+import chickenTikkaWebp from '../../public/queens_restuarant/assets/img/Chicken-Tikka.webp';
+import tandooriChickenJpg from '../../public/queens_restuarant/assets/img/recipes/5_Tandoori-Chicken.jpg';
+import doPhoolWebp from '../../public/queens_restuarant/assets/img/gallery/other/32_Do-Phool-Ek-Swaad.webp';
+import homemadePaneerWebp from '../../public/queens_restuarant/assets/img/gallery/other/34_Home-made-Paneer.webp';
+import kebabPlatterWebp from '../../public/queens_restuarant/assets/img/gallery/other/39_Kebab-ka-Kamaal-Platter.webp';
+import breadsWebp from '../../public/queens_restuarant/assets/img/gallery/other/14_Breads.webp';
+
 // Photorealistic Editorial Journal Images
 import journalPunjabiHeritage from '../assets/images/punjabi_cuisine_heritage_1787547603046.jpg';
 import journalClayTandoor from '../assets/images/clay_tandoor_live_fire_1787547622034.jpg';
@@ -123,6 +145,28 @@ export const DISH_IMAGES = {
   // Desserts
   kesariPhirniClayPot,
   shahiGulabJamunRabri,
+
+  // Additional Authentic Dish Photography
+  paniPuri: paniPuriWebp,
+  papdiChaat: papdiChaatJpg,
+  sevPuri: sevPuriWebp,
+  paneerMakhani: paneerMakhaniPng,
+  paneerJalfrezi: paneerJalfreziPng,
+  matarPaneer: matarPaneerPng,
+  baiganBhartha: baiganBharthaJpg,
+  rajma: rajmaJpg,
+  phulka: phulkaJpg,
+  tawaLachhaParatha: tawaLachhaParathaJpg,
+  cheeseNaan: cheeseNaanPng,
+  haryaliChickenKebab: haryaliChickenKebabJpg,
+  tomatoShorba: tomatoShorbaJpg,
+  butterChicken: butterChickenWebp,
+  chickenTikka: chickenTikkaWebp,
+  tandooriChicken: tandooriChickenJpg,
+  doPhoolEkSwaad: doPhoolWebp,
+  homemadePaneer: homemadePaneerWebp,
+  kebabPlatter: kebabPlatterWebp,
+  breads: breadsWebp,
 } as const;
 
 // Heritage, Venues & Atmosphere

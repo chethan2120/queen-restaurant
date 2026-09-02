@@ -136,7 +136,7 @@ export const CMSProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   const [preselectedOrderPlatform, setPreselectedOrderPlatform] = useState<'swiggy' | 'zomato' | null>(null);
 
   // LocalStorage Persistence Keys
-  const STORAGE_KEY_MENU = 'queens_restaurant_menu_v6';
+  const STORAGE_KEY_MENU = 'queens_restaurant_menu_v7';
   const STORAGE_KEY_JOURNAL = 'queens_restaurant_journal_v8';
   const STORAGE_KEY_RESERVATIONS = 'queens_restaurant_reservations_v3';
 

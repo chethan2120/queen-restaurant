@@ -102,7 +102,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     isVeg: true,
     isChefSpecial: false,
     isPopular: true,
-    image: '',
+    image: DISH_IMAGES.paniPuri,
   },
   {
     id: 'm-starter-2',
@@ -113,7 +113,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     isVeg: true,
     isChefSpecial: false,
     isPopular: true,
-    image: '',
+    image: DISH_IMAGES.papdiChaat,
   },
   {
     id: 'm-starter-3',
@@ -124,7 +124,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     isVeg: true,
     isChefSpecial: false,
     isPopular: false,
-    image: '',
+    image: DISH_IMAGES.sevPuri,
   },
   {
     id: 'm-starter-4',
@@ -135,7 +135,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     isVeg: true,
     isChefSpecial: false,
     isPopular: false,
-    image: '',
+    image: DISH_IMAGES.papdiChaat,
   },
   {
     id: 'm-starter-5',
@@ -146,7 +146,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     isVeg: true,
     isChefSpecial: false,
     isPopular: true,
-    image: '',
+    image: DISH_IMAGES.paniPuri,
   },
   {
     id: 'm-starter-6',
@@ -157,7 +157,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     isVeg: true,
     isChefSpecial: false,
     isPopular: false,
-    image: '',
+    image: DISH_IMAGES.dahiKeKebab,
   },
   {
     id: 'm-starter-7',
@@ -168,7 +168,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     isVeg: true,
     isChefSpecial: true,
     isPopular: true,
-    image: '',
+    image: DISH_IMAGES.amritsariPindiChole,
   },
   {
     id: 'm-starter-8',
@@ -179,7 +179,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     isVeg: true,
     isChefSpecial: false,
     isPopular: false,
-    image: '',
+    image: DISH_IMAGES.tandooriBharwanKhumb,
   },
   {
     id: 'm-starter-9',
@@ -201,7 +201,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     isVeg: true,
     isChefSpecial: false,
     isPopular: false,
-    image: '',
+    image: DISH_IMAGES.tandooriBharwanKhumb,
   },
   {
     id: 'm-starter-11',
@@ -212,7 +212,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     isVeg: true,
     isChefSpecial: false,
     isPopular: false,
-    image: '',
+    image: DISH_IMAGES.doPhoolEkSwaad,
   },
   {
     id: 'm-starter-12',
@@ -234,7 +234,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     isVeg: false,
     isChefSpecial: true,
     isPopular: false,
-    image: '',
+    image: DISH_IMAGES.haryaliChickenKebab,
   },
   {
     id: 'm-starter-14',
@@ -245,7 +245,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     isVeg: false,
     isChefSpecial: false,
     isPopular: true,
-    image: '',
+    image: DISH_IMAGES.bhattiDaMurgh,
   },
   {
     id: 'm-starter-15',
@@ -256,7 +256,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     isVeg: false,
     isChefSpecial: false,
     isPopular: false,
-    image: '',
+    image: DISH_IMAGES.bhattiDaMurgh,
   },
   {
     id: 'm-starter-16',
@@ -267,7 +267,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     isVeg: false,
     isChefSpecial: true,
     isPopular: true,
-    image: DISH_IMAGES.bhattiDaMurgh,
+    image: DISH_IMAGES.tandooriChicken,
   },
   {
     id: 'm-starter-17',
@@ -278,7 +278,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     isVeg: false,
     isChefSpecial: false,
     isPopular: true,
-    image: '',
+    image: DISH_IMAGES.bhattiDaMurgh,
   },
   {
     id: 'm-starter-18',
@@ -289,7 +289,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     isVeg: false,
     isChefSpecial: false,
     isPopular: true,
-    image: '',
+    image: DISH_IMAGES.chickenTikka,
   },
   {
     id: 'm-starter-19',
@@ -300,7 +300,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     isVeg: false,
     isChefSpecial: false,
     isPopular: false,
-    image: '',
+    image: DISH_IMAGES.bhattiDaMurgh,
   },
   {
     id: 'm-starter-20',
@@ -311,7 +311,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     isVeg: false,
     isChefSpecial: true,
     isPopular: true,
-    image: '',
+    image: DISH_IMAGES.kebabPlatter,
   },
   {
     id: 'm-starter-21',
@@ -322,7 +322,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     isVeg: true,
     isChefSpecial: true,
     isPopular: false,
-    image: '',
+    image: DISH_IMAGES.paneerTikkaLazeez,
   },
   {
     id: 'm-starter-22',
@@ -396,7 +396,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     isVeg: true,
     isChefSpecial: false,
     isPopular: true,
-    image: DISH_IMAGES.tamatarDhaniaShorba,
+    image: DISH_IMAGES.tomatoShorba,
   },
   {
     id: 'm-soup-3',
@@ -407,7 +407,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     isVeg: true,
     isChefSpecial: false,
     isPopular: false,
-    image: '',
+    image: DISH_IMAGES.tamatarDhaniaShorba,
   },
   {
     id: 'm-soup-4',
@@ -418,7 +418,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     isVeg: true,
     isChefSpecial: false,
     isPopular: false,
-    image: '',
+    image: DISH_IMAGES.tamatarDhaniaShorba,
   },
   {
     id: 'm-soup-5',
@@ -457,7 +457,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     isVeg: true,
     isChefSpecial: true,
     isPopular: true,
-    image: DISH_IMAGES.paneerButterMasala,
+    image: DISH_IMAGES.paneerMakhani,
   },
   {
     id: 'm-veg-2',
@@ -468,7 +468,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     isVeg: true,
     isChefSpecial: false,
     isPopular: false,
-    image: '',
+    image: DISH_IMAGES.paneerJalfrezi,
   },
   {
     id: 'm-veg-3',
@@ -479,7 +479,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     isVeg: true,
     isChefSpecial: false,
     isPopular: true,
-    image: '',
+    image: DISH_IMAGES.homemadePaneer,
   },
   {
     id: 'm-veg-4',
@@ -490,7 +490,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     isVeg: true,
     isChefSpecial: false,
     isPopular: true,
-    image: '',
+    image: DISH_IMAGES.sarsonKaSaag,
   },
   {
     id: 'm-veg-5',
@@ -501,7 +501,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     isVeg: true,
     isChefSpecial: false,
     isPopular: false,
-    image: '',
+    image: DISH_IMAGES.matarPaneer,
   },
   {
     id: 'm-veg-6',
@@ -512,7 +512,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     isVeg: true,
     isChefSpecial: false,
     isPopular: false,
-    image: '',
+    image: DISH_IMAGES.paneerButterMasala,
   },
   {
     id: 'm-veg-7',
@@ -523,7 +523,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     isVeg: true,
     isChefSpecial: false,
     isPopular: true,
-    image: '',
+    image: DISH_IMAGES.homemadePaneer,
   },
   {
     id: 'm-veg-8',
@@ -534,7 +534,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     isVeg: true,
     isChefSpecial: false,
     isPopular: false,
-    image: '',
+    image: DISH_IMAGES.baiganBhartha,
   },
   {
     id: 'm-veg-9',
@@ -545,7 +545,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     isVeg: true,
     isChefSpecial: false,
     isPopular: true,
-    image: '',
+    image: DISH_IMAGES.paneerButterMasala,
   },
   {
     id: 'm-veg-10',
@@ -556,7 +556,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     isVeg: true,
     isChefSpecial: false,
     isPopular: false,
-    image: '',
+    image: DISH_IMAGES.matarPaneer,
   },
   {
     id: 'm-veg-11',
@@ -567,7 +567,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     isVeg: true,
     isChefSpecial: false,
     isPopular: false,
-    image: '',
+    image: DISH_IMAGES.paneerButterMasala,
   },
   {
     id: 'm-veg-12',
@@ -578,7 +578,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     isVeg: true,
     isChefSpecial: false,
     isPopular: false,
-    image: '',
+    image: DISH_IMAGES.baiganBhartha,
   },
   {
     id: 'm-veg-13',
@@ -589,7 +589,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     isVeg: true,
     isChefSpecial: false,
     isPopular: false,
-    image: '',
+    image: DISH_IMAGES.paneerButterMasala,
   },
   {
     id: 'm-veg-14',
@@ -600,7 +600,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     isVeg: true,
     isChefSpecial: false,
     isPopular: false,
-    image: '',
+    image: DISH_IMAGES.baiganBhartha,
   },
   {
     id: 'm-veg-15',
@@ -611,7 +611,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     isVeg: true,
     isChefSpecial: false,
     isPopular: true,
-    image: '',
+    image: DISH_IMAGES.paneerButterMasala,
   },
   {
     id: 'm-veg-16',
@@ -622,7 +622,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     isVeg: true,
     isChefSpecial: false,
     isPopular: false,
-    image: '',
+    image: DISH_IMAGES.paneerButterMasala,
   },
   {
     id: 'm-veg-17',
@@ -633,7 +633,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     isVeg: true,
     isChefSpecial: false,
     isPopular: false,
-    image: '',
+    image: DISH_IMAGES.matarPaneer,
   },
   {
     id: 'm-veg-18',
@@ -644,7 +644,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     isVeg: true,
     isChefSpecial: false,
     isPopular: false,
-    image: '',
+    image: DISH_IMAGES.paneerButterMasala,
   },
   {
     id: 'm-veg-19',
@@ -666,7 +666,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     isVeg: true,
     isChefSpecial: true,
     isPopular: true,
-    image: '',
+    image: DISH_IMAGES.amritsariPindiChole,
   },
   {
     id: 'm-veg-21',
@@ -677,7 +677,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     isVeg: true,
     isChefSpecial: false,
     isPopular: false,
-    image: '',
+    image: DISH_IMAGES.matarPaneer,
   },
   {
     id: 'm-veg-22',
@@ -699,7 +699,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     isVeg: true,
     isChefSpecial: false,
     isPopular: true,
-    image: '',
+    image: DISH_IMAGES.rajma,
   },
   {
     id: 'm-veg-24',
@@ -710,7 +710,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     isVeg: true,
     isChefSpecial: false,
     isPopular: true,
-    image: '',
+    image: DISH_IMAGES.dalMakhaniSignature,
   },
   {
     id: 'm-veg-25',
@@ -721,7 +721,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     isVeg: true,
     isChefSpecial: false,
     isPopular: false,
-    image: '',
+    image: DISH_IMAGES.dalMakhaniSignature,
   },
   {
     id: 'm-veg-26',
@@ -760,7 +760,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     isVeg: false,
     isChefSpecial: false,
     isPopular: false,
-    image: '',
+    image: DISH_IMAGES.dhabeDaKadhaiMurgh,
   },
   {
     id: 'm-nonveg-2',
@@ -771,7 +771,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     isVeg: false,
     isChefSpecial: false,
     isPopular: true,
-    image: '',
+    image: DISH_IMAGES.dhabeDaKadhaiMurgh,
   },
   {
     id: 'm-nonveg-3',
@@ -782,7 +782,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     isVeg: false,
     isChefSpecial: false,
     isPopular: true,
-    image: '',
+    image: DISH_IMAGES.dhabeDaKadhaiMurgh,
   },
   {
     id: 'm-nonveg-4',
@@ -793,7 +793,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     isVeg: false,
     isChefSpecial: true,
     isPopular: true,
-    image: DISH_IMAGES.queensMurghMakhani,
+    image: DISH_IMAGES.butterChicken,
   },
   {
     id: 'm-nonveg-5',
@@ -804,7 +804,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     isVeg: false,
     isChefSpecial: false,
     isPopular: false,
-    image: '',
+    image: DISH_IMAGES.queensMurghMakhani,
   },
   {
     id: 'm-nonveg-6',
@@ -815,7 +815,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     isVeg: false,
     isChefSpecial: true,
     isPopular: true,
-    image: '',
+    image: DISH_IMAGES.queensMurghMakhani,
   },
   {
     id: 'm-nonveg-7',
@@ -826,7 +826,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     isVeg: false,
     isChefSpecial: false,
     isPopular: false,
-    image: '',
+    image: DISH_IMAGES.dhabeDaKadhaiMurgh,
   },
   {
     id: 'm-nonveg-8',
@@ -837,7 +837,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     isVeg: false,
     isChefSpecial: false,
     isPopular: true,
-    image: '',
+    image: DISH_IMAGES.dhabeDaKadhaiMurgh,
   },
   {
     id: 'm-nonveg-9',
@@ -859,7 +859,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     isVeg: false,
     isChefSpecial: true,
     isPopular: true,
-    image: '',
+    image: DISH_IMAGES.raraMuttonPunjabi,
   },
   {
     id: 'm-nonveg-11',
@@ -870,7 +870,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     isVeg: false,
     isChefSpecial: false,
     isPopular: false,
-    image: '',
+    image: DISH_IMAGES.raraMuttonPunjabi,
   },
   {
     id: 'm-nonveg-12',
@@ -921,7 +921,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     isVeg: true,
     isChefSpecial: false,
     isPopular: false,
-    image: '',
+    image: DISH_IMAGES.phulka,
   },
   {
     id: 'm-bread-2',
@@ -932,7 +932,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     isVeg: true,
     isChefSpecial: false,
     isPopular: true,
-    image: '',
+    image: DISH_IMAGES.phulka,
   },
   {
     id: 'm-bread-3',
@@ -943,7 +943,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     isVeg: true,
     isChefSpecial: false,
     isPopular: true,
-    image: '',
+    image: DISH_IMAGES.tawaLachhaParatha,
   },
   {
     id: 'm-bread-4',
@@ -954,7 +954,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     isVeg: true,
     isChefSpecial: false,
     isPopular: true,
-    image: '',
+    image: DISH_IMAGES.amritsariAlooKulcha,
   },
   {
     id: 'm-bread-5',
@@ -965,7 +965,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     isVeg: true,
     isChefSpecial: false,
     isPopular: false,
-    image: '',
+    image: DISH_IMAGES.amritsariAlooKulcha,
   },
   {
     id: 'm-bread-6',
@@ -976,7 +976,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     isVeg: true,
     isChefSpecial: false,
     isPopular: true,
-    image: '',
+    image: DISH_IMAGES.amritsariAlooKulcha,
   },
   {
     id: 'm-bread-7',
@@ -987,7 +987,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     isVeg: true,
     isChefSpecial: false,
     isPopular: false,
-    image: '',
+    image: DISH_IMAGES.tawaLachhaParatha,
   },
   {
     id: 'm-bread-8',
@@ -998,7 +998,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     isVeg: true,
     isChefSpecial: false,
     isPopular: true,
-    image: '',
+    image: DISH_IMAGES.tawaLachhaParatha,
   },
   {
     id: 'm-bread-9',
@@ -1009,7 +1009,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     isVeg: false,
     isChefSpecial: true,
     isPopular: true,
-    image: '',
+    image: DISH_IMAGES.tawaLachhaParatha,
   },
   {
     id: 'm-bread-10',
@@ -1020,7 +1020,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     isVeg: true,
     isChefSpecial: false,
     isPopular: true,
-    image: '',
+    image: DISH_IMAGES.breads,
   },
   {
     id: 'm-bread-11',
@@ -1031,7 +1031,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     isVeg: true,
     isChefSpecial: false,
     isPopular: true,
-    image: '',
+    image: DISH_IMAGES.breads,
   },
   {
     id: 'm-bread-12',
@@ -1042,7 +1042,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     isVeg: true,
     isChefSpecial: false,
     isPopular: false,
-    image: '',
+    image: DISH_IMAGES.breads,
   },
   {
     id: 'm-bread-13',
@@ -1053,7 +1053,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     isVeg: true,
     isChefSpecial: false,
     isPopular: true,
-    image: '',
+    image: DISH_IMAGES.garlicCorianderNaan,
   },
   {
     id: 'm-bread-14',
@@ -1064,7 +1064,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     isVeg: true,
     isChefSpecial: false,
     isPopular: true,
-    image: '',
+    image: DISH_IMAGES.cheeseNaan,
   },
   {
     id: 'm-bread-15',
@@ -1086,7 +1086,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     isVeg: true,
     isChefSpecial: true,
     isPopular: true,
-    image: '',
+    image: DISH_IMAGES.cheeseNaan,
   },
   {
     id: 'm-bread-17',
@@ -1097,7 +1097,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     isVeg: true,
     isChefSpecial: false,
     isPopular: false,
-    image: '',
+    image: DISH_IMAGES.amritsariAlooKulcha,
   },
   {
     id: 'm-bread-18',
@@ -1108,7 +1108,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     isVeg: true,
     isChefSpecial: false,
     isPopular: true,
-    image: '',
+    image: DISH_IMAGES.amritsariAlooKulcha,
   },
   {
     id: 'm-bread-19',
@@ -1119,7 +1119,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     isVeg: true,
     isChefSpecial: false,
     isPopular: true,
-    image: '',
+    image: DISH_IMAGES.amritsariAlooKulcha,
   },
   {
     id: 'm-bread-20',
@@ -1130,7 +1130,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     isVeg: true,
     isChefSpecial: false,
     isPopular: false,
-    image: '',
+    image: DISH_IMAGES.amritsariAlooKulcha,
   },
   {
     id: 'm-bread-21',
@@ -1141,7 +1141,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     isVeg: true,
     isChefSpecial: false,
     isPopular: true,
-    image: '',
+    image: DISH_IMAGES.amritsariAlooKulcha,
   },
   {
     id: 'm-bread-22',
@@ -1152,7 +1152,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     isVeg: true,
     isChefSpecial: false,
     isPopular: false,
-    image: '',
+    image: DISH_IMAGES.breads,
   },
   {
     id: 'm-bread-23',
@@ -1163,7 +1163,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     isVeg: true,
     isChefSpecial: true,
     isPopular: true,
-    image: '',
+    image: DISH_IMAGES.breads,
   },
   {
     id: 'm-bread-24',
