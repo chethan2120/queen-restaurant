@@ -3,6 +3,7 @@ import { useCMS } from '../context/CMSContext';
 import { PageHero } from '../components/PageHero';
 import { StaggerContainer, StaggerItem, ScrollReveal } from '../components/motion/MotionReveal';
 import { VENUE_IMAGES, PAGE_HERO_IMAGES } from '../data/images';
+import { MenuItem } from '../types';
 import {
   Search,
   Flame,
@@ -12,7 +13,76 @@ import {
   Info,
   Quote,
   ArrowRight,
+  Soup,
+  Crown,
+  Wheat,
+  Coffee,
+  Sparkles,
+  UtensilsCrossed,
+  Utensils,
 } from 'lucide-react';
+
+const DishCardImage: React.FC<{ dish: MenuItem }> = ({ dish }) => {
+  const [imageError, setImageError] = useState(false);
+
+  if (dish.image && !imageError) {
+    return (
+      <div className="h-20 w-20 rounded-lg overflow-hidden bg-[#1E1714] shrink-0 border border-[#E8DDCC] relative">
+        <img
+          src={dish.image}
+          alt={dish.name}
+          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+          referrerPolicy="no-referrer"
+          onError={() => setImageError(true)}
+        />
+      </div>
+    );
+  }
+
+  const getCategorySymbol = (cat: string) => {
+    switch (cat) {
+      case 'starters':
+        return <Flame className="w-4 h-4 text-[#B58A4A]" />;
+      case 'soups-salads':
+        return <Soup className="w-4 h-4 text-[#B58A4A]" />;
+      case 'veg-mains':
+        return <UtensilsCrossed className="w-4 h-4 text-emerald-500" />;
+      case 'non-veg-mains':
+        return <Crown className="w-4 h-4 text-amber-500" />;
+      case 'breads-rice':
+        return <Wheat className="w-4 h-4 text-[#B58A4A]" />;
+      case 'beverages':
+        return <Coffee className="w-4 h-4 text-[#B58A4A]" />;
+      case 'desserts':
+        return <Sparkles className="w-4 h-4 text-[#B58A4A]" />;
+      default:
+        return <Utensils className="w-4 h-4 text-[#B58A4A]" />;
+    }
+  };
+
+  const initials = dish.name
+    .split(' ')
+    .filter((w) => w.length > 0 && !['with', 'and', 'in', '&'].includes(w.toLowerCase()))
+    .map((w) => w[0])
+    .join('')
+    .substring(0, 3)
+    .toUpperCase();
+
+  return (
+    <div className="h-20 w-20 rounded-lg bg-[#1E1714] shrink-0 border border-[#B58A4A]/40 flex flex-col items-center justify-center p-2 text-center relative overflow-hidden group-hover:border-[#B58A4A] transition-colors shadow-inner">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(181,138,74,0.18),transparent_70%)] pointer-events-none" />
+      <div className="relative z-10 flex flex-col items-center justify-center space-y-1">
+        {getCategorySymbol(dish.category)}
+        <span className="font-serif text-[11px] font-bold text-[#FCFAF5] tracking-wider leading-none">
+          {initials}
+        </span>
+        <span className="text-[7px] uppercase tracking-widest text-[#B58A4A] font-semibold opacity-90">
+          Queen's
+        </span>
+      </div>
+    </div>
+  );
+};
 
 export const MenuView: React.FC = () => {
   const { menuItems, setIsBookingModalOpen, setIsOrderModalOpen } = useCMS();
@@ -264,14 +334,7 @@ export const MenuView: React.FC = () => {
                   </div>
 
                   <div className="flex sm:flex-col items-center sm:items-end justify-between sm:justify-between shrink-0 gap-2 border-t sm:border-t-0 pt-3 sm:pt-0 border-[#E8DDCC]">
-                    <div className="h-20 w-20 rounded-lg overflow-hidden bg-[#1E1714] shrink-0 border border-[#E8DDCC]">
-                      <img
-                        src={dish.image}
-                        alt={dish.name}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-                        referrerPolicy="no-referrer"
-                      />
-                    </div>
+                    <DishCardImage dish={dish} />
                     <span className="text-base font-serif font-bold text-[#5A1F24]">
                       ₹{dish.price}
                     </span>
