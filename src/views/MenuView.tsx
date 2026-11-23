@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { useCMS } from '../context/CMSContext';
 import { PageHero } from '../components/PageHero';
-import { StaggerContainer, StaggerItem, ScrollReveal } from '../components/motion/MotionReveal';
+import { ScrollReveal } from '../components/motion/MotionReveal';
 import { VENUE_IMAGES, PAGE_HERO_IMAGES } from '../data/images';
 import { MenuItem } from '../types';
 import {
@@ -236,9 +236,9 @@ export const MenuView: React.FC = () => {
             </button>
           </div>
         ) : (
-          <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {filteredDishes.map((dish) => (
-              <StaggerItem key={dish.id} className="flex">
+              <div key={dish.id} className="flex">
                 <div
                   className="bg-white rounded-xl border border-[#E8DDCC] p-5 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col sm:flex-row gap-4 justify-between group w-full hover:-translate-y-0.5"
                 >
@@ -308,9 +308,9 @@ export const MenuView: React.FC = () => {
                     </span>
                   </div>
                 </div>
-              </StaggerItem>
+              </div>
             ))}
-          </StaggerContainer>
+          </div>
         )}
 
         {/* Dietary Note at Bottom */}
