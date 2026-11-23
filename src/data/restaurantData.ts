@@ -97,7 +97,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     price: 140,
     category: 'salads-soups',
     isVeg: true,
-    image: DISH_IMAGES.tamatarDhaniaShorba,
+    image: DISH_IMAGES.onionSalad,
   },
   {
     id: 'm-soup-2',
@@ -106,7 +106,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     price: 190,
     category: 'salads-soups',
     isVeg: true,
-    image: DISH_IMAGES.tamatarDhaniaShorba,
+    image: DISH_IMAGES.greenSalad,
   },
   {
     id: 'm-soup-3',
@@ -145,7 +145,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     price: 220,
     category: 'veg-starters',
     isVeg: true,
-    image: DISH_IMAGES.dahiKeKebab,
+    image: DISH_IMAGES.cocktailAlooTikki,
   },
   {
     id: 'm-vstart-3',
@@ -184,7 +184,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     category: 'veg-starters',
     isVeg: true,
     isPopular: true,
-    image: DISH_IMAGES.paniPuri,
+    image: DISH_IMAGES.dahiPuri,
   },
   {
     id: 'm-vstart-7',
@@ -195,7 +195,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     isVeg: true,
     isChefSpecial: true,
     isPopular: true,
-    image: DISH_IMAGES.papdiChaat,
+    image: DISH_IMAGES.rajKachoriChaat,
   },
   {
     id: 'm-vstart-8',
@@ -204,7 +204,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     price: 280,
     category: 'veg-starters',
     isVeg: true,
-    image: DISH_IMAGES.dahiKeKebab,
+    image: DISH_IMAGES.cornCheeseBalls,
   },
   {
     id: 'm-vstart-9',
@@ -215,7 +215,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     isVeg: true,
     isChefSpecial: true,
     isPopular: true,
-    image: DISH_IMAGES.amritsariPindiChole,
+    image: DISH_IMAGES.alooTikkiChanna,
   },
   {
     id: 'm-vstart-10',
@@ -225,7 +225,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     category: 'veg-starters',
     isVeg: true,
     isPopular: true,
-    image: DISH_IMAGES.papdiChaat,
+    image: DISH_IMAGES.palakChaat,
   },
   {
     id: 'm-vstart-11',
@@ -235,7 +235,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     category: 'veg-starters',
     isVeg: true,
     isPopular: true,
-    image: DISH_IMAGES.tandooriBharwanKhumb,
+    image: DISH_IMAGES.bhindiKurkure,
   },
   {
     id: 'm-vstart-12',
@@ -244,7 +244,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     price: 360,
     category: 'veg-starters',
     isVeg: true,
-    image: DISH_IMAGES.tandooriBharwanKhumb,
+    image: DISH_IMAGES.achariAloo,
   },
   {
     id: 'm-vstart-13',
@@ -273,7 +273,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     price: 390,
     category: 'veg-starters',
     isVeg: true,
-    image: DISH_IMAGES.papdiChaat,
+    image: DISH_IMAGES.punjabiNachos,
   },
   {
     id: 'm-vstart-16',
@@ -293,7 +293,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     price: 410,
     category: 'veg-starters',
     isVeg: true,
-    image: DISH_IMAGES.paneerTikkaLazeez,
+    image: DISH_IMAGES.paneerKurkure,
   },
   {
     id: 'm-vstart-18',
@@ -312,7 +312,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     price: 440,
     category: 'veg-starters',
     isVeg: true,
-    image: DISH_IMAGES.paneerTikkaLazeez,
+    image: DISH_IMAGES.naanPizzaPaneer,
   },
   {
     id: 'm-vstart-20',
@@ -322,7 +322,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     category: 'veg-starters',
     isVeg: true,
     isChefSpecial: true,
-    image: DISH_IMAGES.paneerTikkaLazeez,
+    image: DISH_IMAGES.amritsariPaneerTikka,
   },
   {
     id: 'm-vstart-21',
@@ -333,7 +333,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     isVeg: true,
     isChefSpecial: true,
     isPopular: true,
-    image: DISH_IMAGES.paneerTikkaLazeez,
+    image: DISH_IMAGES.vegKamaalPlatter,
   },
   {
     id: 'm-nvstart-1',
@@ -343,7 +343,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     category: 'non-veg-starters',
     isVeg: false,
     isPopular: true,
-    image: DISH_IMAGES.galoutiKebabNawabi,
+    image: DISH_IMAGES.miniKeemaSamosas,
   },
   {
     id: 'm-nvstart-2',
@@ -373,7 +373,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     price: 440,
     category: 'non-veg-starters',
     isVeg: false,
-    image: DISH_IMAGES.bhattiDaMurgh,
+    image: DISH_IMAGES.banjaraChickenKebab,
   },
   {
     id: 'm-nvstart-5',
@@ -383,7 +383,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     category: 'non-veg-starters',
     isVeg: false,
     isPopular: true,
-    image: DISH_IMAGES.bhattiDaMurgh,
+    image: DISH_IMAGES.lasooniChickenKebab,
   },
   {
     id: 'm-nvstart-6',
@@ -392,7 +392,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     price: 440,
     category: 'non-veg-starters',
     isVeg: false,
-    image: DISH_IMAGES.bhattiDaMurgh,
+    image: DISH_IMAGES.methiMalaiChickenKebab,
   },
   {
     id: 'm-nvstart-7',
@@ -412,7 +412,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     price: 470,
     category: 'non-veg-starters',
     isVeg: false,
-    image: DISH_IMAGES.chickenTikka,
+    image: DISH_IMAGES.naanPizzaChicken,
   },
   {
     id: 'm-nvstart-9',
@@ -422,7 +422,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     category: 'non-veg-starters',
     isVeg: false,
     isPopular: true,
-    image: DISH_IMAGES.bhattiDaMurgh,
+    image: DISH_IMAGES.chickenPepperFry,
   },
   {
     id: 'm-nvstart-10',
@@ -432,7 +432,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     category: 'non-veg-starters',
     isVeg: false,
     isPopular: true,
-    image: DISH_IMAGES.bhattiDaMurgh,
+    image: DISH_IMAGES.chickenTangdiKebab,
   },
   {
     id: 'm-nvstart-11',
@@ -442,7 +442,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     category: 'non-veg-starters',
     isVeg: false,
     isPopular: true,
-    image: DISH_IMAGES.raraMuttonPunjabi,
+    image: DISH_IMAGES.muttonPepperFry,
   },
   {
     id: 'm-nvstart-12',
@@ -451,7 +451,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     price: 660,
     category: 'non-veg-starters',
     isVeg: false,
-    image: DISH_IMAGES.amritsariMachhiTikka,
+    image: DISH_IMAGES.seerFishFry,
   },
   {
     id: 'm-nvstart-13',
@@ -472,7 +472,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     category: 'non-veg-starters',
     isVeg: false,
     isChefSpecial: true,
-    image: DISH_IMAGES.amritsariMachhiTikka,
+    image: DISH_IMAGES.tandooriJumboPrawns,
   },
   {
     id: 'm-nvstart-15',
@@ -501,7 +501,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     price: 360,
     category: 'veg-mains',
     isVeg: true,
-    image: DISH_IMAGES.paneerButterMasala,
+    image: DISH_IMAGES.mandosaKoftaCurry,
   },
   {
     id: 'm-vmain-3',
@@ -511,7 +511,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     category: 'veg-mains',
     isVeg: true,
     isPopular: true,
-    image: DISH_IMAGES.paneerButterMasala,
+    image: DISH_IMAGES.malaiKofta,
   },
   {
     id: 'm-vmain-4',
@@ -521,7 +521,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     category: 'veg-mains',
     isVeg: true,
     isPopular: true,
-    image: DISH_IMAGES.paneerButterMasala,
+    image: DISH_IMAGES.alooGobiAdraki,
   },
   {
     id: 'm-vmain-5',
@@ -530,7 +530,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     price: 360,
     category: 'veg-mains',
     isVeg: true,
-    image: DISH_IMAGES.matarPaneer,
+    image: DISH_IMAGES.gobiMatar,
   },
   {
     id: 'm-vmain-6',
@@ -539,7 +539,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     price: 360,
     category: 'veg-mains',
     isVeg: true,
-    image: DISH_IMAGES.paneerButterMasala,
+    image: DISH_IMAGES.dumAloo,
   },
   {
     id: 'm-vmain-7',
@@ -548,7 +548,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     price: 360,
     category: 'veg-mains',
     isVeg: true,
-    image: DISH_IMAGES.paneerButterMasala,
+    image: DISH_IMAGES.vegLababdar,
   },
   {
     id: 'm-vmain-8',
@@ -557,7 +557,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     price: 360,
     category: 'veg-mains',
     isVeg: true,
-    image: DISH_IMAGES.baiganBhartha,
+    image: DISH_IMAGES.bhindiFry,
   },
   {
     id: 'm-vmain-9',
@@ -566,7 +566,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     price: 360,
     category: 'veg-mains',
     isVeg: true,
-    image: DISH_IMAGES.paneerButterMasala,
+    image: DISH_IMAGES.jeeraAloo,
   },
   {
     id: 'm-vmain-10',
@@ -575,7 +575,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     price: 360,
     category: 'veg-mains',
     isVeg: true,
-    image: DISH_IMAGES.paneerButterMasala,
+    image: DISH_IMAGES.alooMethi,
   },
   {
     id: 'm-vmain-11',
@@ -584,7 +584,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     price: 360,
     category: 'veg-mains',
     isVeg: true,
-    image: DISH_IMAGES.baiganBhartha,
+    image: DISH_IMAGES.ajwainiArbi,
   },
   {
     id: 'm-vmain-12',
@@ -604,7 +604,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     price: 360,
     category: 'veg-mains',
     isVeg: true,
-    image: DISH_IMAGES.matarPaneer,
+    image: DISH_IMAGES.alooMatar,
   },
   {
     id: 'm-vmain-14',
@@ -633,7 +633,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     price: 360,
     category: 'veg-mains',
     isVeg: true,
-    image: DISH_IMAGES.matarPaneer,
+    image: DISH_IMAGES.mushroomMasala,
   },
   {
     id: 'm-vmain-17',
@@ -642,7 +642,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     price: 360,
     category: 'veg-mains',
     isVeg: true,
-    image: DISH_IMAGES.matarPaneer,
+    image: DISH_IMAGES.greenPeasMasala,
   },
   {
     id: 'm-vmain-18',
@@ -651,7 +651,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     price: 360,
     category: 'veg-mains',
     isVeg: true,
-    image: DISH_IMAGES.paneerButterMasala,
+    image: DISH_IMAGES.stuffedCapsicumMasala,
   },
   {
     id: 'm-vmain-19',
@@ -681,7 +681,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     category: 'veg-mains',
     isVeg: true,
     isPopular: true,
-    image: DISH_IMAGES.homemadePaneer,
+    image: DISH_IMAGES.kadaiPaneer,
   },
   {
     id: 'm-vmain-22',
@@ -691,7 +691,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     category: 'veg-mains',
     isVeg: true,
     isPopular: true,
-    image: DISH_IMAGES.sarsonKaSaag,
+    image: DISH_IMAGES.palakPaneer,
   },
   {
     id: 'm-vmain-23',
@@ -710,7 +710,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     category: 'veg-mains',
     isVeg: true,
     isPopular: true,
-    image: DISH_IMAGES.homemadePaneer,
+    image: DISH_IMAGES.paneerBurji,
   },
   {
     id: 'm-vmain-25',
@@ -721,7 +721,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     isVeg: true,
     isChefSpecial: true,
     isPopular: true,
-    image: DISH_IMAGES.sarsonKaSaag,
+    image: DISH_IMAGES.sarsonSaagMakkiRoti,
   },
   {
     id: 'm-vmain-26',
@@ -732,7 +732,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     isVeg: true,
     isChefSpecial: true,
     isPopular: true,
-    image: DISH_IMAGES.amritsariPindiChole,
+    image: DISH_IMAGES.channaBathura,
   },
   {
     id: 'm-vmain-27',
@@ -742,7 +742,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     category: 'veg-mains',
     isVeg: true,
     isPopular: true,
-    image: DISH_IMAGES.dalMakhaniSignature,
+    image: DISH_IMAGES.dalTadka,
   },
   {
     id: 'm-vmain-28',
@@ -751,7 +751,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     price: 330,
     category: 'veg-mains',
     isVeg: true,
-    image: DISH_IMAGES.dalMakhaniSignature,
+    image: DISH_IMAGES.dalMethiTadka,
   },
   {
     id: 'm-vmain-29',
@@ -771,7 +771,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     price: 330,
     category: 'non-veg-mains',
     isVeg: false,
-    image: DISH_IMAGES.dhabeDaKadhaiMurgh,
+    image: DISH_IMAGES.eggBhurji,
   },
   {
     id: 'm-nvmain-2',
@@ -780,7 +780,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     price: 390,
     category: 'non-veg-mains',
     isVeg: false,
-    image: DISH_IMAGES.dhabeDaKadhaiMurgh,
+    image: DISH_IMAGES.eggLababdar,
   },
   {
     id: 'm-nvmain-3',
@@ -812,7 +812,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     category: 'non-veg-mains',
     isVeg: false,
     isPopular: true,
-    image: DISH_IMAGES.dhabeDaKadhaiMurgh,
+    image: DISH_IMAGES.bhunaChicken,
   },
   {
     id: 'm-nvmain-6',
@@ -821,7 +821,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     price: 470,
     category: 'non-veg-mains',
     isVeg: false,
-    image: DISH_IMAGES.haryaliChickenKebab,
+    image: DISH_IMAGES.hariyaliChickenMasala,
   },
   {
     id: 'm-nvmain-7',
@@ -831,7 +831,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     category: 'non-veg-mains',
     isVeg: false,
     isPopular: true,
-    image: DISH_IMAGES.dhabeDaKadhaiMurgh,
+    image: DISH_IMAGES.chickenCurry,
   },
   {
     id: 'm-nvmain-8',
@@ -840,7 +840,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     price: 470,
     category: 'non-veg-mains',
     isVeg: false,
-    image: DISH_IMAGES.queensMurghMakhani,
+    image: DISH_IMAGES.chickenMethi,
   },
   {
     id: 'm-nvmain-9',
@@ -850,7 +850,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     category: 'non-veg-mains',
     isVeg: false,
     isPopular: true,
-    image: DISH_IMAGES.dhabeDaKadhaiMurgh,
+    image: DISH_IMAGES.chickenBharta,
   },
   {
     id: 'm-nvmain-10',
@@ -860,7 +860,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     category: 'non-veg-mains',
     isVeg: false,
     isChefSpecial: true,
-    image: DISH_IMAGES.butterChicken,
+    image: DISH_IMAGES.prawnButterMasala,
   },
   {
     id: 'm-nvmain-11',
@@ -869,7 +869,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     price: 720,
     category: 'non-veg-mains',
     isVeg: false,
-    image: DISH_IMAGES.raraMuttonPunjabi,
+    image: DISH_IMAGES.muttonSaagwala,
   },
   {
     id: 'm-nvmain-12',
@@ -900,7 +900,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     price: 220,
     category: 'rice',
     isVeg: true,
-    image: DISH_IMAGES.jeeraRice,
+    image: DISH_IMAGES.steamedRice,
   },
   {
     id: 'm-rice-2',
@@ -919,7 +919,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     price: 300,
     category: 'rice',
     isVeg: true,
-    image: DISH_IMAGES.jeeraRice,
+    image: DISH_IMAGES.peasPulao,
   },
   {
     id: 'm-rice-4',
@@ -928,7 +928,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     price: 300,
     category: 'rice',
     isVeg: true,
-    image: DISH_IMAGES.jeeraRice,
+    image: DISH_IMAGES.curdRice,
   },
   {
     id: 'm-rice-5',
@@ -938,7 +938,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     category: 'rice',
     isVeg: true,
     isPopular: true,
-    image: DISH_IMAGES.goshtDumBiryani,
+    image: DISH_IMAGES.vegSizzlerBiriyani,
   },
   {
     id: 'm-rice-6',
@@ -948,7 +948,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     category: 'rice',
     isVeg: true,
     isChefSpecial: true,
-    image: DISH_IMAGES.goshtDumBiryani,
+    image: DISH_IMAGES.paneerSizzlerBiriyani,
   },
   {
     id: 'm-rice-7',
@@ -959,7 +959,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     isVeg: false,
     isChefSpecial: true,
     isPopular: true,
-    image: DISH_IMAGES.goshtDumBiryani,
+    image: DISH_IMAGES.chickenTikkaSizzlerBiriyani,
   },
   {
     id: 'm-rice-8',
@@ -989,7 +989,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     category: 'breads',
     isVeg: true,
     isPopular: true,
-    image: DISH_IMAGES.phulka,
+    image: DISH_IMAGES.butterPhulkaArchive,
   },
   {
     id: 'm-bread-3',
@@ -999,7 +999,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     category: 'breads',
     isVeg: true,
     isPopular: true,
-    image: DISH_IMAGES.breads,
+    image: DISH_IMAGES.tandooriRoti,
   },
   {
     id: 'm-bread-4',
@@ -1009,7 +1009,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     category: 'breads',
     isVeg: true,
     isPopular: true,
-    image: DISH_IMAGES.breads,
+    image: DISH_IMAGES.tandooriButterRoti,
   },
   {
     id: 'm-bread-5',
@@ -1020,7 +1020,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     isVeg: true,
     isChefSpecial: true,
     isPopular: true,
-    image: DISH_IMAGES.breads,
+    image: DISH_IMAGES.makkiKiRoti,
   },
   {
     id: 'm-bread-6',
@@ -1029,7 +1029,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     price: 100,
     category: 'breads',
     isVeg: true,
-    image: DISH_IMAGES.breads,
+    image: DISH_IMAGES.missiRoti,
   },
   {
     id: 'm-bread-7',
@@ -1049,7 +1049,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     category: 'breads',
     isVeg: true,
     isPopular: true,
-    image: DISH_IMAGES.tawaLachhaParatha,
+    image: DISH_IMAGES.tandooriLachhaParatha,
   },
   {
     id: 'm-bread-9',
@@ -1059,7 +1059,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     category: 'breads',
     isVeg: true,
     isPopular: true,
-    image: DISH_IMAGES.amritsariAlooKulcha,
+    image: DISH_IMAGES.alooParatha,
   },
   {
     id: 'm-bread-10',
@@ -1068,7 +1068,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     price: 120,
     category: 'breads',
     isVeg: true,
-    image: DISH_IMAGES.amritsariAlooKulcha,
+    image: DISH_IMAGES.gobiParatha,
   },
   {
     id: 'm-bread-11',
@@ -1077,7 +1077,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     price: 120,
     category: 'breads',
     isVeg: true,
-    image: DISH_IMAGES.tawaLachhaParatha,
+    image: DISH_IMAGES.chilliGarlicParatha,
   },
   {
     id: 'm-bread-12',
@@ -1086,7 +1086,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     price: 130,
     category: 'breads',
     isVeg: true,
-    image: DISH_IMAGES.tawaLachhaParatha,
+    image: DISH_IMAGES.masalaLachhaParatha,
   },
   {
     id: 'm-bread-13',
@@ -1096,7 +1096,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     category: 'breads',
     isVeg: true,
     isPopular: true,
-    image: DISH_IMAGES.amritsariAlooKulcha,
+    image: DISH_IMAGES.paneerParathaKulcha,
   },
   {
     id: 'm-bread-14',
@@ -1105,7 +1105,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     price: 90,
     category: 'breads',
     isVeg: true,
-    image: DISH_IMAGES.amritsariAlooKulcha,
+    image: DISH_IMAGES.butterKulcha,
   },
   {
     id: 'm-bread-15',
@@ -1123,7 +1123,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     price: 130,
     category: 'breads',
     isVeg: true,
-    image: DISH_IMAGES.amritsariAlooKulcha,
+    image: DISH_IMAGES.paneerKulcha,
   },
   {
     id: 'm-bread-17',
@@ -1132,7 +1132,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     price: 140,
     category: 'breads',
     isVeg: true,
-    image: DISH_IMAGES.amritsariAlooKulcha,
+    image: DISH_IMAGES.masalaKulcha,
   },
   {
     id: 'm-bread-18',
@@ -1141,7 +1141,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     price: 120,
     category: 'breads',
     isVeg: true,
-    image: DISH_IMAGES.breads,
+    image: DISH_IMAGES.plainNaan,
   },
   {
     id: 'm-bread-19',
@@ -1151,7 +1151,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     category: 'breads',
     isVeg: true,
     isPopular: true,
-    image: DISH_IMAGES.garlicCorianderNaan,
+    image: DISH_IMAGES.butterNaan,
   },
   {
     id: 'm-bread-20',
@@ -1182,7 +1182,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     isVeg: true,
     isChefSpecial: true,
     isPopular: true,
-    image: DISH_IMAGES.cheeseNaan,
+    image: DISH_IMAGES.cheeseGarlicNaan,
   },
   {
     id: 'm-bread-23',
@@ -1191,7 +1191,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     price: 220,
     category: 'breads',
     isVeg: true,
-    image: DISH_IMAGES.amritsariAlooKulcha,
+    image: DISH_IMAGES.masalaPuri,
   },
   {
     id: 'm-bread-24',
@@ -1211,7 +1211,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     price: 140,
     category: 'breads',
     isVeg: false,
-    image: DISH_IMAGES.tawaLachhaParatha,
+    image: DISH_IMAGES.eggParatha,
   },
   {
     id: 'm-bread-26',
@@ -1222,7 +1222,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     isVeg: false,
     isChefSpecial: true,
     isPopular: true,
-    image: DISH_IMAGES.tawaLachhaParatha,
+    image: DISH_IMAGES.keemaParatha,
   },
   {
     id: 'm-side-1',
@@ -1231,7 +1231,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     price: 45,
     category: 'sides',
     isVeg: true,
-    image: DISH_IMAGES.breads,
+    image: DISH_IMAGES.plainPapad,
   },
   {
     id: 'm-side-2',
@@ -1241,7 +1241,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     category: 'sides',
     isVeg: true,
     isPopular: true,
-    image: DISH_IMAGES.papdiChaat,
+    image: DISH_IMAGES.masalaPapad,
   },
   {
     id: 'm-side-3',
@@ -1250,7 +1250,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     price: 110,
     category: 'sides',
     isVeg: true,
-    image: DISH_IMAGES.papdiChaat,
+    image: DISH_IMAGES.friedMasalaPapad,
   },
   {
     id: 'm-side-4',
@@ -1259,7 +1259,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     price: 110,
     category: 'sides',
     isVeg: true,
-    image: DISH_IMAGES.boondiRaita,
+    image: DISH_IMAGES.plainCurds,
   },
   {
     id: 'm-side-5',
@@ -1278,7 +1278,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     price: 170,
     category: 'sides',
     isVeg: true,
-    image: DISH_IMAGES.boondiRaita,
+    image: DISH_IMAGES.cucumberTomatoRaita,
   },
   {
     id: 'm-side-7',
@@ -1287,7 +1287,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     price: 170,
     category: 'sides',
     isVeg: true,
-    image: DISH_IMAGES.boondiRaita,
+    image: DISH_IMAGES.alooPudinaRaita,
   },
   {
     id: 'm-side-8',
@@ -1296,7 +1296,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     price: 170,
     category: 'sides',
     isVeg: true,
-    image: DISH_IMAGES.boondiRaita,
+    image: DISH_IMAGES.onionRaita,
   },
   {
     id: 'm-dessert-1',
@@ -1328,7 +1328,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     category: 'desserts',
     isVeg: true,
     isPopular: true,
-    image: DISH_IMAGES.kesariPhirniClayPot,
+    image: DISH_IMAGES.kesarKheer,
   },
   {
     id: 'm-dessert-4',
@@ -1347,7 +1347,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     price: 280,
     category: 'desserts',
     isVeg: true,
-    image: DISH_IMAGES.kesariPhirniClayPot,
+    image: DISH_IMAGES.seasonalKulfi,
   },
   {
     id: 'm-dessert-6',
@@ -1358,7 +1358,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     isVeg: true,
     isChefSpecial: true,
     isPopular: true,
-    image: DISH_IMAGES.shahiGulabJamunRabri,
+    image: DISH_IMAGES.chotaJamunWithRabdi,
   },
   {
     id: 'm-dessert-7',
@@ -1368,7 +1368,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     category: 'desserts',
     isVeg: true,
     isChefSpecial: true,
-    image: DISH_IMAGES.attaHalwa,
+    image: DISH_IMAGES.moongDalHalwa,
   },
   {
     id: 'm-dessert-8',
@@ -1378,7 +1378,7 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     category: 'desserts',
     isVeg: true,
     isPopular: true,
-    image: DISH_IMAGES.shahiGulabJamunRabri,
+    image: DISH_IMAGES.shahiTukda,
   },
   {
     id: 'm-dessert-9',
