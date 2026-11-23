@@ -33,7 +33,7 @@ export const CMSAdminView: React.FC = () => {
   const [isAddingDish, setIsAddingDish] = useState(false);
   const [newDishName, setNewDishName] = useState('');
   const [newDishHindi, setNewDishHindi] = useState('');
-  const [newDishCategory, setNewDishCategory] = useState<MenuItem['category']>('starters');
+  const [newDishCategory, setNewDishCategory] = useState<MenuItem['category']>('veg-starters');
   const [newDishPrice, setNewDishPrice] = useState(380);
   const [newDishDescription, setNewDishDescription] = useState('');
   const [newDishIsVeg, setNewDishIsVeg] = useState(false);
@@ -289,11 +289,14 @@ export const CMSAdminView: React.FC = () => {
                       onChange={(e) => setNewDishCategory(e.target.value as any)}
                       className="w-full p-2 bg-[#F5EFE4] border border-[#E8DDCC] rounded"
                     >
-                      <option value="starters">Tandoori Starters</option>
-                      <option value="veg-mains">Vegetarian Curries</option>
-                      <option value="non-veg-mains">Royal Non-Veg Mains</option>
-                      <option value="breads-rice">Tandoori Breads & Rice</option>
-                      <option value="beverages">Beverages</option>
+                      <option value="salads-soups">Salads & Soups</option>
+                      <option value="veg-starters">Vegetarian Starters</option>
+                      <option value="non-veg-starters">Non-vegetarian Starters</option>
+                      <option value="veg-mains">Vegetarian Mains</option>
+                      <option value="non-veg-mains">Non-vegetarian Mains</option>
+                      <option value="rice">Rice</option>
+                      <option value="breads">Breads</option>
+                      <option value="sides">Sides</option>
                       <option value="desserts">Desserts</option>
                     </select>
                   </div>

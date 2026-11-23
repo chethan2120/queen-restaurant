@@ -19,7 +19,21 @@ export interface MenuItem {
   hindiName?: string;
   description: string;
   price: number;
-  category: 'starters' | 'soups-salads' | 'veg-mains' | 'non-veg-mains' | 'breads-rice' | 'rolls-snacks' | 'beverages' | 'desserts';
+  category:
+    | 'salads-soups'
+    | 'veg-starters'
+    | 'non-veg-starters'
+    | 'veg-mains'
+    | 'non-veg-mains'
+    | 'rice'
+    | 'breads'
+    | 'sides'
+    | 'desserts'
+    | 'starters'
+    | 'soups-salads'
+    | 'breads-rice'
+    | 'beverages'
+    | string;
   isVeg: boolean;
   isChefSpecial?: boolean;
   isPopular?: boolean;
@@ -162,7 +176,7 @@ export interface TableReservation {
 export interface GalleryItem {
   id: string;
   title: string;
-  category: 'food' | 'interiors' | 'events' | 'celebrations' | 'heritage' | 'people';
+  category: 'food' | 'interiors' | 'events' | 'celebrations' | 'heritage' | 'people' | 'menu';
   image: string;
   caption: string;
   location?: string;

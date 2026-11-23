@@ -16,6 +16,7 @@ export const GalleryView: React.FC = () => {
     { id: 'people', label: 'People & Dining' },
     { id: 'celebrations', label: 'Celebrations & Banquets' },
     { id: 'heritage', label: 'Craft & Heritage' },
+    { id: 'menu', label: 'Menu' },
   ];
 
   const filteredItems = GALLERY_ITEMS.filter(
@@ -105,7 +106,7 @@ export const GalleryView: React.FC = () => {
                   <img
                     src={item.image}
                     alt={item.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out opacity-90 group-hover:opacity-100"
+                    className={`w-full h-full ${item.category === 'menu' ? 'object-contain p-2 bg-[#2a1f1b]' : 'object-cover'} group-hover:scale-105 transition-transform duration-700 ease-out opacity-90 group-hover:opacity-100`}
                     referrerPolicy="no-referrer"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent opacity-85 group-hover:opacity-95 transition-opacity" />

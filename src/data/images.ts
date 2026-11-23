@@ -75,6 +75,18 @@ import doPhoolWebp from '../../public/queens_restuarant/assets/img/gallery/other
 import homemadePaneerWebp from '../../public/queens_restuarant/assets/img/gallery/other/34_Home-made-Paneer.webp';
 import kebabPlatterWebp from '../../public/queens_restuarant/assets/img/gallery/other/39_Kebab-ka-Kamaal-Platter.webp';
 import breadsWebp from '../../public/queens_restuarant/assets/img/gallery/other/14_Breads.webp';
+import jeeraRicePng from '../../public/queens_restuarant/assets/img/recipes/16_Jeera-Rice.png';
+import boondiRaitaPng from '../../public/queens_restuarant/assets/img/recipes/20_Boondi-Raita.png';
+import miniSamosasJpg from '../../public/queens_restuarant/assets/img/recipes/22_Mini-Samosas.jpg';
+import attaHalwaPng from '../../public/queens_restuarant/assets/img/recipes/13_Atta-Halwa.png';
+import gajarHalwaPng from '../../public/queens_restuarant/assets/img/recipes/24_Gajar-Halwa.png';
+import dalMakhniRecipeJpg from '../../public/queens_restuarant/assets/img/recipes/3_Dal-Makhni.JPG';
+
+// Official Menu Scans for Gallery Showcase
+import menuPage1Cover from '../assets/images/queens_menu_page_1_cover.jpg';
+import menuPage2Starters from '../assets/images/queens_menu_page_2_starters.jpg';
+import menuPage3MainsBreads from '../assets/images/queens_menu_page_3_mains_breads.jpg';
+import menuPage4DessertsLiquids from '../assets/images/queens_menu_page_4_desserts_liquids.jpg';
 
 // Photorealistic Editorial Journal Images
 import journalPunjabiHeritage from '../assets/images/punjabi_cuisine_heritage_1787547603046.jpg';
@@ -168,6 +180,20 @@ export const DISH_IMAGES = {
   homemadePaneer: homemadePaneerWebp,
   kebabPlatter: kebabPlatterWebp,
   breads: breadsWebp,
+  jeeraRice: jeeraRicePng,
+  boondiRaita: boondiRaitaPng,
+  miniSamosas: miniSamosasJpg,
+  attaHalwa: attaHalwaPng,
+  gajarHalwa: gajarHalwaPng,
+  dalMakhniRecipe: dalMakhniRecipeJpg,
+} as const;
+
+// Official Physical Menu Card Images for Gallery Showcase
+export const MENU_SCAN_IMAGES = {
+  page1Cover: menuPage1Cover,
+  page2Starters: menuPage2Starters,
+  page3MainsBreads: menuPage3MainsBreads,
+  page4DessertsLiquids: menuPage4DessertsLiquids,
 } as const;
 
 // Heritage, Venues & Atmosphere

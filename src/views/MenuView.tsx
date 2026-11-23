@@ -48,13 +48,15 @@ export const MenuView: React.FC = () => {
 
   const categories = [
     { id: 'all', label: 'All Dishes' },
-    { id: 'starters', label: 'Tandoori Starters' },
-    { id: 'veg-mains', label: 'Vegetarian Curries' },
-    { id: 'non-veg-mains', label: 'Royal Non-Veg Mains' },
-    { id: 'breads-rice', label: 'Tandoori Breads & Rice' },
-    { id: 'soups-salads', label: 'Shorbas & Salads' },
-    { id: 'beverages', label: 'Punjabi Lassis & Drinks' },
-    { id: 'desserts', label: 'Shahi Desserts' },
+    { id: 'salads-soups', label: 'Salads & Soups' },
+    { id: 'veg-starters', label: 'Vegetarian Starters' },
+    { id: 'non-veg-starters', label: 'Non-vegetarian Starters' },
+    { id: 'veg-mains', label: 'Vegetarian Mains' },
+    { id: 'non-veg-mains', label: 'Non-vegetarian Mains' },
+    { id: 'rice', label: 'Rice' },
+    { id: 'breads', label: 'Breads' },
+    { id: 'sides', label: 'Sides' },
+    { id: 'desserts', label: 'Desserts' },
   ];
 
   const filteredDishes = useMemo(() => {
@@ -205,6 +207,17 @@ export const MenuView: React.FC = () => {
               </button>
             ))}
           </div>
+        </div>
+
+        {/* Menu Dietary Note from Official Menu Card */}
+        <div className="mb-6 p-4 bg-[#FCFAF5] rounded-xl border border-[#E8DDCC] flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs text-[#1E1714]/80 no-print">
+          <div className="flex items-center gap-2">
+            <Info className="w-4 h-4 text-[#B58A4A] shrink-0" />
+            <span><strong>Vegan & Jain dishes available on request.</strong> Please let us know about any dietary restrictions.</span>
+          </div>
+          <span className="inline-block text-[11px] font-semibold text-[#5A1F24] bg-[#5A1F24]/10 px-2.5 py-1 rounded w-fit">
+            All Parathas & Halwas made with pure ghee
+          </span>
         </div>
 
         {/* Menu Dishes Presentation */}
